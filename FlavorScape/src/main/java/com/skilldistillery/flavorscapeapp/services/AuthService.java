@@ -1,4 +1,4 @@
-package com.skilldistillery.flavorscapeapp.security;
+package com.skilldistillery.flavorscapeapp.services;
 
 import com.skilldistillery.flavorscapeapp.entities.User;
 

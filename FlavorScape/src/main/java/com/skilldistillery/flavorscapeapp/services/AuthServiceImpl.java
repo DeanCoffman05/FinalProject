@@ -1,4 +1,4 @@
-package com.skilldistillery.flavorscapeapp.security;
+package com.skilldistillery.flavorscapeapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,11 +17,11 @@ public class AuthServiceImpl implements AuthService {
 	
 	@Override
 	public User register(User user) {
-//		user.setEnabled(true);
-//		user.setRole("standard");
-//		String encrypted = encoder.encode(user.getPassword());
-//		user.setPassword(encrypted);
-//		userRepo.saveAndFlush(user);
+		user.setEnabled(true);
+		user.setRole("standard");
+		String encrypted = encoder.encode(user.getPassword());
+		user.setPassword(encrypted);
+		userRepo.saveAndFlush(user);
 		return user;
 	}
 

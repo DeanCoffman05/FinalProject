@@ -1,4 +1,4 @@
-package com.skilldistillery.flavorscapeapp.services;
+package com.skilldistillery.flavorscapeapp.security;
 
 import javax.sql.DataSource;
 
