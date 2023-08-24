@@ -1,9 +1,11 @@
 package com.skilldistillery.flavorscapeapp.entities;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,11 +21,21 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
 	private String username;
 	private String password;
 	private boolean enabled;
 	private String role;
+	@Column(name = "first_name")
+	private String firstName;
+	@Column(name = "last_name")
+	private String lastName;
+	private String email;
+	@Column(name = "image_url")
+	private String imageUrl;
+	@Column(name = "about_me" )
+	private String aboutMe;
+	@Column(name = "create_date")
+	private LocalDateTime createDate;
 	
 	@OneToMany(mappedBy = "user")
 	private List<RestaurantReview> restaurantReviews;
@@ -139,28 +151,52 @@ public class User {
 		this.role = role;
 	}
 
-	public Address getAddress() {
-		return address;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public List<Comment> getComments() {
-		return comments;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public List<Comment> getUpvotedComments() {
-		return upvotedComments;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUpvotedComments(List<Comment> upvotedComments) {
-		this.upvotedComments = upvotedComments;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getAboutMe() {
+		return aboutMe;
+	}
+
+	public void setAboutMe(String aboutMe) {
+		this.aboutMe = aboutMe;
+	}
+
+	public LocalDateTime getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(LocalDateTime createDate) {
+		this.createDate = createDate;
 	}
 
 	public List<RestaurantReview> getRestaurantReviews() {
@@ -187,6 +223,30 @@ public class User {
 		this.menuItemReviews = menuItemReviews;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Comment> getUpvotedComments() {
+		return upvotedComments;
+	}
+
+	public void setUpvotedComments(List<Comment> upvotedComments) {
+		this.upvotedComments = upvotedComments;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -207,7 +267,10 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + "]";
+				+ ", role=" + role + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", imageUrl=" + imageUrl + ", aboutMe=" + aboutMe + ", createDate=" + createDate + "]";
 	}
+
+	
 
 }

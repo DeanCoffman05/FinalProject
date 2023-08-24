@@ -42,7 +42,9 @@ class CuisineTest {
 
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		assertNotNull(cuisine);
+		assertNotNull(cuisine.getType());
+		assertEquals("chineese", cuisine.getType());
 	}
 
 }

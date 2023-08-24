@@ -46,5 +46,12 @@ class AddressTest {
 		assertNotNull(address.getCity());
 		assertEquals("colorado springs ", address.getCity());
 	}
+	
+	@Test
+	void test_mapping_address_to_user() {
+		assertNotNull(address);
+		assertNotNull(address.getUser());
+		assertEquals("", address.getUser().get);
+	}
 
 }

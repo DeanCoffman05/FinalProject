@@ -32,7 +32,7 @@ public class Comment {
 	private User user;
 
 	@ManyToOne
-	@JoinColumn(name = "restuarant_id")
+	@JoinColumn(name = "restaurant_id")
 	private Restaurant restaurant;
 
 	@ManyToMany

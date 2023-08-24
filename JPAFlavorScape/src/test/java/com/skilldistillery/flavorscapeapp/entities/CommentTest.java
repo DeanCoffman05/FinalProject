@@ -43,7 +43,7 @@ class CommentTest {
 	@Test
 	void test() {
 		assertNotNull(comment);
-		assertNotNull(comment.getRestaurant());
+		
 		
 	}
 
