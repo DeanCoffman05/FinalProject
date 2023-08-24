@@ -17,7 +17,6 @@
 	<class>com.skilldistillery.flavorscapeapp.entities.MenuItemReview </class>
 	<class>com.skilldistillery.flavorscapeapp.entities.MenuItemReviewRatingId </class>
 	<class>com.skilldistillery.flavorscapeapp.entities.RestaurantReviewRatings </class>
-	
 	<class>com.skilldistillery.flavorscapeapp.entities.RestaurantReviewRatingId  </class>
 	
 	
