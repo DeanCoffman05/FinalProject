@@ -392,13 +392,6 @@ COMMIT;
 START TRANSACTION;
 USE `flavorscapedb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (1, 'admin', '$2a$10$nShOi5/f0bKNvHB8x0u3qOpeivazbuN0NE4TO0LGvQiTMafaBxLJS', 1, 'admin', 'John', 'Doe', 'jdoe@gmail.com', 1, NULL, NULL, NULL);
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (2, 'asmith456', '8jN3*6yT', False, 'user', 'Alice', 'Smith', 'alicesmith@example.com', 1, 'http://example.com/image2.jpg', 'Passionate about music.', '2021-06-12 10:23:11');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (3, 'bjohnson789', 'k1P9^0hD', True, 'user', 'Bob', 'Johnson', 'bobjohnson@example.com', 1, 'http://example.com/image3.jpg', 'Avid coffee drinker.', '2021-07-15 20:44:33');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (4, 'cmiller321', 'z2Q7&1eW', True, 'admin', 'Carol', 'Miller', 'carolmiller@example.com', 1, 'http://example.com/image4.jpg', 'Enjoys hiking on weekends.', '2021-08-08 08:08:08');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (5, 'dlee654', 'r5T3*4sI', False, 'admin', 'Daniel', 'Lee', 'daniellee@example.com', 1, 'http://example.com/image5.jpg', 'Professional photographer.', '2021-09-01 17:33:44');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (6, 'ewilson987', 'i6U8^2oP', True, 'user', 'Emily', 'Wilson', 'emilywilson@example.com', 1, 'http://example.com/image6.jpg', 'Writer and poet.', '2021-10-10 12:15:30');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (7, 'fpatel543', 'o4Y5&9uZ', False, 'user', 'Farid', 'Patel', 'faridpatel@example.com', 1, 'http://example.com/image7.jpg', 'Tech enthusiast.', '2021-11-11 13:50:25');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (8, 'jdoe123', '5hK8&3lF', True, 'admin', 'John', 'Doe', 'johndoe@example.com', 1, 'http://example.com/image1.jpg', 'Loves to travel and read.', '2021-05-05 15:34:22');
 
 COMMIT;
 

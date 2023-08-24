@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,10 +21,15 @@ public class Restaurant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String content;
-	private LocalDateTime createDate;
-	private LocalDateTime updateDate;
-	private boolean enabled;
+	private String name;
+	@Column(name = "restaurant_url")
+	private String restaurantUrl;
+	@Column(name = "image_url")
+	private String imageUrl;
+	@Column(name = "phone_number")
+	private String phoneNumber;
+	private String description;
+	boolean enabled;
 
 	@OneToMany(mappedBy = "restaurant")
 	private List<RestaurantReview> restaurantReviews;
@@ -78,7 +84,9 @@ public class Restaurant {
 
 	public Restaurant() {
 		super();
-	}
+	
+
+}
 
 	public int getId() {
 		return id;
@@ -88,16 +96,44 @@ public class Restaurant {
 		this.id = id;
 	}
 
-	public String getContent() {
-		return content;
+	public String getName() {
+		return name;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public LocalDateTime getCreate_date() {
-		return createDate;
+	public String getRestaurantUrl() {
+		return restaurantUrl;
+	}
+
+	public void setRestaurantUrl(String restaurantUrl) {
+		this.restaurantUrl = restaurantUrl;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public boolean isEnabled() {
@@ -108,60 +144,10 @@ public class Restaurant {
 		this.enabled = enabled;
 	}
 
-	public LocalDateTime getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(LocalDateTime createDate) {
-		this.createDate = createDate;
-	}
-
-	public LocalDateTime getUpdateDate() {
-		return updateDate;
-	}
-
-	public void setUpdateDate(LocalDateTime updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public List<Menu> getMenus() {
-		return menus;
-	}
-
-	public void setMenus(List<Menu> menus) {
-		this.menus = menus;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-
-	public List<RestaurantReview> getRestaurantReviews() {
-		return restaurantReviews;
-	}
-
-	public void setRestaurantReviews(List<RestaurantReview> restaurantReviews) {
-		this.restaurantReviews = restaurantReviews;
-	}
-
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
+	@Override
+	public String toString() {
+		return "Restaurant [id=" + id + ", name=" + name + ", restaurantUrl=" + restaurantUrl + ", imageUrl=" + imageUrl
+				+ ", phoneNumber=" + phoneNumber + ", description=" + description + ", enabled=" + enabled + "]";
 	}
 
 	@Override
@@ -180,11 +166,5 @@ public class Restaurant {
 		Restaurant other = (Restaurant) obj;
 		return id == other.id;
 	}
-
-	@Override
-	public String toString() {
-		return "Restaurant [id=" + id + ", content=" + content + ", createDate=" + createDate + ", updateDate="
-				+ updateDate + ", enabled=" + enabled + "]";
-	}
-
+	
 }

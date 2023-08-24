@@ -15,9 +15,6 @@ public class MenuItemReviewRating {
 	@EmbeddedId
 	private MenuItemReviewRatingId id;
 
-	public void setId(MenuItemReviewRatingId id) {
-		this.id = id;
-	}
 
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
@@ -28,6 +25,19 @@ public class MenuItemReviewRating {
 	public MenuItemReviewRating() {
 		super();
 	}
+	
+	
+
+	public MenuItemReviewRatingId getId() {
+		return id;
+	}
+
+
+	public void setId(MenuItemReviewRatingId id) {
+		this.id = id;
+	}
+
+
 
 	public LocalDateTime getCreateDate() {
 		return createDate;
