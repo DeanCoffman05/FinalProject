@@ -32,7 +32,7 @@ class MenuItemReviewRatingTest {
 	 @BeforeEach
 	 void setUp() throws Exception {
 	  em  = emf.createEntityManager();
-	  menuItemReviewRating = em.find(MenuItemReviewRating.class, 1);
+	  menuItemReviewRating = em.find(MenuItemReviewRating.class, new MenuItemReviewRatingId(1,1));
 	 }
 
 	 @AfterEach

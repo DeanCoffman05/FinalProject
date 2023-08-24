@@ -10,16 +10,27 @@ import javax.persistence.Embeddable;
 public class MenuItemReviewRatingId implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	
-	public MenuItemReviewRatingId() {
-		super();
-	}
 
 	@Column(name = "user_id")
 	private int userId; 
 	
 	@Column(name = "menu_item_review_id")
 	private int menuItemReivewId;
+
+	
+	public MenuItemReviewRatingId() {
+		super();
+	}
+	
+	
+	
+	public MenuItemReviewRatingId(int userId, int menuItemReivewId) {
+		super();
+		this.userId = userId;
+		this.menuItemReivewId = menuItemReivewId;
+	}
+
+
 
 	public int getUserId() {
 		return userId;
