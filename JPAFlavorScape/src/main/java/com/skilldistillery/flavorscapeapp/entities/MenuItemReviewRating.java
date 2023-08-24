@@ -6,8 +6,10 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "menu_item_review_rating")
 public class MenuItemReviewRating {
 
 	@EmbeddedId
