@@ -6,7 +6,19 @@
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	
 	<class>com.skilldistillery.flavorscapeapp.entities.User</class>
+	<class>com.skilldistillery.flavorscapeapp.entities.Address</class>
+	<class>com.skilldistillery.flavorscapeapp.entities.Menu</class>
+	<class>com.skilldistillery.flavorscapeapp.entities.Cuisine</class>
+	<class>com.skilldistillery.flavorscapeapp.entities.Restaurant</class>
+	<class>com.skilldistillery.flavorscapeapp.entities.Comment</class>
+	<class>com.skilldistillery.flavorscapeapp.entities.RestaurantReview</class>
+	<class>com.skilldistillery.flavorscapeapp.entities.MenuItemReviewRating</class>
+	<class>com.skilldistillery.flavorscapeapp.entities.MenuItem </class>
+	<class>com.skilldistillery.flavorscapeapp.entities.MenuItemReview </class>
+	<class>com.skilldistillery.flavorscapeapp.entities.MenuItemReviewRatingId </class>
+	<class>com.skilldistillery.flavorscapeapp.entities.RestaurantReviewRatings </class>
 	
+	<class>com.skilldistillery.flavorscapeapp.entities.RestaurantReviewRatingId  </class>
 	
 	
 	<!--  end entities -->
