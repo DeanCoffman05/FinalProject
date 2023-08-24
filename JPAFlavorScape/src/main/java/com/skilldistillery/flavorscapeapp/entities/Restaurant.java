@@ -1,12 +1,16 @@
 package com.skilldistillery.flavorscapeapp.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 @Entity
 public class Restaurant {
 	@Id 
@@ -16,6 +20,14 @@ public class Restaurant {
 	private LocalDateTime createDate; 
 	private LocalDateTime updateDate;
 	private boolean enabled;
+	
+	@OneToOne
+	@JoinColumn (name = "address_id")
+	private Address address;
+	
+	@OneToMany(mappedBy ="restaurant")
+	private List<Comment> comments;
+	
 	public Restaurant() {
 		super();
 	}
