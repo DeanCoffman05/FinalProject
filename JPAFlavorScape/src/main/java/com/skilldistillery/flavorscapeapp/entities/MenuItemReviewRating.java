@@ -9,44 +9,53 @@ import javax.persistence.Entity;
 
 @Entity
 public class MenuItemReviewRating {
-	
+
 	@EmbeddedId
 	private MenuItemReviewRatingId id;
 
 	public void setId(MenuItemReviewRatingId id) {
 		this.id = id;
 	}
-	@Column (name ="create_date")
+
+	@Column(name = "create_date")
 	private LocalDateTime createDate;
-	@Column (name ="update_date")
+	@Column(name = "update_date")
 	private LocalDateTime updateDate;
 	private int rating;
+
 	public MenuItemReviewRating() {
 		super();
 	}
+
 	public LocalDateTime getCreateDate() {
 		return createDate;
 	}
+
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
+
 	public LocalDateTime getUpdateDate() {
 		return updateDate;
 	}
+
 	public void setUpdateDate(LocalDateTime updateDate) {
 		this.updateDate = updateDate;
 	}
+
 	public int getRating() {
 		return rating;
 	}
+
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(rating);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -56,11 +65,11 @@ public class MenuItemReviewRating {
 		MenuItemReviewRating other = (MenuItemReviewRating) obj;
 		return rating == other.rating;
 	}
+
 	@Override
 	public String toString() {
 		return "MenuItemReviewRating [createDate=" + createDate + ", updateDate=" + updateDate + ", rating=" + rating
 				+ "]";
 	}
-
 
 }

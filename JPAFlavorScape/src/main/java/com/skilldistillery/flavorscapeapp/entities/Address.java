@@ -12,26 +12,24 @@ import javax.persistence.OneToOne;
 public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id; 
+	private int id;
 	private String street;
 	private String street2;
 	private String city;
 	private String state;
 	private String zipcode;
 	private String country;
-	
-@OneToOne(mappedBy = "address")
-private User user; 
 
-@OneToOne(mappedBy = "address")
-private Restaurant restaurant;
+	@OneToOne(mappedBy = "address")
+	private User user;
 
+	@OneToOne(mappedBy = "address")
+	private Restaurant restaurant;
 
-	
 	public Address() {
 		super();
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -108,6 +106,7 @@ private Restaurant restaurant;
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -119,12 +118,11 @@ private Restaurant restaurant;
 		Address other = (Address) obj;
 		return id == other.id;
 	}
+
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", street=" + street + ", street2=" + street2 + ", city=" + city + ", state="
 				+ state + ", zipcode=" + zipcode + ", country=" + country + "]";
 	}
-	
-	
-	
+
 }

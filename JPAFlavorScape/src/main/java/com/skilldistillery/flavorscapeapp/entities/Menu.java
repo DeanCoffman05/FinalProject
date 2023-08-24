@@ -1,5 +1,6 @@
 package com.skilldistillery.flavorscapeapp.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -26,6 +27,24 @@ public class Menu {
 	
 	@OneToMany(mappedBy = "menu")
 	private List<MenuItem> menuItems;
+	
+	
+	public void addMenuItem(MenuItem menuItem) {
+		if (menuItems == null) {
+			menuItems = new ArrayList<>();
+		}
+		if (!menuItems.contains(menuItem)) {
+			menuItems.add(menuItem);
+			menuItem.setMenu(this);
+		}
+	}
+
+	public void removeMenuItem(MenuItem menuItem) {
+		if (menuItems != null && menuItems.contains(menuItem)) {
+			menuItems.remove(menuItem);
+			menuItem.setMenu(null); // Does this delete the entire menu?
+		}
+	}
 	
 	
 	@ManyToOne

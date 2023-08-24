@@ -24,7 +24,7 @@ public class Restaurant {
 	private LocalDateTime createDate;
 	private LocalDateTime updateDate;
 	private boolean enabled;
-	
+
 	@OneToMany(mappedBy = "restaurant")
 	private List<RestaurantReview> restaurantReviews;
 
@@ -41,6 +41,23 @@ public class Restaurant {
 
 	@OneToMany(mappedBy = "restaurant")
 	private List<Comment> comments;
+
+	public void addMenu(Menu menu) {
+		if (menus == null) {
+			menus = new ArrayList<>();
+		}
+		if (!menus.contains(menu)) {
+			menus.add(menu);
+			menu.setRestaurant(this);
+		}
+	}
+
+	public void removeMenu(Menu menu) {
+		if (menus != null && menus.contains(menu)) {
+			menus.remove(menu);
+			menu.setRestaurant(null);
+		}
+	}
 
 	public void addUser(User user) {
 		if (users == null) {

@@ -40,6 +40,23 @@ public class User {
 
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments;
+	
+	public void addComments(Comment comment) {
+		if (comments == null) {
+			comments = new ArrayList<>();
+		}
+		if (!comments.contains(comment)) {
+			comments.add(comment);
+			comment.setUser(this);
+		}
+	}
+
+	public void removeComment(Comment comment) {
+		if (comments != null && comments.contains(comment)) {
+			comments.remove(comment);
+			comment.setUser(null); 
+		}
+	}
 
 	@ManyToMany(mappedBy = "commentUpvotes")
 	private List<Comment> upvotedComments;

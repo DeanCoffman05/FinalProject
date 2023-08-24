@@ -40,8 +40,10 @@ public class Comment {
 	private List<User> commentUpvotes;
 
 	public void addUpvotedUser(User user) {
-		if (commentUpvotes == null) { commentUpvotes = new ArrayList<>();}
-		if (! commentUpvotes.contains(user)) {
+		if (commentUpvotes == null) {
+			commentUpvotes = new ArrayList<>();
+		}
+		if (!commentUpvotes.contains(user)) {
 			commentUpvotes.add(user);
 			user.addUpvotedComment(this);
 		}
