@@ -1,4 +1,4 @@
-package com.skilldistillery.flavorscapeapp.entities;
+	package com.skilldistillery.flavorscapeapp.entities;
 
 import java.util.ArrayList;
 import java.util.List;
