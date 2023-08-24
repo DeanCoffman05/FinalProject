@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +28,15 @@ public class RestaurantReview {
 	private LocalDateTime createDate; 
 	private LocalDateTime updateDate;
 	private boolean enabled;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user; 
+	
+	@ManyToOne
+	@JoinColumn (name = "restaurant_id")
+	private Restaurant restaurant;
+	
 	public RestaurantReview() {
 		super();
 	}
@@ -94,6 +105,18 @@ public class RestaurantReview {
 	}
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 	@Override
 	public int hashCode() {

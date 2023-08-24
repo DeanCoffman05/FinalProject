@@ -1,11 +1,17 @@
 package com.skilldistillery.flavorscapeapp.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Menu {
@@ -16,6 +22,16 @@ public class Menu {
 	private String type; 
 	private boolean enabled; 
 	private String description;
+	
+	
+	@OneToMany(mappedBy = "menu")
+	private List<MenuItem> menuItems;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "restaurant_id")
+	private Restaurant restaurant; 
+	
 	public Menu() {
 		super();
 	}
@@ -46,6 +62,18 @@ public class Menu {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+	public List<MenuItem> getMenuItems() {
+		return menuItems;
+	}
+	public void setMenuItems(List<MenuItem> menuItems) {
+		this.menuItems = menuItems;
+	}
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 	@Override
 	public boolean equals(Object obj) {
