@@ -17,7 +17,6 @@ class RestaurantTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Restaurant restaurant;
-	private 
 
 	@BeforeAll
 	 static void setUpBeforeClass() throws Exception {
@@ -42,17 +41,11 @@ class RestaurantTest {
 	 }
 	 
 	 @Test
-	 void test_restaurant_entity() {
+	 void test_User_entity_manager() {
 		 assertNotNull(restaurant);
 		 assertNotNull(restaurant.getName());
 		 assertEquals("jacobs seafood shack", restaurant.getName());
 		 
-	 }
-	 
-	 @Test
-	 void test_restuarant_mapping() {
-		 assertNotNull();
-		 assertNotNull(restaurant.);
 	 }
 
 }

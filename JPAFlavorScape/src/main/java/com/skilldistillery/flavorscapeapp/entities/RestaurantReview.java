@@ -3,6 +3,7 @@ package com.skilldistillery.flavorscapeapp.entities;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 @Table (name = "restaurant_review")
 public class RestaurantReview {
@@ -18,6 +22,7 @@ public class RestaurantReview {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; 
+	@Column(name="image_url")
 	private String imageUrl;
 	private String atmosphere; 
 	private String smell; 
@@ -25,7 +30,11 @@ public class RestaurantReview {
 	private String price; 
 	private String food;
 	private int rating; 
+	@Column(name = "create_date")
+	@CreationTimestamp
 	private LocalDateTime createDate; 
+	@Column(name = "update_date")
+	@UpdateTimestamp
 	private LocalDateTime updateDate;
 	private boolean enabled;
 	
@@ -40,84 +49,111 @@ public class RestaurantReview {
 	public RestaurantReview() {
 		super();
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getImageUrl() {
 		return imageUrl;
 	}
+
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
+
 	public String getAtmosphere() {
 		return atmosphere;
 	}
+
 	public void setAtmosphere(String atmosphere) {
 		this.atmosphere = atmosphere;
 	}
+
 	public String getSmell() {
 		return smell;
 	}
+
 	public void setSmell(String smell) {
 		this.smell = smell;
 	}
+
 	public String getService() {
 		return service;
 	}
+
 	public void setService(String service) {
 		this.service = service;
 	}
+
 	public String getPrice() {
 		return price;
 	}
+
 	public void setPrice(String price) {
 		this.price = price;
 	}
+
 	public String getFood() {
 		return food;
 	}
+
 	public void setFood(String food) {
 		this.food = food;
 	}
+
 	public int getRating() {
 		return rating;
 	}
+
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
+
 	public LocalDateTime getCreateDate() {
 		return createDate;
 	}
+
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
+
 	public LocalDateTime getUpdateDate() {
 		return updateDate;
 	}
+
 	public void setUpdateDate(LocalDateTime updateDate) {
 		this.updateDate = updateDate;
 	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}
+
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
 	public User getUser() {
 		return user;
 	}
+
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 	public Restaurant getRestaurant() {
 		return restaurant;
 	}
+
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
