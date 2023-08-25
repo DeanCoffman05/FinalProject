@@ -2,6 +2,8 @@ export class User {
   id: number;
   username: string;
   password: string;
+  firstname: String;
+  lastname: String;
   email: string;
   role: string;
   enabled: boolean;
@@ -10,6 +12,8 @@ export class User {
     id: number = 0,
     username: string = '',
     password: string = '',
+    firstname: String = '',
+    lastname: String = '',
     email:  string = '',
     role: string = '',
     enabled: boolean = false
@@ -17,6 +21,8 @@ export class User {
     this.id = id;
     this.username = username;
     this.password = password;
+    this.firstname = firstname;
+    this.lastname = lastname;
     this.email = email;
     this.role = role;
     this.enabled = enabled;

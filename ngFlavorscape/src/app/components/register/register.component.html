@@ -1,3 +1,23 @@
-<p>
-  register works!
-</p>
+<ul>
+  <form>
+
+  <label for="username">User Name:</label>
+  <input type="text" name="username" [(ngModel)]="newUser.username"> <br>
+
+  <label for="firstname">User First Name:</label>
+  <input type="text" name="firstname" [(ngModel)]="newUser.firstname"> <br>
+
+  <label for="lastname">User Last Name:</label>
+  <input type="text" name="lastname" [(ngModel)]="newUser.lastname"> <br>
+
+
+  <label for="email">User email:</label>
+  <input type="text" name="email" [(ngModel)]="newUser.email"> <br>
+
+  <label for="password">Password:</label>
+  <input type="text" name="password" [(ngModel)]="newUser.password"> <br>
+
+  <button (click)="register(newUser)"> Register An Account</button>
+  </form>
+
+  </ul>
