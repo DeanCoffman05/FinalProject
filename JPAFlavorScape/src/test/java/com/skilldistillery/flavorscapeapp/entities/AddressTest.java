@@ -51,7 +51,14 @@ class AddressTest {
 	void test_mapping_address_to_user() {
 		assertNotNull(address);
 		assertNotNull(address.getUser());
-		assertEquals("", address.getUser().get);
+		assertEquals("John", address.getUser().getFirstName());
+	}
+	
+	@Test
+	void test_mapping_address_to_restaurant() {
+		assertNotNull(address);
+		assertNotNull(address.getRestaurant());
+		assertEquals("jacobs seafood shack", address.getRestaurant().getName());
 	}
 
 }

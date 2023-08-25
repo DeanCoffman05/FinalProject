@@ -42,9 +42,28 @@ class CommentTest {
 
 	@Test
 	void test() {
-		assertNotNull(comment);
-		
-		
+		assertNotNull(comment);	
+	}
+	
+	@Test
+	void test_mapping_comments_to_upvotes() {
+		assertNotNull(comment);	
+		assertNotNull(comment.getCommentUpvotes());
+		assertTrue(comment.getCommentUpvotes().size() > 0);
+	}
+	
+	@Test
+	void test_mapping_comments_to_restaurant() {
+		assertNotNull(comment);	
+		assertNotNull(comment.getRestaurant());
+		assertEquals("jacobs seafood shack", comment.getRestaurant().getName());
+	}
+	
+	@Test
+	void test_mapping_comments_to_user() {
+		assertNotNull(comment);	
+		assertNotNull(comment.getUser());
+		assertEquals("John", comment.getUser().getFirstName());
 	}
 
 }

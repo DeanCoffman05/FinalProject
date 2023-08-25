@@ -46,5 +46,12 @@ class CuisineTest {
 		assertNotNull(cuisine.getType());
 		assertEquals("chineese", cuisine.getType());
 	}
+	
+	@Test
+	void test_mapping_cuisine_to_menue_items() {
+		assertNotNull(cuisine);
+		assertNotNull(cuisine.getMenuItems().size() > 0);
+	}
+	
 
 }

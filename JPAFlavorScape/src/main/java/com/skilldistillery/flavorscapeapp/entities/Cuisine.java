@@ -78,8 +78,16 @@ public class Cuisine {
 		return iconUrl;
 	}
 
-	public void setIcon_url(String icon_url) {
+	public void setIconUrl(String iconUrl) {
 		this.iconUrl = iconUrl;
+	}
+
+	public List<MenuItem> getMenuItems() {
+		return menuItems;
+	}
+
+	public void setMenuItems(List<MenuItem> menuItems) {
+		this.menuItems = menuItems;
 	}
 
 	@Override
@@ -103,5 +111,6 @@ public class Cuisine {
 	public String toString() {
 		return "Cuisine [id=" + id + ", type=" + type + ", description=" + description + ", iconUrl=" + iconUrl + "]";
 	}
+	
 
 }
