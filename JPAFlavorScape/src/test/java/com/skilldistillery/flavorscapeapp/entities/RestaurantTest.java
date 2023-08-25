@@ -56,22 +56,22 @@ class RestaurantTest {
 		 assertTrue(restaurant.getRestaurantReviews().size() > 0);
 		
 	 }
-	 
+	 @Test
 	 void test_restaurant_to_users() {
 		 assertNotNull(restaurant.getUsers());
 		 assertTrue(restaurant.getUsers().size() > 0);
 	 }
-	 
+	 @Test
 	 void test_restaurant_to_menu() {
 		 assertNotNull(restaurant.getMenus());
 		 assertTrue(restaurant.getUsers().size() > 0);
 	 }
-	 
+	 @Test
 	 void test_restaurant_to_address() {
 		 assertNotNull(restaurant.getAddress());
-		 assertEquals("123",restaurant.getAddress());
+		 assertEquals("123",restaurant.getAddress().getStreet());
 	 }
-	 
+	 @Test
 	 void test_restaurant_to_comments() {
 		 assertNotNull(restaurant.getComments());
 		 assertTrue(restaurant.getComments().size() > 0);
