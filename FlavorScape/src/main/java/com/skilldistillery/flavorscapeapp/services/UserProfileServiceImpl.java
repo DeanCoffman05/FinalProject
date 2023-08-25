@@ -15,23 +15,21 @@ public class UserProfileServiceImpl implements UserProfileService {
 	private UserRepository userRepo;
 
 	@Override
-	public User userUpdate(String username, int userId, User user) {
-		User managedUser = userRepo.findByUsername(username);
-		if (managedUser != null) {
-			Optional<User> optUser = userRepo.findById(userId);
-			if (optUser.isPresent()) {
-				User existingUser = optUser.get();
-				if (existingUser.getId() == user.getId()) {
-					existingUser.setFirstName(user.getFirstName());
-					existingUser.setLastName(user.getLastName());
-					existingUser.setAboutMe(user.getAboutMe());
-					existingUser.setEmail(user.getEmail());
-					existingUser.setImageUrl(user.getImageUrl());
-					existingUser.setUsername(user.getUsername());
-					existingUser.setPassword(user.getPassword());
-					return userRepo.saveAndFlush(existingUser);
-				}
-			}
+	public User showLoggedInUser(String username) {
+		User user = userRepo.findByUsername(username);
+		return user;
+	}
+
+	@Override
+	public User userUpdate(String username, User user) {
+		User existingUser = userRepo.findByUsername(username);
+		if (existingUser != null) {
+			existingUser.setFirstName(user.getFirstName());
+			existingUser.setLastName(user.getLastName());
+			existingUser.setAboutMe(user.getAboutMe());
+			existingUser.setEmail(user.getEmail());
+			existingUser.setImageUrl(user.getImageUrl());
+			return userRepo.saveAndFlush(existingUser);
 		}
 
 		return null;

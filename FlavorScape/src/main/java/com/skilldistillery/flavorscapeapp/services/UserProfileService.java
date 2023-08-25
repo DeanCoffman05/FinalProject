@@ -4,6 +4,7 @@ import com.skilldistillery.flavorscapeapp.entities.User;
 
 public interface UserProfileService {
 
-	public User userUpdate(String username, int userId, User user);
+	public User showLoggedInUser (String username);
+	public User userUpdate(String username, User user);
 	public boolean userDelete(String username, int userId);
 }

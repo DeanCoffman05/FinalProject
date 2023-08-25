@@ -25,13 +25,20 @@ public class UserProfileController {
 	@Autowired
 	private UserProfileService userProfileService;
 	
-	
+	@GetMapping("users/profiles")
+	public User showUser(HttpServletRequest req, HttpServletResponse res, Principal principal) {
+		User user = userProfileService.showLoggedInUser(principal.getName());
+		if(user == null) {
+			res.setStatus(404);
+		}
+		return user;
+	}
 
-	@PutMapping("user/{userId}")
-	public User updateProfile(Principal principal, HttpServletRequest req, HttpServletResponse res,
-			@PathVariable Integer userId, @RequestBody User user) {
+	@PutMapping("users/profiles")
+	public User updateProfile(Principal principal, HttpServletRequest req, HttpServletResponse res
+		, @RequestBody User user) {
 		try {
-			user = userProfileService.userUpdate(principal.getName(), userId, user);
+			user = userProfileService.userUpdate(principal.getName(), user);
 			if(user == null) {
 				res.setStatus(404);
 			}
