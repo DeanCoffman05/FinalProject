@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor (
+    private auth: AuthService,
+    private router: Router) {}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
+get isLoggedIn(): boolean {
+      return this.auth.checkLogin();
+}
+
+logout() {
+  this.auth.logout();
+}
 }
