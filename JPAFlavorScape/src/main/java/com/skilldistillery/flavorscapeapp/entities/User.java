@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
 
@@ -32,80 +34,35 @@ public class User {
 	private String email;
 	@Column(name = "image_url")
 	private String imageUrl;
-	@Column(name = "about_me" )
+	@Column(name = "about_me")
 	private String aboutMe;
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
-	
+
 	@OneToMany(mappedBy = "user")
+	@JsonIgnore
 	private List<RestaurantReview> restaurantReviews;
 
 	@ManyToMany(mappedBy = "users")
+	@JsonIgnore
 	private List<Restaurant> restaurants;
 
 	@OneToMany(mappedBy = "user")
+	@JsonIgnore
 	private List<MenuItemReview> menuItemReviews;
 
 	@OneToOne
 	@JoinColumn(name = "address_id")
+	@JsonIgnore
 	private Address address;
 
 	@OneToMany(mappedBy = "user")
+	@JsonIgnore
 	private List<Comment> comments;
-	
-	public void addComments(Comment comment) {
-		if (comments == null) {
-			comments = new ArrayList<>();
-		}
-		if (!comments.contains(comment)) {
-			comments.add(comment);
-			comment.setUser(this);
-		}
-	}
-
-	public void removeComment(Comment comment) {
-		if (comments != null && comments.contains(comment)) {
-			comments.remove(comment);
-			comment.setUser(null); 
-		}
-	}
 
 	@ManyToMany(mappedBy = "commentUpvotes")
+	@JsonIgnore
 	private List<Comment> upvotedComments;
-
-	public void addRestaurant(Restaurant restaurant) {
-		if (restaurants == null) {
-			restaurants = new ArrayList<>();
-		}
-		if (!restaurants.contains(restaurant)) {
-			restaurants.add(restaurant);
-			restaurant.addUser(this);
-		}
-	}
-
-	public void removeRestaurants(Restaurant restaurant) {
-		if (restaurants != null && restaurants.contains(restaurant)) {
-			restaurants.remove(restaurant);
-			restaurant.removeUser(this);
-		}
-	}
-
-	public void addUpvotedComment(Comment comment) {
-		if (upvotedComments == null) {
-			upvotedComments = new ArrayList<>();
-		}
-		if (!upvotedComments.contains(comment)) {
-			upvotedComments.add(comment);
-			comment.addUpvotedUser(this);
-		}
-	}
-
-	public void removeUpvotedComment(Comment comment) {
-		if (upvotedComments != null && upvotedComments.contains(comment)) {
-			upvotedComments.remove(comment);
-			comment.removeUpvotedUser(this);
-		}
-	}
 
 	public User() {
 		super();
@@ -252,6 +209,57 @@ public class User {
 		return Objects.hash(id);
 	}
 
+	public void addComments(Comment comment) {
+		if (comments == null) {
+			comments = new ArrayList<>();
+		}
+		if (!comments.contains(comment)) {
+			comments.add(comment);
+			comment.setUser(this);
+		}
+	}
+
+	public void removeComment(Comment comment) {
+		if (comments != null && comments.contains(comment)) {
+			comments.remove(comment);
+			comment.setUser(null);
+		}
+	}
+
+	public void addRestaurant(Restaurant restaurant) {
+		if (restaurants == null) {
+			restaurants = new ArrayList<>();
+		}
+		if (!restaurants.contains(restaurant)) {
+			restaurants.add(restaurant);
+			restaurant.addUser(this);
+		}
+	}
+
+	public void removeRestaurants(Restaurant restaurant) {
+		if (restaurants != null && restaurants.contains(restaurant)) {
+			restaurants.remove(restaurant);
+			restaurant.removeUser(this);
+		}
+	}
+
+	public void addUpvotedComment(Comment comment) {
+		if (upvotedComments == null) {
+			upvotedComments = new ArrayList<>();
+		}
+		if (!upvotedComments.contains(comment)) {
+			upvotedComments.add(comment);
+			comment.addUpvotedUser(this);
+		}
+	}
+
+	public void removeUpvotedComment(Comment comment) {
+		if (upvotedComments != null && upvotedComments.contains(comment)) {
+			upvotedComments.remove(comment);
+			comment.removeUpvotedUser(this);
+		}
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -270,7 +278,5 @@ public class User {
 				+ ", role=" + role + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", imageUrl=" + imageUrl + ", aboutMe=" + aboutMe + ", createDate=" + createDate + "]";
 	}
-
-	
 
 }
