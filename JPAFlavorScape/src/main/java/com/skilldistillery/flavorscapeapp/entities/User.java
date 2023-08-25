@@ -53,7 +53,6 @@ public class User {
 
 	@OneToOne
 	@JoinColumn(name = "address_id")
-	
 	private Address address;
 
 	@OneToMany(mappedBy = "user")

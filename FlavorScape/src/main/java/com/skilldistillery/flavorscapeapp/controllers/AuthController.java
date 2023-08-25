@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skilldistillery.flavorscapeapp.entities.Address;
 import com.skilldistillery.flavorscapeapp.entities.User;
 import com.skilldistillery.flavorscapeapp.services.AuthService;
 
@@ -27,7 +28,7 @@ public class AuthController {
 	     res.setStatus(400);
 	     return null;
 	  }
-	  user = authService.register(user);
+	  user = authService.register(user );
 	  return user;
 	}
 	 
