@@ -54,7 +54,27 @@ class RestaurantTest {
 	 void test_restaurant_mapping_to_review() {
 		 assertNotNull(restaurant.getRestaurantReviews());
 		 assertTrue(restaurant.getRestaurantReviews().size() > 0);
-		 
 		
 	 }
+	 
+	 void test_restaurant_to_users() {
+		 assertNotNull(restaurant.getUsers());
+		 assertTrue(restaurant.getUsers().size() > 0);
+	 }
+	 
+	 void test_restaurant_to_menu() {
+		 assertNotNull(restaurant.getMenus());
+		 assertTrue(restaurant.getUsers().size() > 0);
+	 }
+	 
+	 void test_restaurant_to_address() {
+		 assertNotNull(restaurant.getAddress());
+		 assertEquals("123",restaurant.getAddress());
+	 }
+	 
+	 void test_restaurant_to_comments() {
+		 assertNotNull(restaurant.getComments());
+		 assertTrue(restaurant.getComments().size() > 0);
+	 }
+	 
 }
