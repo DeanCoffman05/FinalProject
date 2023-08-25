@@ -12,11 +12,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class MenuItemReviewRatingIdTest {
+class RestaurantTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private MenuItemReviewRatingId menuItemReviewRatingid;
+	private Restaurant restaurant;
 
 	@BeforeAll
 	 static void setUpBeforeClass() throws Exception {
@@ -31,18 +31,21 @@ class MenuItemReviewRatingIdTest {
 	 @BeforeEach
 	 void setUp() throws Exception {
 	  em  = emf.createEntityManager();
-	  menuItemReviewRatingid = em.find(MenuItemReviewRatingId.class, 1);
+	  restaurant = em.find(Restaurant.class, 1);
 	 }
 
 	 @AfterEach
 	 void tearDown() throws Exception {
 	  em.close();
-	  menuItemReviewRatingid = null;
+	  restaurant= null;
 	 }
 	 
 	 @Test
-	 void test_menuItemReviewRating_get_year_review_made() {
-		 assertNotNull(menuItemReviewRatingid);
-		
+	 void test_User_entity_manager() {
+		 assertNotNull(restaurant);
+		 assertNotNull(restaurant.getName());
+		 assertEquals("jacobs seafood shack", restaurant.getName());
+		 
 	 }
+
 }
