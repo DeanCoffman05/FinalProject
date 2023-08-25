@@ -3,19 +3,26 @@ package com.skilldistillery.flavorscapeapp.entities;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
+@Table(name="restaurant_review_ratings")
 public class RestaurantReviewRatings {
 
 	
 	
 	private int rating; 
+	@Column(name = "create_date")
+	@CreationTimestamp
 	private LocalDateTime createDate; 
+	@Column(name = "update_date")
+	@UpdateTimestamp
 	private LocalDateTime updateDate;
 	
 	@EmbeddedId

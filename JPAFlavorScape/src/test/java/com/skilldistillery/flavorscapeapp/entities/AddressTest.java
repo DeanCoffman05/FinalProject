@@ -59,6 +59,7 @@ class AddressTest {
 		assertNotNull(address);
 		assertNotNull(address.getRestaurant());
 		assertEquals("jacobs seafood shack", address.getRestaurant().getName());
+
 	}
 
 }

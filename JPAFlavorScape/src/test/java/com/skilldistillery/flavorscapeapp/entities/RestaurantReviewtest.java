@@ -1,6 +1,7 @@
 package com.skilldistillery.flavorscapeapp.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,12 +13,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class MenuItemReviewRatingTest {
-
+class RestaurantReviewtest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private MenuItemReviewRating menuItemReviewRating;
+	private RestaurantReview restaurantReview;
 
 	@BeforeAll
 	 static void setUpBeforeClass() throws Exception {
@@ -32,20 +32,28 @@ class MenuItemReviewRatingTest {
 	 @BeforeEach
 	 void setUp() throws Exception {
 	  em  = emf.createEntityManager();
-	  menuItemReviewRating = em.find(MenuItemReviewRating.class, new MenuItemReviewRatingId(1,1));
+	  restaurantReview = em.find(RestaurantReview.class, 1);
 	 }
 
 	 @AfterEach
 	 void tearDown() throws Exception {
 	  em.close();
-	  menuItemReviewRating = null;
+	  restaurantReview = null;
 	 }
 	 
 	 @Test
-	 void test_menuItemReviewRating_get_year_review_made() {
-		 assertNotNull(menuItemReviewRating);
-		 assertNotNull(menuItemReviewRating.getRating());
-		 assertEquals(4,menuItemReviewRating.getRating());
+	 void test_RestaurantReview_entity_manager() {
+		 assertNotNull(restaurantReview);
+		 assertEquals("spicy", restaurantReview.getSmell());
 	 }
-	 
+	 @Test
+	 void test_RestaurantReview_touser_manager() {
+		 assertNotNull(restaurantReview.getUser());
+		 assertEquals("admin", restaurantReview.getUser().getUsername());
+	 }
+	 @Test
+	 void test_RestaurantReview_toRestaurant_manager() {
+		 assertNotNull(restaurantReview.getRestaurant());
+		 assertEquals("jacobs seafood shack", restaurantReview.getRestaurant().getName());
+	 }
 }
