@@ -47,5 +47,5 @@ class MenuItemReviewRatingTest {
 		 assertNotNull(menuItemReviewRating.getRating());
 		 assertEquals(4,menuItemReviewRating.getRating());
 	 }
-
+	 
 }

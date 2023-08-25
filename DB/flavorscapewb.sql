@@ -421,7 +421,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flavorscapedb`;
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (1, 'tomato fancy', NULL, 1, 50, 'fancy tomato', NULL, true);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (1, 'tomato fancy', NULL, 1, 50, 'fancy tomato', 100, true);
 
 COMMIT;
 
