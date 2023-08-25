@@ -143,6 +143,47 @@ public class Restaurant {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+	
+
+	public List<RestaurantReview> getRestaurantReviews() {
+		return restaurantReviews;
+	}
+
+	public void setRestaurantReviews(List<RestaurantReview> restaurantReviews) {
+		this.restaurantReviews = restaurantReviews;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public List<Menu> getMenus() {
+		return menus;
+	}
+
+	public void setMenus(List<Menu> menus) {
+		this.menus = menus;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 
 	@Override
 	public String toString() {

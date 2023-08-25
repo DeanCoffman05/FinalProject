@@ -1,6 +1,8 @@
 package com.skilldistillery.flavorscapeapp.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -41,11 +43,38 @@ class RestaurantTest {
 	 }
 	 
 	 @Test
-	 void test_User_entity_manager() {
+	 void test_restaurant_entity_manager() {
 		 assertNotNull(restaurant);
 		 assertNotNull(restaurant.getName());
 		 assertEquals("jacobs seafood shack", restaurant.getName());
 		 
 	 }
-
+	 
+	 @Test
+	 void test_restaurant_mapping_to_review() {
+		 assertNotNull(restaurant.getRestaurantReviews());
+		 assertTrue(restaurant.getRestaurantReviews().size() > 0);
+		
+	 }
+	 
+	 void test_restaurant_to_users() {
+		 assertNotNull(restaurant.getUsers());
+		 assertTrue(restaurant.getUsers().size() > 0);
+	 }
+	 
+	 void test_restaurant_to_menu() {
+		 assertNotNull(restaurant.getMenus());
+		 assertTrue(restaurant.getUsers().size() > 0);
+	 }
+	 
+	 void test_restaurant_to_address() {
+		 assertNotNull(restaurant.getAddress());
+		 assertEquals("123",restaurant.getAddress());
+	 }
+	 
+	 void test_restaurant_to_comments() {
+		 assertNotNull(restaurant.getComments());
+		 assertTrue(restaurant.getComments().size() > 0);
+	 }
+	 
 }
