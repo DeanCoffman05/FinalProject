@@ -26,6 +26,8 @@ public class AuthServiceImpl implements AuthService {
 		if (user.getAddress() != null) {
 			addressRepo.save(user.getAddress());
 		}
+		System.out.println(user + "*************");
+		System.out.println(user.getAddress() + "*************");
 		user.setEnabled(true);
 		user.setRole("standard");
 		String encrypted = encoder.encode(user.getPassword());

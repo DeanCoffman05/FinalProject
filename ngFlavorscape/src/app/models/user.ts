@@ -1,3 +1,5 @@
+import { Address } from "./address";
+
 export class User {
   id: number;
   username: string;
@@ -7,6 +9,7 @@ export class User {
   email: string;
   role: string;
   enabled: boolean;
+  address: Address;
 
   constructor(
     id: number = 0,
@@ -16,7 +19,8 @@ export class User {
     lastname: String = '',
     email:  string = '',
     role: string = '',
-    enabled: boolean = false
+    enabled: boolean = false,
+    address: Address = new Address()
   ){
     this.id = id;
     this.username = username;
@@ -26,7 +30,7 @@ export class User {
     this.email = email;
     this.role = role;
     this.enabled = enabled;
-
+    this.address = address;
   }
 
 }

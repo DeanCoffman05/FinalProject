@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { Address } from "src/app/models/address";
 import { User } from "src/app/models/user";
 import { AuthService } from "src/app/services/auth.service";
 
@@ -11,6 +12,9 @@ import { AuthService } from "src/app/services/auth.service";
 })
 export class RegisterComponent {
 newUser: User = new User();
+address: Address = new Address();
+
+
 constructor (
   private auth: AuthService,
   private router: Router) {}
@@ -20,6 +24,7 @@ constructor (
 register(user: User): void {
   console.log(user);
   console.log('Registering user:');
+  user.address = this.address;
   console.log(user);
   this.auth.register(user).subscribe({
     next: (registeredUser) => {

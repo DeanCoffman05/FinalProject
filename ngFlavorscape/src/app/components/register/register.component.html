@@ -1,21 +1,39 @@
 <ul>
   <form>
 
-  <label for="username">User Name:</label>
+
+  <input type="hidden" name="id" [(ngModel)]="address.id"> <br>
+
+  <label for="username">User Name: </label>
   <input type="text" name="username" [(ngModel)]="newUser.username"> <br>
 
-  <label for="firstname">User First Name:</label>
+  <label for="firstname">First Name: </label>
   <input type="text" name="firstname" [(ngModel)]="newUser.firstname"> <br>
 
-  <label for="lastname">User Last Name:</label>
+  <label for="lastname">Last Name: </label>
   <input type="text" name="lastname" [(ngModel)]="newUser.lastname"> <br>
 
-
-  <label for="email">User email:</label>
+  <label for="email">Email: </label>
   <input type="text" name="email" [(ngModel)]="newUser.email"> <br>
 
-  <label for="password">Password:</label>
+  <label for="password">Password: </label>
   <input type="text" name="password" [(ngModel)]="newUser.password"> <br>
+
+  <label for="street">Street: </label>
+  <input type="text" name="street" [(ngModel)]="address.street"> <br>
+
+  <label for="street2">Street :</label>
+  <input type="text" name="street2" [(ngModel)]="address.street2"> <br>
+
+  <label for="city">City: </label>
+  <input type="text" name="city" [(ngModel)]="address.city"> <br>
+
+  <label for="state">State :</label>
+  <input type="text" name="state" [(ngModel)]="address.state"> <br>
+
+  <label for="zipcode">Zip Code :</label>
+  <input type="text" name="zipcode" [(ngModel)]="address.zipcode"> <br>
+
 
   <button (click)="register(newUser)"> Register An Account</button>
   </form>

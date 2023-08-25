@@ -12,7 +12,7 @@ import { User } from '../models/user';
   providedIn: 'root',
 })
 export class UserService {
-  private url = environment.baseUrl + 'api/users';
+  private url = environment.baseUrl + 'api/users/profiles';
 
   constructor(
     private http: HttpClient,
