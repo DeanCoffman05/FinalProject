@@ -19,6 +19,10 @@ public class UserProfileServiceImpl implements UserProfileService {
 		User user = userRepo.findByUsername(username);
 		return user;
 	}
+	
+	
+	
+	
 
 	@Override
 	public User userUpdate(String username, User user) {
