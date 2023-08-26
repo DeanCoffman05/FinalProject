@@ -7,21 +7,19 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-updateprofile',
   templateUrl: './updateprofile.component.html',
-  styleUrls: ['./updateprofile.component.css']
+  styleUrls: ['./updateprofile.component.css'],
 })
 export class UpdateprofileComponent implements OnInit {
   currentUser: User = new User();
   selected: User | null = null;
   editUser: User | null = null;
 
-
   constructor(
     private authService: AuthService,
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ) { }
-
+  ) {}
 
   ngOnInit() {
     this.reload();
@@ -30,8 +28,8 @@ export class UpdateprofileComponent implements OnInit {
         this.currentUser = user;
       },
       error: (err) => {
-        console.error('Error loading user: ', err)
-      }
+        console.error('Error loading user: ', err);
+      },
     });
   }
 
@@ -42,12 +40,14 @@ export class UpdateprofileComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error loading users:', err);
-      }
+      },
     });
   }
   updateUser(user: User, setSelected: boolean = true) {
+    console.log(user);
     this.userService.updateUser(user).subscribe({
       next: (updatedUser) => {
+        console.log(user);
         if (setSelected) {
           this.selected = updatedUser;
         }
@@ -62,5 +62,5 @@ export class UpdateprofileComponent implements OnInit {
   }
   onSubmit() {
     this.updateUser(this.currentUser);
-}
+  }
 }
