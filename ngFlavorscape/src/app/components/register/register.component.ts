@@ -30,6 +30,7 @@ register(user: User): void {
     next: (registeredUser) => {
       this.auth.login(user.username, user.password).subscribe({
         next: (loggedInUser) => {
+          console.log('User Data to Send: ', user);
           this.router.navigateByUrl('/profile');
         },
         error: (problem) => {

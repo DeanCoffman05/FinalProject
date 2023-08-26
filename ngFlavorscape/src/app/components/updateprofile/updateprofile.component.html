@@ -1,0 +1,27 @@
+<div>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+    <label for="firstname" class="form-label"><strong>First Name: </strong></label>
+    <input type="text" name="firstname" [(ngModel)]="currentUser.firstName" class="form-control"/>
+  </div>
+  <div class="form-group">
+      <label for="lastname" class="form-label"><strong>Last Name: </strong></label>
+      <input type="text" name="lastname" [(ngModel)]="currentUser.lastName" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="email" class="form-label"><strong>Email: </strong></label>
+      <input type="text" name="email" [(ngModel)]="currentUser.email" class="form-control"/>
+   </div>
+   <div class="form-group">
+      <label for="imageUrl" class="form-label"><strong>Image URL: </strong></label>
+      <input type="text" name="imageUrl" [(ngModel)]="currentUser.imageUrl" class="form-control"/>
+    </div>
+  <div class="form-group">
+    <label for="aboutMe" class="form-label"><strong>About Me: </strong></label>
+    <input type="text" name="aboutMe" [(ngModel)]="currentUser.aboutMe"  class="form-control"/>
+  </div>
+    <button (click)="editUser = null" class="btn btn-danger">Cancel</button>
+    <button (click)="updateUser" class="btn btn-success">Save</button>
+
+  </form>
+  </div>

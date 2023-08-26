@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { UpdateprofileComponent } from './components/updateprofile/updateprofile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     LogoutComponent,
     NavBarComponent,
-    ProfileComponent
+    ProfileComponent,
+    UpdateprofileComponent
   ],
   imports: [
     BrowserModule,

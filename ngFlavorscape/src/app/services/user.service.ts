@@ -2,11 +2,9 @@ import { Injectable, Pipe, PipeTransform } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import { User } from '../models/user';
-
 
 @Injectable({
   providedIn: 'root',
@@ -48,4 +46,15 @@ export class UserService {
       })
     );
   }
+  updateUser(updateUser: User): Observable<User> {
+    return this.http.put<User>(this.url + '/' + updateUser.id, updateUser).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError(
+          () => new Error('UserService.update(): error retrieving user: ' + err)
+        );
+      })
+    );
+  }
 }
+
