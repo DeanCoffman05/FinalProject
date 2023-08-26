@@ -53,6 +53,7 @@ export class UpdateprofileComponent implements OnInit {
         }
         this.editUser = null;
         this.reload();
+        this.router.navigateByUrl("/profile");
       },
       error: (fail) => {
         console.error('ProfileComponent.updateUser: error updating User');
@@ -69,7 +70,9 @@ deleteUser(user: User) {
   this.userService.destroyUser(user).subscribe({
     next: () => {
       console.log(user);
-      this.reload();
+      this.authService.logout();
+      this.router.navigateByUrl("/home");
+      // this.reload();
     },
     error:(sosad) =>
     {console.error('ProfileComponent.deleteUser: error deleting User')}

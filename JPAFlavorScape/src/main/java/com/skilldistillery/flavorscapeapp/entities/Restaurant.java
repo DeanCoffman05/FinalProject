@@ -16,6 +16,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 @Entity
 public class Restaurant {
 	@Id
@@ -32,13 +35,16 @@ public class Restaurant {
 	boolean enabled;
 
 	@OneToMany(mappedBy = "restaurant")
+	@JsonIgnore
 	private List<RestaurantReview> restaurantReviews;
 
 	@ManyToMany
 	@JoinTable(name = "user_favorite_restaurant", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "restaurant_id"))
+	@JsonIgnore
 	private List<User> users;
 
 	@OneToMany(mappedBy = "restaurant")
+	@JsonIgnore
 	private List<Menu> menus;
 
 	@OneToOne
@@ -46,6 +52,7 @@ public class Restaurant {
 	private Address address;
 
 	@OneToMany(mappedBy = "restaurant")
+	@JsonIgnore
 	private List<Comment> comments;
 
 	public void addMenu(Menu menu) {

@@ -58,7 +58,7 @@ export class UserService {
   }
 
 destroyUser(user: User): Observable<User> {
-  return this.http.put<User>(this.url ,user, this.getHttpOptions()).pipe(
+  return this.http.put<User>(this.url + '/delete',user, this.getHttpOptions()).pipe(
     catchError((err:any) => {
       console.log(err);
       return throwError(
