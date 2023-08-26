@@ -382,6 +382,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `flavorscapedb`;
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (1, '123', 'street', 'colorado springs ', 'CO', '12345', NULL);
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (2, '345', 'way', 'turkeyville', 'CA', '45678', NULL);
 
 COMMIT;
 
@@ -402,6 +403,7 @@ COMMIT;
 START TRANSACTION;
 USE `flavorscapedb`;
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (1, 'jacobs seafood shack', NULL, NULL, NULL, 1, 1, NULL);
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (2, 'athenas wonderland ', NULL, NULL, NULL, 2, 1, 'is only cotton candy');
 
 COMMIT;
 
