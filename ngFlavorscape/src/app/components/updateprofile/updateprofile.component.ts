@@ -64,9 +64,11 @@ export class UpdateprofileComponent implements OnInit {
     this.updateUser(this.currentUser);
 }
 
-deleteUser(userId: number) {
-  this.userService.destroyUser(userId).subscribe({
+deleteUser(user: User) {
+  console.log(user);
+  this.userService.destroyUser(user).subscribe({
     next: () => {
+      console.log(user);
       this.reload();
     },
     error:(sosad) =>

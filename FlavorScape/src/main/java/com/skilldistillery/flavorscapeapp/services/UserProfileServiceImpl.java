@@ -34,12 +34,13 @@ public class UserProfileServiceImpl implements UserProfileService {
 	}
 
 	@Override
-	public boolean userDelete(String username, int userId) {
+	public boolean userDelete(String username) {
 		boolean destroy = false;
 		User toDelete = userRepo.findByUsername(username);
 		if(toDelete  != null) {
 			toDelete.setEnabled(false);
 			destroy = true;
+			userRepo.saveAndFlush(toDelete);
 		}
 		return destroy;
 	}

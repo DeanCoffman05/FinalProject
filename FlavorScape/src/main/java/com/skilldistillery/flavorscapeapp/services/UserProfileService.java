@@ -6,5 +6,5 @@ public interface UserProfileService {
 
 	public User showLoggedInUser (String username);
 	public User userUpdate(String username, User user);
-	public boolean userDelete(String username, int userId);
+	public boolean userDelete(String username);
 }

@@ -57,8 +57,8 @@ export class UserService {
     );
   }
 
-destroyUser(userId: number): Observable<void> {
-  return this.http.delete<void>(this.url + '/' + userId, this.getHttpOptions()).pipe(
+destroyUser(user: User): Observable<User> {
+  return this.http.put<User>(this.url ,user, this.getHttpOptions()).pipe(
     catchError((err:any) => {
       console.log(err);
       return throwError(

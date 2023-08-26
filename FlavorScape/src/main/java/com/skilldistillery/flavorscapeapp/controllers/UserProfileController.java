@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +48,23 @@ public class UserProfileController {
 		}
 		return user;
 
+	}
+	
+	@PutMapping("users/profiles/delete")
+	public void destroyProfile(Principal principal, HttpServletRequest req, HttpServletResponse res
+			) {
+		try {
+			if(userProfileService.userDelete(principal.getName())) {
+				res.setStatus(204);
+				}
+			else {
+				res.setStatus(404);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.setStatus(400);
+		}
+		
 	}
 
 }
