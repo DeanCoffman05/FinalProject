@@ -9,6 +9,9 @@ import {Buffer} from 'buffer';
   providedIn: 'root'
 })
 export class AuthService {
+  getAuthToken() {
+    throw new Error('Method not implemented.');
+  }
   private url = environment.baseUrl;
 
 

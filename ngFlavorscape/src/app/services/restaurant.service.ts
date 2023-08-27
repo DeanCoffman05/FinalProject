@@ -14,7 +14,8 @@ private url = environment.baseUrl + "api/restaurants";
 
   constructor(
     private http: HttpClient,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
     ) { }
 
   index(): Observable<Restaurant[]> {

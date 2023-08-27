@@ -25,12 +25,14 @@ export class RestaurantComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('RestaurantComponent initialized.');
     this.reload();
     }
 
   reload() {
     this.restaurantService.index().subscribe ({
       next:(restaurants: Restaurant[]) => {
+        console.log('Received restaurants:', restaurants);
         this.restaurants = restaurants;
       },
       error:(fail) => {
