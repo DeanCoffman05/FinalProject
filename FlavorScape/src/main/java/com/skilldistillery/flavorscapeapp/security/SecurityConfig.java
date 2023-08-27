@@ -24,6 +24,8 @@ public class SecurityConfig {
         .antMatchers(HttpMethod.OPTIONS, "/api/**").permitAll() // For CORS, the preflight request
         .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()     // will hit the OPTIONS on the route
         .antMatchers(HttpMethod.GET, "/api/restaurants").permitAll()  // Allow fetching all restaurants without authentication
+        .antMatchers(HttpMethod.GET, "/api/restaurants/city/{city}").permitAll()  // Allow fetching all restaurants without authentication
+        .antMatchers(HttpMethod.GET, "/api/restaurants/state/{state}").permitAll()  // Allow fetching all restaurants without authentication
         .antMatchers("/api/**").authenticated() // Other requests to our REST API must be authorized.
         .anyRequest().permitAll()               // All other requests are allowed without authentication.
         .and()

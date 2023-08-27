@@ -12,6 +12,7 @@ import { Restaurant } from 'src/app/models/restaurant';
 })
 export class RestaurantComponent implements OnInit {
   restaurants: Restaurant[] = [];
+  restaurantSearchs: Restaurant[] = [];
   newRestaurant: Restaurant = new Restaurant();
   editRestaurant: Restaurant | null = null;
   selected: Restaurant | null = null;
@@ -57,6 +58,18 @@ export class RestaurantComponent implements OnInit {
         console.error('RestaurantComponent.updateRestaurant: error updating restaurant');
         console.error(fail);
       },
+    });
+  }
+
+  restaurantSearch(restaurantCitySearch: String){
+    this.restaurantService.citySearch(restaurantCitySearch).subscribe({
+
+      next: (restaurantSearchs: Restaurant[]) => {
+        console.log('Received restaurants:', restaurantSearchs);
+        this.restaurantSearchs = restaurantSearchs;
+      },
+      error: (fail) => {console.error('RestaurantComponent.searchByRestaurantCity: error finding restaurant');
+      console.error(fail);}
     });
   }
 

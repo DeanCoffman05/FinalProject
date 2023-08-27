@@ -14,16 +14,16 @@ import com.skilldistillery.flavorscapeapp.repositories.UserRepository;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService {
-	
+
 	@Autowired
 	private RestaurantRepository restaurantRepo;
-	
+
 	@Autowired
 	private UserRepository userRepo;
-	
+
 	@Autowired
 	private AddressRepository addressRepo;
-	
+
 	@Override
 	public List<Restaurant> index() {
 		return restaurantRepo.findAll();
@@ -32,10 +32,10 @@ public class RestaurantServiceImpl implements RestaurantService {
 	@Override
 	public Restaurant show(String username, int restaurantId) {
 		User user = userRepo.findByUsername(username);
-		if(user != null) {
+		if (user != null) {
 			Optional<Restaurant> restaurantOpt = restaurantRepo.findById(restaurantId);
 			Restaurant restaurant = null;
-			if(restaurantOpt.isPresent()) {
+			if (restaurantOpt.isPresent()) {
 				restaurant = restaurantOpt.get();
 			}
 			return restaurant;
@@ -46,38 +46,49 @@ public class RestaurantServiceImpl implements RestaurantService {
 	@Override
 	public Restaurant create(String username, Restaurant restaurant) {
 		User user = userRepo.findByUsername(username);
-		if(user != null ) {
-			
-		if(restaurant.getAddress() != null) {
-			addressRepo.save(restaurant.getAddress());
-		}
-		restaurant.setEnabled(true);
-		restaurantRepo.saveAndFlush(restaurant);
-		return restaurant;
+		if (user != null) {
+
+			if (restaurant.getAddress() != null) {
+				addressRepo.save(restaurant.getAddress());
+			}
+			restaurant.setEnabled(true);
+			restaurantRepo.saveAndFlush(restaurant);
+			return restaurant;
 		}
 		return null;
 	}
 
 	@Override
 	public Restaurant update(String username, int restaurantId, Restaurant restaurant) {
-	    User user = userRepo.findByUsername(username);
-	    if (user != null) {
-	        Optional<Restaurant> optRestaurant = restaurantRepo.findById(restaurantId);
-	        if (optRestaurant.isPresent()) {
-	            Restaurant existingRestaurant = optRestaurant.get();
-	            existingRestaurant.setName(restaurant.getName());
-	            existingRestaurant.setDescription(restaurant.getDescription());
-	            existingRestaurant.setAddress(restaurant.getAddress());
-	            return restaurantRepo.saveAndFlush(existingRestaurant);
-	        }
-	    }
-	    return null;
+		User user = userRepo.findByUsername(username);
+		if (user != null) {
+			Optional<Restaurant> optRestaurant = restaurantRepo.findById(restaurantId);
+			if (optRestaurant.isPresent()) {
+				Restaurant existingRestaurant = optRestaurant.get();
+				existingRestaurant.setName(restaurant.getName());
+				existingRestaurant.setDescription(restaurant.getDescription());
+				existingRestaurant.setAddress(restaurant.getAddress());
+				return restaurantRepo.saveAndFlush(existingRestaurant);
+			}
+		}
+		return null;
 	}
 
 	@Override
 	public boolean destroy(String username, int restaurantId) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<Restaurant> findCityByKeyword(String city) {
+
+		return restaurantRepo.findByAddressCity(city);
+	}
+
+	@Override
+	public List<Restaurant> findStateByKeyword(String state) {
+		return restaurantRepo.findByAddressState(state);
 	}
 
 }

@@ -28,6 +28,16 @@ private url = environment.baseUrl + "api/restaurants";
       })
     );
   }
+  citySearch(restaurantCitySearch: String): Observable<Restaurant[]> {
+    return this.http.get<Restaurant[]>(this.url + "/city/" + restaurantCitySearch).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError(
+          () => new Error('RestaurantService.index(): error retrieving Restaurant: ' + err)
+        );
+      })
+    );
+  }
 
   show(restaurantId: number): Observable<Restaurant> {
     return this.http.get<Restaurant>(this.url + '/' + restaurantId).pipe(

@@ -1,47 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
+    <style>
+      #container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-  <style>
-  #container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+      #map {
+        height: 80vh;
+        width: 80vh;
+        background-color: lightblue;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="citysearch">
+      <form>
+        <label for="city"> Search city here</label><br />
+        <input name="city" type="text" /><br />
 
-  #map {
-    height: 80vh;
-    width: 80vh;
-    background-color: lightblue;
-
-  }
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-
-  </style>
-</head>
-<body>
-  <div id="container" >
-    <div id="map">
-
+        <button (click)="restaurantSearch(restaurantsSearch)">search</button>
+      </form>
     </div>
-  </div>
-  <script>
-  function initMap() {
-    let mapOptions = {
-      center: new google.maps.LatLng('41.881832', '-87.62377'), // You can also use {lat: , lng: } to see the first point on the map.
-      zoom: 10
-    }
-    let map = new google.maps.Map(document.getElementById('map'),mapOptions);
-  }
-  </script>
-  <script src="https:/maps.googleapis.com/maps/api/js?key=AIzaSyAB45etyNdHcLaa1S0s97YUJHGPPXilS2Y&callback=initMap"></script>
-</body>
+    <div id="statesearch">
+      <form>
+        <label for="state"> Search state here</label><br />
+        <input name="state" type="text" /><br />
+
+        <button>search</button>
+      </form>
+    </div>
+    <div id="container">
+      <div id="map"></div>
+    </div>
+    <script>
+      function initMap() {
+        let mapOptions = {
+          center: new google.maps.LatLng("41.881832", "-87.62377"), // You can also use {lat: , lng: } to see the first point on the map.
+          zoom: 10,
+        };
+        let map = new google.maps.Map(
+          document.getElementById("map"),
+          mapOptions
+        );
+      }
+    </script>
+    <script src="https:/maps.googleapis.com/maps/api/js?key=AIzaSyAB45etyNdHcLaa1S0s97YUJHGPPXilS2Y&callback=initMap"></script>
+  </body>
 </html>
