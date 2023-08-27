@@ -50,7 +50,7 @@ private url = environment.baseUrl + "api/restaurants";
   }
 
   show(restaurantId: number): Observable<Restaurant> {
-    return this.http.get<Restaurant>(this.url + '/' + restaurantId).pipe(
+    return this.http.get<Restaurant>(this.url + '/' + restaurantId, this.userService.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError(
@@ -72,7 +72,7 @@ private url = environment.baseUrl + "api/restaurants";
   }
 
   updateRestaurant(updateRestaurant: Restaurant): Observable<Restaurant> {
-    return this.http.put<Restaurant>(this.url + '/' + updateRestaurant.id, updateRestaurant).pipe(
+    return this.http.put<Restaurant>(this.url + '/' + updateRestaurant.id, updateRestaurant, this.userService.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError(

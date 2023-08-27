@@ -42,6 +42,12 @@ export class RestaurantComponent implements OnInit {
       }
     });
   }
+  displayRestaurant(restaurant: any) {
+    this.selected = restaurant;
+  }
+  displayList() {
+    this.selected = null;
+  }
   setEditRestaurant() {
     this.editRestaurant = Object.assign({}, this.selected);
   }
@@ -61,16 +67,6 @@ export class RestaurantComponent implements OnInit {
     });
   }
 
-  restaurantSearch(restaurantCitySearch: String){
-    this.restaurantService.citySearch(restaurantCitySearch).subscribe({
 
-      next: (restaurantSearchs: Restaurant[]) => {
-        console.log('Received restaurants:', restaurantSearchs);
-        this.restaurantSearchs = restaurantSearchs;
-      },
-      error: (fail) => {console.error('RestaurantComponent.searchByRestaurantCity: error finding restaurant');
-      console.error(fail);}
-    });
-  }
 
 }
