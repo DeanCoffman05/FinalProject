@@ -1,45 +1,48 @@
-<h1>Restaurant</h1>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="h1-box bg-h1-box text-white text-center">
+        <h1>Restaurants</h1>
+      </div>
+      <div *ngIf="!selected" class="list-group list-group-light">
+        <!-- Restaurant list -->
+        <ul class="list-unstyled" *ngFor="let restaurant of restaurants">
+          <li (click)="displayRestaurant(restaurant)">
+            {{ restaurant.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="selected && !editRestaurant">
+        <!-- Display selected restaurant details -->
+        <h3>{{ selected.name }}</h3>
+        <p>{{ selected.description }}</p>
+        <p>{{ selected.restaurantUrl }}</p>
+        <p>{{ selected.phoneNumber }}</p>
+        <p>{{ selected.address.city }}</p>
+        <p>{{ selected.address.state }}</p>
 
-<div *ngIf="!selected" class="list-group list-group-light">
-  <!-- <button
-    type="button"
-    class="list-group-item list-group-item-action px-3 border-0 active"
-    aria-current="true"
-
-    >
-  </button> -->
-    <ul class="list-unstyled" *ngFor="let restaurant of restaurants">
-      <li (click)="displayRestaurant(restaurant)">
-        {{ restaurant.name }}
-      </li>
-    </ul>
-</div>
-<div id="showOneRestaurant" *ngIf="selected && !editRestaurant">
-
-
-  <h3>{{ selected.name }}</h3>
-  <p>{{ selected.description }}</p>
-  <p>{{ selected.restaurantUrl }}</p>
-  <p>{{ selected.phoneNumber }}</p>
-  <p>{{ selected.address.city }}</p>
-  <p>{{ selected.address.state }}</p>
-
-  <button class="btn btn-danger" (click)="displayList()">Back</button>
-  <button class="btn btn-primary" (click)="setEditRestaurant()">Edit</button>
-</div>
-<div *ngIf="editRestaurant">
-<form>
-  <h4>Edit ToDo #{{ editRestaurant.id }}</h4>
-  <label for="editTask">Name:</label>
-  <input type="text" name="editTask" [(ngModel)]="editRestaurant.name" /><br />
-  <label for="editDescription">Description:</label><br />
-  <textarea
-    name="editDescription"
-    [(ngModel)]="editRestaurant.description"
-  ></textarea
-  ><br />
-  <button class="btn btn-danger" (click)="editRestaurant = null">Cancel</button>
-  <button class="btn btn-success" (click)="updateRestaurant(editRestaurant)">Save</button>
-</form>
-
+        <button class="btn btn-danger" (click)="displayList()">Back</button>
+        <button class="btn btn-primary" (click)="setEditRestaurant()">Edit</button>
+      </div>
+      <div *ngIf="editRestaurant">
+        <!-- Edit restaurant form -->
+        <form>
+          <h4>Edit Restaurant #{{ editRestaurant.id }}</h4>
+          <label for="editTask">Name:</label>
+          <input type="text" name="editTask" [(ngModel)]="editRestaurant.name" /><br />
+          <label for="editDescription">Description:</label><br />
+          <textarea
+            name="editDescription"
+            [(ngModel)]="editRestaurant.description"
+          ></textarea
+          ><br />
+          <button class="btn btn-danger" (click)="editRestaurant = null">Cancel</button>
+          <button class="btn btn-success" (click)="updateRestaurant(editRestaurant)">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

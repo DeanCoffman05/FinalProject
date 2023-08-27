@@ -32,10 +32,10 @@
       <div class="col-md-6">
         <div class="card bg-custom-coral text-white">
           <div class="card-body">
-            <h5 class="card-title">Search by City</h5>
+            <h5 class="card-title">City</h5>
             <form>
               <div class="mb-3">
-                <label for="city">Search city here</label>
+                <label for="city">Search city here: </label>
                 <input name="city" type="text" [(ngModel)]="restaurantCitySearch" class="form-control" />
               </div>
               <button (click)="restaurantcitySearch(restaurantCitySearch)" class="btn btn-custom-blue">Search</button>
@@ -48,10 +48,10 @@
       <div class="col-md-6">
         <div class="card bg-custom-coral text-white">
           <div class="card-body">
-            <h5 class="card-title">Search by State</h5>
+            <h5 class="card-title">State</h5>
             <form>
               <div class="mb-3">
-                <label for="state">Search state here</label>
+                <label for="state">Search state here: </label>
                 <input name="state" type="text" [(ngModel)]="restaurantstateSearch" class="form-control" />
               </div>
               <button (click)="restaurantStateSearch(restaurantstateSearch)" class="btn btn-custom-blue">Search</button>
@@ -65,26 +65,6 @@
   <div id="container">
     <div id="map"></div>
   </div>
-  <!-- <body>
-    <div id="citysearch">
-      <form>
-        <label for="city"> Search city here</label><br />
-        <input name="city" type="text" [(ngModel)]="restaurantCitySearch"/><br />
-
-        <button (click)="restaurantcitySearch(restaurantCitySearch)">search</button>
-      </form>
-    </div>
-    <div id="statesearch">
-      <form>
-        <label for="state"> Search state here</label><br />
-        <input name="state" type="text" [(ngModel)]="restaurantstateSearch"/><br />
-
-        <button (click)="restaurantStateSearch(restaurantstateSearch)">search</button>
-      </form>
-    </div>
-    <div id="container">
-      <div id="map"></div>
-    </div> -->
     <script>
       function initMap() {
         let mapOptions = {

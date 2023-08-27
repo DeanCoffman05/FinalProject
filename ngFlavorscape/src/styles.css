@@ -21,3 +21,21 @@
   color: black;
 }
 
+.navbar-item {
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+
+.navbar-item:hover {
+  color: #ff9900;
+}
+
+.h1-box {
+  background-color: lightpink;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
