@@ -33,7 +33,17 @@ private url = environment.baseUrl + "api/restaurants";
       catchError((err: any) => {
         console.log(err);
         return throwError(
-          () => new Error('RestaurantService.index(): error retrieving Restaurant: ' + err)
+          () => new Error('RestaurantService.citySearch(): error retrieving Restaurant: ' + err)
+        );
+      })
+    );
+  }
+  stateSearch(restaurantStateSearch: String): Observable<Restaurant[]> {
+    return this.http.get<Restaurant[]>(this.url + "/city/" + restaurantStateSearch).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError(
+          () => new Error('RestaurantService.stateSearch(): error retrieving Restaurant: ' + err)
         );
       })
     );

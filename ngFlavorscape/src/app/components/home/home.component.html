@@ -29,17 +29,17 @@
     <div id="citysearch">
       <form>
         <label for="city"> Search city here</label><br />
-        <input name="city" type="text" /><br />
+        <input name="city" type="text" [(ngModel)]="restaurantCitySearch"/><br />
 
-        <button (click)="restaurantSearch(restaurantsSearch)">search</button>
+        <button (click)="restaurantcitySearch(restaurantCitySearch)">search</button>
       </form>
     </div>
     <div id="statesearch">
       <form>
         <label for="state"> Search state here</label><br />
-        <input name="state" type="text" /><br />
+        <input name="state" type="text" [(ngModel)]="restaurantstateSearch"/><br />
 
-        <button>search</button>
+        <button (click)="restaurantStateSearch(restaurantstateSearch)">search</button>
       </form>
     </div>
     <div id="container">

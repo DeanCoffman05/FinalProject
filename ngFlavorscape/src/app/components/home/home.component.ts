@@ -9,19 +9,33 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 })
 export class HomeComponent implements OnInit {
   restaurantSearchs: Restaurant[] = [];
-  restaurantsSearch: String = new String();
+  restaurantCitySearch: String = new String();
+  restaurantstateSearch: String = new String();
   constructor(private restaurantservice: RestaurantService) { }
 
   ngOnInit() {
   }
-  restaurantSearch(restaurantCitySearch: String){
+  restaurantcitySearch(restaurantCitySearch: String){
     console.log(restaurantCitySearch);
     this.restaurantservice.citySearch(restaurantCitySearch).subscribe({
 
       next: (restaurantSearchs: Restaurant[]) => {
-        console.log(restaurantSearchs);
-        console.log('Received restaurants:', restaurantSearchs);
-        this.restaurantSearchs = restaurantSearchs;
+        console.log(restaurantCitySearch);
+        console.log('Received restaurants:', restaurantCitySearch);
+        this.restaurantCitySearch = restaurantCitySearch;
+      },
+      error: (fail) => {console.error('RestaurantComponent.searchByRestaurantCity: error finding restaurant');
+      console.error(fail);}
+    });
+  }
+  restaurantStateSearch(restaurantstateSearch: String){
+    console.log(restaurantstateSearch);
+    this.restaurantservice.stateSearch(restaurantstateSearch).subscribe({
+
+      next: (restaurantSearchs: Restaurant[]) => {
+        console.log(restaurantstateSearch);
+        console.log('Received restaurants:', restaurantstateSearch);
+        this.restaurantstateSearch = restaurantstateSearch;
       },
       error: (fail) => {console.error('RestaurantComponent.searchByRestaurantCity: error finding restaurant');
       console.error(fail);}
