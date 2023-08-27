@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
       console.error(fail);}
     });
   }
+
   restaurantStateSearch(restaurantstateSearch: String){
     console.log(restaurantstateSearch);
     this.restaurantservice.stateSearch(restaurantstateSearch).subscribe({
