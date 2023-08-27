@@ -1,41 +1,64 @@
-<ul>
-  <form>
+<form class="mt-4">
+    <input type="hidden" name="id" [(ngModel)]="address.id"> <!-- Hidden input for 'id' -->
 
+    <!-- User Information -->
+    <div class="mb-3">
+      <label for="username" class="form-label">User Name:</label>
+      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="newUser.username">
+    </div>
 
-  <input type="hidden" name="id" [(ngModel)]="address.id"> <br>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name:</label>
+          <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="newUser.firstName">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name:</label>
+          <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="newUser.lastName">
+        </div>
+      </div>
+    </div>
 
-  <label for="username">User Name: </label>
-  <input type="text" name="username" [(ngModel)]="newUser.username"> <br>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="text" class="form-control" id="email" name="email" [(ngModel)]="newUser.email">
+    </div>
 
-  <label for="firstName">First Name: </label>
-  <input type="text" name="firstName" [(ngModel)]="newUser.firstName"> <br>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password:</label>
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="newUser.password">
+    </div>
 
-  <label for="lastName">Last Name: </label>
-  <input type="text" name="lastName" [(ngModel)]="newUser.lastName"> <br>
+    <!-- Address Information -->
+    <div class="mb-3">
+      <label class="form-label">Address:</label>
+      <input type="text" class="form-control" name="street" [(ngModel)]="address.street" placeholder="Street">
+    </div>
 
-  <label for="email">Email: </label>
-  <input type="text" name="email" [(ngModel)]="newUser.email"> <br>
+    <div class="mb-3">
+      <input type="text" class="form-control" name="street2" [(ngModel)]="address.street2" placeholder="Street 2">
+    </div>
 
-  <label for="password">Password: </label>
-  <input type="text" name="password" [(ngModel)]="newUser.password"> <br>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <input type="text" class="form-control" name="city" [(ngModel)]="address.city" placeholder="City">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <input type="text" class="form-control" name="state" [(ngModel)]="address.state" placeholder="State">
+        </div>
+      </div>
+    </div>
 
-  <label for="street">Street: </label>
-  <input type="text" name="street" [(ngModel)]="address.street"> <br>
+    <div class="mb-3">
+      <label for="zipcode" class="form-label">Zip Code:</label>
+      <input type="text" class="form-control" id="zipcode" name="zipcode" [(ngModel)]="address.zipcode">
+    </div>
 
-  <label for="street2">Street :</label>
-  <input type="text" name="street2" [(ngModel)]="address.street2"> <br>
-
-  <label for="city">City: </label>
-  <input type="text" name="city" [(ngModel)]="address.city"> <br>
-
-  <label for="state">State :</label>
-  <input type="text" name="state" [(ngModel)]="address.state"> <br>
-
-  <label for="zipcode">Zip Code :</label>
-  <input type="text" name="zipcode" [(ngModel)]="address.zipcode"> <br>
-
-
-  <button (click)="register(newUser)"> Register An Account</button>
+    <button type="button" class="btn btn-primary" (click)="register(newUser)">Register An Account</button>
   </form>
-
-  </ul>

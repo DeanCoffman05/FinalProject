@@ -1,1 +1,9 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+.navbar-custom-gradient {
+  background-image: linear-gradient(to right, #e31146, #ef9199);
+
+}
+.custom-font-color {
+  color: #0a0a0a;
+}

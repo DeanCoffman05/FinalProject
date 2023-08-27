@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'restaurant', component: RestaurantComponent},
   { path: '**', component: NotFoundComponent },
 
+
 ];
 
 @NgModule({
