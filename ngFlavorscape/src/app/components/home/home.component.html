@@ -25,7 +25,47 @@
       }
     </style>
   </head>
-  <body>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <!-- City Search Card -->
+      <div class="col-md-6">
+        <div class="card bg-custom-coral text-white">
+          <div class="card-body">
+            <h5 class="card-title">Search by City</h5>
+            <form>
+              <div class="mb-3">
+                <label for="city">Search city here</label>
+                <input name="city" type="text" [(ngModel)]="restaurantCitySearch" class="form-control" />
+              </div>
+              <button (click)="restaurantcitySearch(restaurantCitySearch)" class="btn btn-custom-blue">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- State Search Card -->
+      <div class="col-md-6">
+        <div class="card bg-custom-coral text-white">
+          <div class="card-body">
+            <h5 class="card-title">Search by State</h5>
+            <form>
+              <div class="mb-3">
+                <label for="state">Search state here</label>
+                <input name="state" type="text" [(ngModel)]="restaurantstateSearch" class="form-control" />
+              </div>
+              <button (click)="restaurantStateSearch(restaurantstateSearch)" class="btn btn-custom-blue">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="container">
+    <div id="map"></div>
+  </div>
+  <!-- <body>
     <div id="citysearch">
       <form>
         <label for="city"> Search city here</label><br />
@@ -44,7 +84,7 @@
     </div>
     <div id="container">
       <div id="map"></div>
-    </div>
+    </div> -->
     <script>
       function initMap() {
         let mapOptions = {

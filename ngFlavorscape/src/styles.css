@@ -7,3 +7,17 @@
 .custom-font-color {
   color: #0a0a0a;
 }
+
+.bg-custom-pink {
+  background-color: pink;
+}
+
+.bg-custom-coral {
+  background-color: coral;
+}
+
+.btn-custom-blue {
+  background-color: white;
+  color: black;
+}
+
