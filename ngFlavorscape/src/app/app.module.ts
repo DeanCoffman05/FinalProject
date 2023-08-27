@@ -15,6 +15,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UpdateprofileComponent } from './components/updateprofile/updateprofile.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
+import { MapComponent } from './components/map/map.component';
+
 
 @NgModule({
   declarations: [
@@ -29,13 +31,15 @@ import { RestaurantComponent } from './components/restaurant/restaurant.componen
     NavBarComponent,
     ProfileComponent,
     UpdateprofileComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
