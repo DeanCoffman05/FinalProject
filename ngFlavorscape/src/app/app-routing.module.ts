@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UpdateprofileComponent } from './components/updateprofile/updateprofile.component';
+import { RestaurantComponent } from './components/restaurant/restaurant.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'updateprofile', component: UpdateprofileComponent},
+  { path: 'restaurant', component: RestaurantComponent},
   { path: '**', component: NotFoundComponent },
 
 ];

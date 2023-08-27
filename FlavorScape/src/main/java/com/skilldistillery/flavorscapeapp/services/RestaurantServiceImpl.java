@@ -60,8 +60,18 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public Restaurant update(String username, int restaurantId, Restaurant restaurant) {
-		// TODO Auto-generated method stub
-		return null;
+	    User user = userRepo.findByUsername(username);
+	    if (user != null) {
+	        Optional<Restaurant> optRestaurant = restaurantRepo.findById(restaurantId);
+	        if (optRestaurant.isPresent()) {
+	            Restaurant existingRestaurant = optRestaurant.get();
+	            existingRestaurant.setName(restaurant.getName());
+	            existingRestaurant.setDescription(restaurant.getDescription());
+	            existingRestaurant.setAddress(restaurant.getAddress());
+	            return restaurantRepo.saveAndFlush(existingRestaurant);
+	        }
+	    }
+	    return null;
 	}
 
 	@Override

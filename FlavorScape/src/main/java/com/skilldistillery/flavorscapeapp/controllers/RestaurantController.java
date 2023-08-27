@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,7 +45,7 @@ public class RestaurantController {
 	}
 
 	@PostMapping("restaurants")
-	public Restaurant addRestaurant(HttpServletResponse res, HttpServletRequest req, Principal principal, 
+	public Restaurant addRestaurant(HttpServletResponse res, HttpServletRequest req, Principal principal,
 			@RequestBody Restaurant restaurant) {
 		restaurant = restaurantService.create(principal.getName(), restaurant);
 		if(restaurant == null) {
@@ -54,5 +55,20 @@ public class RestaurantController {
 		}return restaurant;
 
 	}
+	@PutMapping("restaurants/{id}") 
+	public Restaurant updateRestaurant(HttpServletResponse res, HttpServletRequest req, Principal principal, 
+			@RequestBody Restaurant restaurant,
+			@PathVariable Integer id) {
+		try {
+			restaurant = restaurantService.update(principal.getName(), id, restaurant);
+			res.setStatus(404);
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.setStatus(400);
+			restaurant = null;
+		}
+		return restaurant;
+	}
+	
 	
 }
