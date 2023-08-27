@@ -86,7 +86,7 @@ public class RestaurantController {
 			@RequestBody Restaurant restaurant, @PathVariable Integer id) {
 		try {
 			restaurant = restaurantService.update(principal.getName(), id, restaurant);
-			res.setStatus(404);
+			res.setStatus(200);
 		} catch (Exception e) {
 			e.printStackTrace();
 			res.setStatus(400);
