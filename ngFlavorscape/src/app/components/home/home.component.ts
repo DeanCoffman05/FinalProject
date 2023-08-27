@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Restaurant } from 'src/app/models/restaurant';
 import { RestaurantService } from 'src/app/services/restaurant.service';
 
@@ -11,10 +12,11 @@ export class HomeComponent implements OnInit {
   restaurantSearchs: Restaurant[] = [];
   restaurantCitySearch: String = new String();
   restaurantstateSearch: String = new String();
-  constructor(private restaurantservice: RestaurantService) { }
+  constructor(private restaurantservice: RestaurantService, private router: Router) { }
 
   ngOnInit() {
   }
+
   restaurantcitySearch(restaurantCitySearch: String){
     console.log(restaurantCitySearch);
     this.restaurantservice.citySearch(restaurantCitySearch).subscribe({
@@ -23,6 +25,7 @@ export class HomeComponent implements OnInit {
         console.log(restaurantCitySearch);
         console.log('Received restaurants:', restaurantCitySearch);
         this.restaurantCitySearch = restaurantCitySearch;
+
       },
       error: (fail) => {console.error('RestaurantComponent.searchByRestaurantCity: error finding restaurant');
       console.error(fail);}
