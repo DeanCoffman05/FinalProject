@@ -6,9 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.flavorscapeapp.entities.Menu;
+import com.skilldistillery.flavorscapeapp.entities.MenuItem;
 import com.skilldistillery.flavorscapeapp.entities.Restaurant;
 import com.skilldistillery.flavorscapeapp.entities.User;
 import com.skilldistillery.flavorscapeapp.repositories.AddressRepository;
+import com.skilldistillery.flavorscapeapp.repositories.MenuItemRepository;
+import com.skilldistillery.flavorscapeapp.repositories.MenuRepository;
 import com.skilldistillery.flavorscapeapp.repositories.RestaurantRepository;
 import com.skilldistillery.flavorscapeapp.repositories.UserRepository;
 
@@ -23,6 +27,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Autowired
 	private AddressRepository addressRepo;
+
+	@Autowired
+	private MenuRepository menuRepo;
+
+	@Autowired
+	private MenuItemRepository menuItemRepo;
 
 	@Override
 	public List<Restaurant> index() {
@@ -73,7 +83,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 				existingRestaurant.getAddress().setState(restaurant.getAddress().getState());
 				existingRestaurant.getAddress().setZipcode(restaurant.getAddress().getZipcode());
 				existingRestaurant.getAddress().setCountry(restaurant.getAddress().getCountry());
-				
+
 				return restaurantRepo.saveAndFlush(existingRestaurant);
 			}
 		}
@@ -94,6 +104,36 @@ public class RestaurantServiceImpl implements RestaurantService {
 	@Override
 	public List<Restaurant> findStateByKeyword(String state) {
 		return restaurantRepo.findByAddressState(state);
+	}
+
+	@Override
+	public List<MenuItem> createFavorite(String username, MenuItem menuItem) {
+		User user = userRepo.findByUsername(username);
+		if (user != null) {
+			List<Menu> menus = getMenuForRestaurant(menuItem.getMenu().getRestaurant().getId());
+			if (menus != null && !menus.isEmpty()) {
+				for (Menu menu : menus) {
+					menuItem.setMenu(menu);
+					menuItemRepo.save(menuItem);
+				}
+				
+				return getMenuItemsForRestaurant(menuItem.getMenu().getRestaurant().getId());
+			}
+		}
+		return null;
+	}
+
+	public List<MenuItem> getMenuItemsForRestaurant(int restaurantId) {
+		return menuItemRepo.findByMenu_RestaurantId(restaurantId);
+	}
+
+	public List<Menu> getMenuForRestaurant(int restaurantId) {
+		Optional<Restaurant> restaurantOpt = restaurantRepo.findById(restaurantId);
+		if (restaurantOpt.isPresent()) {
+			Restaurant restaurant = restaurantOpt.get();
+			return restaurant.getMenus();
+		}
+		return null;
 	}
 
 }
