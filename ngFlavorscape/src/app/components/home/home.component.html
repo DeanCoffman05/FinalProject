@@ -36,9 +36,9 @@
             <form>
               <div class="mb-3">
                 <label for="city">Search city here: </label>
-                <input name="city" type="text" [(ngModel)]="restaurantCitySearch" class="form-control" />
+                <input name="city" type="text" [(ngModel)]="citySearchInput" class="form-control" />
               </div>
-              <button (click)="restaurantcitySearch(restaurantCitySearch)" class="btn btn-custom-blue">Search</button>
+              <button (click)="restaurantcitySearch()" class="btn btn-custom-blue">Search</button>
             </form>
           </div>
         </div>
@@ -52,9 +52,9 @@
             <form>
               <div class="mb-3">
                 <label for="state">Search state here: </label>
-                <input name="state" type="text" [(ngModel)]="restaurantstateSearch" class="form-control" />
+                <input name="state" type="text" [(ngModel)]="stateSearchInput" class="form-control" />
               </div>
-              <button (click)="restaurantStateSearch(restaurantstateSearch)" class="btn btn-custom-blue">Search</button>
+               <button (click)="restaurantStateSearch()" class="btn btn-custom-blue">Search</button>
             </form>
           </div>
         </div>
