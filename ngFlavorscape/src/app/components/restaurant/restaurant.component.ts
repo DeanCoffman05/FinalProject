@@ -12,6 +12,7 @@ import { Restaurant } from 'src/app/models/restaurant';
 })
 export class RestaurantComponent implements OnInit {
   restaurants: Restaurant[] = [];
+  restaurantSearchs: Restaurant[] = [];
   newRestaurant: Restaurant = new Restaurant();
   editRestaurant: Restaurant | null = null;
   selected: Restaurant | null = null;
@@ -25,12 +26,14 @@ export class RestaurantComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('RestaurantComponent initialized.');
     this.reload();
     }
 
   reload() {
     this.restaurantService.index().subscribe ({
       next:(restaurants: Restaurant[]) => {
+        console.log('Received restaurants:', restaurants);
         this.restaurants = restaurants;
       },
       error:(fail) => {
@@ -38,6 +41,12 @@ export class RestaurantComponent implements OnInit {
         console.error(fail);
       }
     });
+  }
+  displayRestaurant(restaurant: any) {
+    this.selected = restaurant;
+  }
+  displayList() {
+    this.selected = null;
   }
   setEditRestaurant() {
     this.editRestaurant = Object.assign({}, this.selected);
@@ -57,5 +66,7 @@ export class RestaurantComponent implements OnInit {
       },
     });
   }
+
+
 
 }

@@ -1,47 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
+    <style>
+      #container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-  <style>
-  #container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #map {
-    height: 80vh;
-    width: 80vh;
-    background-color: lightblue;
-
-  }
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-
-  </style>
-</head>
+      #map {
+        height: 80vh;
+        width: 80vh;
+        background-color: lightblue;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
 <body>
-  <div id="container" >
-    <div id="map">
+  <div class="container mt-5">
+    <div class="row">
+      <!-- City Search Card -->
+      <div class="col-md-6">
+        <div class="card bg-custom-coral text-white">
+          <div class="card-body">
+            <h5 class="card-title">City</h5>
+            <form>
+              <div class="mb-3">
+                <label for="city">Search city here: </label>
+                <input name="city" type="text" [(ngModel)]="restaurantCitySearch" class="form-control" />
+              </div>
+              <button (click)="restaurantcitySearch(restaurantCitySearch)" class="btn btn-custom-blue">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
 
+      <!-- State Search Card -->
+      <div class="col-md-6">
+        <div class="card bg-custom-coral text-white">
+          <div class="card-body">
+            <h5 class="card-title">State</h5>
+            <form>
+              <div class="mb-3">
+                <label for="state">Search state here: </label>
+                <input name="state" type="text" [(ngModel)]="restaurantstateSearch" class="form-control" />
+              </div>
+              <button (click)="restaurantStateSearch(restaurantstateSearch)" class="btn btn-custom-blue">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <script>
-  function initMap() {
-    let mapOptions = {
-      center: new google.maps.LatLng('41.881832', '-87.62377'), // You can also use {lat: , lng: } to see the first point on the map.
-      zoom: 10
-    }
-    let map = new google.maps.Map(document.getElementById('map'),mapOptions);
-  }
-  </script>
-  <script src="https:/maps.googleapis.com/maps/api/js?key=AIzaSyAB45etyNdHcLaa1S0s97YUJHGPPXilS2Y&callback=initMap"></script>
-</body>
+
+  <div id="container">
+    <div id="map"></div>
+  </div>
+    <script>
+      function initMap() {
+        let mapOptions = {
+          center: new google.maps.LatLng("41.881832", "-87.62377"), // You can also use {lat: , lng: } to see the first point on the map.
+          zoom: 10,
+        };
+        let map = new google.maps.Map(
+          document.getElementById("map"),
+          mapOptions
+        );
+      }
+    </script>
+    <script src="https:/maps.googleapis.com/maps/api/js?key=AIzaSyAB45etyNdHcLaa1S0s97YUJHGPPXilS2Y&callback=initMap"></script>
+  </body>
 </html>

@@ -1,1 +1,41 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+.navbar-custom-gradient {
+  background-image: linear-gradient(to right, #e31146, #ef9199);
+
+}
+.custom-font-color {
+  color: #0a0a0a;
+}
+
+.bg-custom-pink {
+  background-color: pink;
+}
+
+.bg-custom-coral {
+  background-color: coral;
+}
+
+.btn-custom-blue {
+  background-color: white;
+  color: black;
+}
+
+.navbar-item {
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+
+.navbar-item:hover {
+  color: #ff9900;
+}
+
+.h1-box {
+  background-color: lightpink;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}

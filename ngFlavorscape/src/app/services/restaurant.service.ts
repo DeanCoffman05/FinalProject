@@ -14,7 +14,8 @@ private url = environment.baseUrl + "api/restaurants";
 
   constructor(
     private http: HttpClient,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
     ) { }
 
   index(): Observable<Restaurant[]> {
@@ -23,6 +24,26 @@ private url = environment.baseUrl + "api/restaurants";
         console.log(err);
         return throwError(
           () => new Error('RestaurantService.index(): error retrieving Restaurant: ' + err)
+        );
+      })
+    );
+  }
+  citySearch(restaurantCitySearch: String): Observable<Restaurant[]> {
+    return this.http.get<Restaurant[]>(this.url + "/city/" + restaurantCitySearch).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError(
+          () => new Error('RestaurantService.citySearch(): error retrieving Restaurant: ' + err)
+        );
+      })
+    );
+  }
+  stateSearch(restaurantStateSearch: String): Observable<Restaurant[]> {
+    return this.http.get<Restaurant[]>(this.url + "/city/" + restaurantStateSearch).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError(
+          () => new Error('RestaurantService.stateSearch(): error retrieving Restaurant: ' + err)
         );
       })
     );

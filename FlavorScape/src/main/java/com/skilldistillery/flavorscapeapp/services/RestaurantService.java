@@ -11,5 +11,6 @@ public interface RestaurantService {
 	public Restaurant create(String username, Restaurant restaurant);
 	public Restaurant update(String username, int restaurantId, Restaurant restaurant);
 	public boolean destroy(String username, int restaurantId);
-
+	public List<Restaurant> findCityByKeyword(String city);
+	public List<Restaurant> findStateByKeyword(String state);
 }

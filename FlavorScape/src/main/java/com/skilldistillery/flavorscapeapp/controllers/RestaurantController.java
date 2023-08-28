@@ -23,48 +23,71 @@ import com.skilldistillery.flavorscapeapp.services.RestaurantService;
 @RequestMapping("api")
 @CrossOrigin({ "*", "http://localhost/" })
 public class RestaurantController {
-	
+
 	@Autowired
 	private RestaurantService restaurantService;
-	
-	
 
 
 	@GetMapping("restaurants")
-	public List<Restaurant> showAll(){
+	public List<Restaurant> showAll() {
 		return restaurantService.index();
 	}
-	
-	@GetMapping("restaurants/{id}")
-	public Restaurant show(HttpServletResponse res, Principal principal, 
-			@PathVariable Integer id) {
-		
-		Restaurant restaurant = restaurantService.show(principal.getName(), id);
-		if(restaurant == null) {
+
+	@GetMapping("restaurants/city/{city}")
+	public List<Restaurant> findCityByKeyword(HttpServletResponse res, @PathVariable String city) {
+
+		List<Restaurant> restaurants = restaurantService.findCityByKeyword(city);
+
+		if (restaurants == null) {
 			res.setStatus(404);
 		}
-				return restaurant;
+
+		return restaurants;
+
+	}
+	@GetMapping("restaurants/state/{state}")
+	public List<Restaurant> findStateByKeyword(HttpServletResponse res, @PathVariable String state) {
 		
+		List<Restaurant> restaurants = restaurantService.findStateByKeyword(state);
+		
+		if (restaurants == null) {
+			res.setStatus(404);
+		}
+		
+		return restaurants;
+		
+	}
+
+	@GetMapping("restaurants/{id}")
+	public Restaurant show(HttpServletResponse res, Principal principal, @PathVariable Integer id) {
+
+		Restaurant restaurant = restaurantService.show(principal.getName(), id);
+		if (restaurant == null) {
+			res.setStatus(404);
+		}
+		return restaurant;
+
 	}
 
 	@PostMapping("restaurants")
 	public Restaurant addRestaurant(HttpServletResponse res, HttpServletRequest req, Principal principal,
 			@RequestBody Restaurant restaurant) {
 		restaurant = restaurantService.create(principal.getName(), restaurant);
-		if(restaurant == null) {
+		if (restaurant == null) {
 			res.setStatus(401);
 		} else {
 			res.setStatus(201);
-		}return restaurant;
+		}
+		return restaurant;
 
 	}
-	@PutMapping("restaurants/{id}") 
-	public Restaurant updateRestaurant(HttpServletResponse res, HttpServletRequest req, Principal principal, 
-			@RequestBody Restaurant restaurant,
-			@PathVariable Integer id) {
+
+	@PutMapping("restaurants/{id}")
+	public Restaurant updateRestaurant(HttpServletResponse res, HttpServletRequest req, Principal principal,
+			@RequestBody Restaurant restaurant, @PathVariable Integer id) {
 		try {
 			restaurant = restaurantService.update(principal.getName(), id, restaurant);
-			res.setStatus(404);
+			res.setStatus(200);
 		} catch (Exception e) {
 			e.printStackTrace();
 			res.setStatus(400);
@@ -72,6 +95,5 @@ public class RestaurantController {
 		}
 		return restaurant;
 	}
-	
-	
+
 }
