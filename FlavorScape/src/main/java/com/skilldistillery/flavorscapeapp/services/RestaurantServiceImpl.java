@@ -82,8 +82,22 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public boolean destroy(String username, int restaurantId) {
-		// TODO Auto-generated method stub
-		return false;
+		User user = userRepo.findByUsername(username);		
+		boolean destroy = false;
+		if(user != null) {
+			Optional<Restaurant> optRestaurant = restaurantRepo.findById(restaurantId);
+			if(optRestaurant.isPresent()) {
+				Restaurant restaurantToDelete = optRestaurant.get();
+				if(restaurantToDelete != null) {
+					restaurantToDelete.setEnabled(false);
+					destroy = true;
+					restaurantRepo.saveAndFlush(restaurantToDelete);
+				}
+			}
+			
+		}
+		
+		return destroy;
 	}
 
 	@Override
