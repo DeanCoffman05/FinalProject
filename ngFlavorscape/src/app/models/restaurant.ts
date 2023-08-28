@@ -1,4 +1,5 @@
 import { Address } from "./address";
+import { Menu } from "./menu";
 
 export class Restaurant {
   id: number;
@@ -9,6 +10,7 @@ export class Restaurant {
   description: string;
   phoneNumber: string;
   address: Address;
+  menus: Menu [];
 
   constructor(
     id: number = 0,
@@ -18,7 +20,8 @@ export class Restaurant {
     imageUrl: string = '',
     description: string = '',
     phoneNumber: string = '',
-    address: Address = new Address()
+    address: Address = new Address(),
+    menus: Menu [] = []
   ){
     this.id = id;
     this.name = name;
@@ -28,5 +31,6 @@ export class Restaurant {
     this.description = description;
     this.phoneNumber = phoneNumber;
     this.address = address;
+    this.menus = menus;
   }
 }
