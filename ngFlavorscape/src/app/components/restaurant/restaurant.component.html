@@ -69,11 +69,15 @@
           <div class="col-md-6">
             <label for="latitude" class="form-label">Latitude:</label>
             <input type="text" class="form-control" id="latitude" name="latitude" [(ngModel)]="address.latitude">
-          </div> <div class="col-md-6">
+          </div>
+          <div class="col-md-6">
             <label for="longitude" class="form-label">Longitude:</label>
             <input type="text" class="form-control" id="longitude" name="longitude" [(ngModel)]="address.longitude">
           </div>
-          <button class="btn btn-primary" (click)="addRestaurant(newRestaurant)">Add a new Flavor</button>
+          <div class="col-12">
+
+            <button type="button" class="btn btn-primary" (click)="addRestaurant(newRestaurant)">Add a new Flavor</button>
+          </div>
         </form>
 
       </div>
@@ -85,6 +89,7 @@
         <p>{{ selected.description }}</p>
         <p>{{ selected.restaurantUrl }}</p>
         <p>{{ selected.phoneNumber }}</p>
+        <p>{{ selected.imageUrl }}</p>
         <p>{{ selected.address.street }}</p>
         <p>{{ selected.address.city }}</p>
         <p>{{ selected.address.state }}</p>
@@ -102,12 +107,21 @@
           <input type="text" name="editTask" [(ngModel)]="editRestaurant.name" /><br />
           <label for="editDescription">Description:</label><br />
           <textarea
-            name="editDescription"
-            [(ngModel)]="editRestaurant.description"
+          name="editDescription"
+          [(ngModel)]="editRestaurant.description"
           ></textarea
           ><br />
-          <button class="btn btn-danger" (click)="editRestaurant = null">Cancel</button>
-          <button class="btn btn-success" (click)="updateRestaurant(editRestaurant)">Save</button>
+          <label for="editWebstie">Webstie:</label>
+          <input type="text" name="editWebstie" [(ngModel)]="editRestaurant.restaurantUrl" /><br />
+          <label for="editphoneNumber">Phone Number:</label>
+          <input type="text" name="editphoneNumber" [(ngModel)]="editRestaurant.phoneNumber" /><br />
+          <label for="editimageUrl">image:</label>
+          <input type="text" name="editimageUrl" [(ngModel)]="editRestaurant.imageUrl" /><br />
+          <div class="d-grid gap-2 d-md-block">
+
+            <button class="btn btn-danger " (click)="editRestaurant = null">Cancel</button>
+            <button class="btn btn-success" (click)="updateRestaurant(editRestaurant)">Save</button>
+          </div>
         </form>
       </div>
     </div>
