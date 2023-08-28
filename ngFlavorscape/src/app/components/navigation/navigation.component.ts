@@ -11,8 +11,10 @@ export class NavigationComponent implements OnInit {
   constructor (
     private auth: AuthService,
     private router: Router) {}
+
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
 get isLoggedIn(): boolean {

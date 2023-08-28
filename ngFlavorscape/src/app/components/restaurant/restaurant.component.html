@@ -24,8 +24,8 @@
         <p>{{ selected.address.city }}</p>
         <p>{{ selected.address.state }}</p>
 
-        <button class="btn btn-danger" (click)="displayList()">Back</button>
-        <button class="btn btn-primary" (click)="setEditRestaurant()">Edit</button>
+        <button class="btn btn-custom-blue" (click)="displayList()">Back</button>
+        <button class="btn btn-custom-blue" (click)="setEditRestaurant()">Edit</button>
       </div>
       <div *ngIf="editRestaurant">
         <!-- Edit restaurant form -->
@@ -39,8 +39,8 @@
             [(ngModel)]="editRestaurant.description"
           ></textarea
           ><br />
-          <button class="btn btn-danger" (click)="editRestaurant = null">Cancel</button>
-          <button class="btn btn-success" (click)="updateRestaurant(editRestaurant)">Save</button>
+          <button class="btn btn-custom-blue" (click)="editRestaurant = null">Cancel</button>
+          <button class="btn btn-custom-blue" (click)="updateRestaurant(editRestaurant)">Save</button>
         </form>
       </div>
     </div>

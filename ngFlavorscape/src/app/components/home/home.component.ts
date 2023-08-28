@@ -10,39 +10,40 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 })
 export class HomeComponent implements OnInit {
   restaurantSearchs: Restaurant[] = [];
-  restaurantCitySearch: String = new String();
-  restaurantstateSearch: String = new String();
+  restaurantCitySearch: Restaurant[] = [];
+  restaurantstateSearch: Restaurant[] = []; // Initialize as an empty string
+  citySearchInput: string = ''; // Rename the variable
+  stateSearchInput: string = '';
   constructor(private restaurantservice: RestaurantService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  restaurantcitySearch(restaurantCitySearch: String){
-    console.log(restaurantCitySearch);
-    this.restaurantservice.citySearch(restaurantCitySearch).subscribe({
-
-      next: (restaurantSearchs: Restaurant[]) => {
-        console.log(restaurantCitySearch);
-        console.log('Received restaurants:', restaurantCitySearch);
-        this.restaurantCitySearch = restaurantCitySearch;
-
+  restaurantcitySearch() { // Remove the argument as it's not needed
+    console.log(this.citySearchInput); // Use this.citySearchInput
+    this.restaurantservice.citySearch(this.citySearchInput).subscribe({
+      next: (restaurants: Restaurant[]) => {
+        console.log('Received restaurants:', restaurants);
+        this.restaurantCitySearch = restaurants;
       },
-      error: (fail) => {console.error('RestaurantComponent.searchByRestaurantCity: error finding restaurant');
-      console.error(fail);}
+      error: (fail) => {
+        console.error('RestaurantComponent.searchByRestaurantCity: error finding restaurant');
+        console.error(fail);
+      }
     });
   }
 
-  restaurantStateSearch(restaurantstateSearch: String){
-    console.log(restaurantstateSearch);
-    this.restaurantservice.stateSearch(restaurantstateSearch).subscribe({
-
-      next: (restaurantSearchs: Restaurant[]) => {
-        console.log(restaurantstateSearch);
-        console.log('Received restaurants:', restaurantstateSearch);
-        this.restaurantstateSearch = restaurantstateSearch;
+  restaurantStateSearch(){
+    console.log(this.stateSearchInput);
+    this.restaurantservice.stateSearch(this.stateSearchInput).subscribe({
+      next: (restaurants: Restaurant[]) => {
+        console.log('Received restaurants:', restaurants);
+        this.restaurantstateSearch = restaurants;
       },
-      error: (fail) => {console.error('RestaurantComponent.searchByRestaurantCity: error finding restaurant');
-      console.error(fail);}
+      error: (fail) => {
+        console.error('RestaurantComponent.searchByRestaurantState: error finding restaurant');
+        console.error(fail);
+      }
     });
   }
 
