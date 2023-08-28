@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
       }
     });
   }
-
   restaurantStateSearch(){
     console.log(this.stateSearchInput);
     this.restaurantservice.stateSearch(this.stateSearchInput).subscribe({
