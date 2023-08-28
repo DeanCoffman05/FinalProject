@@ -12,6 +12,8 @@ export class User {
   imageUrl: string;
   aboutMe: string;
   address: Address;
+  latitude: number;
+  longitude: number;
 
   constructor(
     id: number = 0,
@@ -24,7 +26,9 @@ export class User {
     enabled: boolean = false,
     imageUrl: string = '',
     aboutMe: string = '',
-    address: Address = new Address()
+    address: Address = new Address(),
+    latitude: number = 0,
+    longitude: number = 0
   ){
     this.id = id;
     this.username = username;
@@ -37,6 +41,8 @@ export class User {
     this.imageUrl = imageUrl;
     this.aboutMe = aboutMe;
     this.address = address;
+    this.latitude = latitude;
+    this.longitude = longitude;
   }
 
 }

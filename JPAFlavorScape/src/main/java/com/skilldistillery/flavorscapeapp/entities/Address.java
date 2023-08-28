@@ -21,6 +21,8 @@ public class Address {
 	private String state;
 	private String zipcode;
 	private String country;
+	private String latitude;
+	private String longitude;
 
 	@OneToOne(mappedBy = "address")
 	@JsonIgnore
@@ -104,6 +106,23 @@ public class Address {
 
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
+	}
+	
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 
 	@Override
