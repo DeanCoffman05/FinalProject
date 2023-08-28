@@ -15,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "menu_item")
 public class MenuItem {
@@ -29,14 +32,15 @@ public class MenuItem {
 	private String description;
 	private int calories;
 	private boolean enabled;
-
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "menuItem")
 	private List<MenuItemReview> menuItemReviews;
 
 	@ManyToOne
 	@JoinColumn(name = "menu_id")
 	private Menu menu;
-
+	@JsonIgnoreProperties({"menuItems"})
 	@ManyToMany(mappedBy = "menuItems")
 	private List<Cuisine> cuisines;
 
