@@ -1,4 +1,4 @@
-	package com.skilldistillery.flavorscapeapp.entities;
+package com.skilldistillery.flavorscapeapp.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,21 +14,83 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Menu {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String type; 
-	private boolean enabled; 
+	private String type;
+	private boolean enabled;
 	private String description;
 	
-	
+	@JsonIgnoreProperties({"menu"})
 	@OneToMany(mappedBy = "menu")
 	private List<MenuItem> menuItems;
-	
-	
+
+	@ManyToOne
+	@JoinColumn(name = "restaurant_id")
+	private Restaurant restaurant;
+
+	public Menu() {
+		super();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	public List<MenuItem> getMenuItems() {
+		return menuItems;
+	}
+
+	public void setMenuItems(List<MenuItem> menuItems) {
+		this.menuItems = menuItems;
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
 	public void addMenuItem(MenuItem menuItem) {
 		if (menuItems == null) {
 			menuItems = new ArrayList<>();
@@ -45,55 +107,7 @@ public class Menu {
 			menuItem.setMenu(null); // Does this delete the entire menu?
 		}
 	}
-	
-	
-	@ManyToOne
-	@JoinColumn(name = "restaurant_id")
-	private Restaurant restaurant; 
-	
-	public Menu() {
-		super();
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public boolean isEnabled() {
-		return enabled;
-	}
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-	public List<MenuItem> getMenuItems() {
-		return menuItems;
-	}
-	public void setMenuItems(List<MenuItem> menuItems) {
-		this.menuItems = menuItems;
-	}
-	public Restaurant getRestaurant() {
-		return restaurant;
-	}
-	public void setRestaurant(Restaurant restaurant) {
-		this.restaurant = restaurant;
-	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -105,12 +119,10 @@ public class Menu {
 		Menu other = (Menu) obj;
 		return id == other.id;
 	}
+
 	@Override
 	public String toString() {
 		return "Menu [id=" + id + ", type=" + type + ", enabled=" + enabled + ", description=" + description + "]";
-	} 
-
-	
-	
+	}
 
 }

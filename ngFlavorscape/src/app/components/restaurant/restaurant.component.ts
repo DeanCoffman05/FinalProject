@@ -5,6 +5,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurant } from 'src/app/models/restaurant';
 import { User } from 'src/app/models/user';
+import { MenuService } from 'src/app/services/menu.service';
+import { Menu } from 'src/app/models/menu';
+import { MenuItem } from 'src/app/models/menu-item';
 
 @Component({
   selector: 'app-restaurant',
@@ -19,12 +22,15 @@ export class RestaurantComponent implements OnInit {
   selected: Restaurant | null = null;
   currentUser: User = new User();
   address: Address = new Address();
+  menus: Menu [] = [];
+  newMenuItem: MenuItem = new MenuItem();
 
   constructor(
     private restaurantService: RestaurantService,
     private authService: AuthService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private menuService: MenuService
   ) {}
 
   ngOnInit() {
@@ -46,6 +52,7 @@ export class RestaurantComponent implements OnInit {
   }
   displayRestaurant(restaurant: any) {
     this.selected = restaurant;
+    this.getRestaurantMenus();
   }
   displayList() {
     this.selected = null;
@@ -104,6 +111,28 @@ export class RestaurantComponent implements OnInit {
 
 getCurrentRole(){
 return this.authService.getCurrentRole();
+}
+
+getRestaurantMenus() {
+  if(this.selected) {
+  this.menuService.indexForRestaurant(this.selected?.id).subscribe({
+    next: (menus: Menu[]) => {
+      console.log('Received menus:', menus);
+      this.menus = menus;
+    },
+    error: (fail) => {
+      console.error('RestauService.reload(): error getting restaurants');
+      console.error(fail);
+    },
+  });
+}
+}
+addMenuItem(menuItem: MenuItem) {
+
+}
+
+loggedIn(): boolean {
+  return this.authService.checkLogin();
 }
 
 
