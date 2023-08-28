@@ -27,6 +27,7 @@ public class RestaurantController {
 	@Autowired
 	private RestaurantService restaurantService;
 
+
 	@GetMapping("restaurants")
 	public List<Restaurant> showAll() {
 		return restaurantService.index();

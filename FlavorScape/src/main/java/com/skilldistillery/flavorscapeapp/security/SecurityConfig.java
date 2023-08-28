@@ -11,8 +11,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
+
     @Autowired
     private DataSource dataSource;
+
+
     @Autowired
     private PasswordEncoder encoder;
 	
@@ -38,8 +41,8 @@ public class SecurityConfig {
     @Autowired
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         String userQuery = "SELECT username, password, enabled FROM user WHERE username=?";
-        String
- authQuery = "SELECT username, role FROM user WHERE username=?";
+        String authQuery = "SELECT username, role FROM user WHERE username=?";
+
         auth
         .jdbcAuthentication()
         .dataSource(dataSource)
@@ -47,5 +50,4 @@ public class SecurityConfig {
         .authoritiesByUsernameQuery(authQuery)
         .passwordEncoder(encoder);
     }
-    
 }

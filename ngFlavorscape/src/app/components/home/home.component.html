@@ -74,7 +74,7 @@
 
       <!-- Display List of Restaurants for State Search -->
       <div class="col-md-6">
-        <div *ngIf="restaurantStateSearch.length > 0">
+        <div *ngIf="restaurantstateSearch.length > 0">
           <h2>Restaurants in the Searched State</h2>
           <ul>
             <li *ngFor="let restaurant of restaurantstateSearch">
@@ -85,15 +85,15 @@
       </div>
     </div>
   </div>
-
+  <script>initMap(); </script>
   <div id="container">
     <div id="map"></div>
   </div>
     <script>
       function initMap() {
         let mapOptions = {
-          center: new google.maps.LatLng("41.881832", "-87.62377"), // You can also use {lat: , lng: } to see the first point on the map.
-          zoom: 10,
+          center: new google.maps.LatLng(41.881832, -87.623177), // You can also use {lat: , lng: } to see the first point on the map.
+          zoom: 12,
         };
         let map = new google.maps.Map(
           document.getElementById("map"),
