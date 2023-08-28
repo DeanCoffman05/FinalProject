@@ -82,8 +82,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public List<Restaurant> findCityByKeyword(String city) {
-
-		return restaurantRepo.findByAddressCity(city);
+		return restaurantRepo.findByAddressCityOrAddressState(city, city);
 	}
 
 	@Override
