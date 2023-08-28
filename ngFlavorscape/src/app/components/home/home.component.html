@@ -54,9 +54,33 @@
                 <label for="state">Search state here: </label>
                 <input name="state" type="text" [(ngModel)]="stateSearchInput" class="form-control" />
               </div>
-               <button (click)="restaurantStateSearch()" class="btn btn-custom-blue">Search</button>
+              <button (click)="restaurantStateSearch()" class="btn btn-custom-blue">Search</button>
             </form>
           </div>
+        </div>
+      </div>
+
+      <!-- Display List of Restaurants for City Search -->
+      <div class="col-md-6">
+        <div *ngIf="restaurantCitySearch.length > 0">
+          <h2>Restaurants in the Searched City</h2>
+          <ul>
+            <li *ngFor="let restaurant of restaurantCitySearch">
+              {{ restaurant.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Display List of Restaurants for State Search -->
+      <div class="col-md-6">
+        <div *ngIf="restaurantStateSearch.length > 0">
+          <h2>Restaurants in the Searched State</h2>
+          <ul>
+            <li *ngFor="let restaurant of restaurantstateSearch">
+              {{ restaurant.name }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
