@@ -14,11 +14,17 @@ export class HomeComponent implements OnInit {
   restaurantstateSearch: Restaurant[] = []; // Initialize as an empty string
   citySearchInput: string = ''; // Rename the variable
   stateSearchInput: string = '';
+  selected: Restaurant | null = null;
   constructor(private restaurantservice: RestaurantService, private router: Router) { }
 
   ngOnInit() {
   }
-
+  displayRestaurant(restaurant: any) {
+    this.selected = restaurant;
+  }
+  displayHome() {
+    this.selected = null;
+  }
   restaurantcitySearch() { // Remove the argument as it's not needed
     console.log(this.citySearchInput); // Use this.citySearchInput
     this.restaurantservice.citySearch(this.citySearchInput).subscribe({

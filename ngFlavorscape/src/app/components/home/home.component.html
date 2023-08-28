@@ -29,9 +29,9 @@
   <div class="container mt-5">
     <div class="row">
       <!-- City Search Card -->
-      <div class="col-md-6">
+      <div class="col-md-6" *ngIf="!selected">
         <div class="card bg-custom-coral text-white">
-          <div class="card-body">
+          <div class="card-body" >
             <h5 class="card-title">City</h5>
             <form>
               <div class="mb-3">
@@ -61,23 +61,33 @@
       </div> -->
 
       <!-- Display List of Restaurants for City Search -->
-      <div class="col-md-6">
+      <div class="col-md-6" *ngIf="!selected">
         <div *ngIf="restaurantCitySearch.length > 0">
           <h2>Restaurants in the Searched City</h2>
-          <ul>
-            <li *ngFor="let restaurant of restaurantCitySearch">
-              {{ restaurant.name }}
-            </li>
+          <ul *ngFor="let restaurant of restaurantCitySearch">
+            <li  (click)="displayRestaurant(restaurant)"> {{ restaurant.name }}</li>
+
+
           </ul>
         </div>
       </div>
+      <div *ngIf="selected">
+      <!-- Display selected restaurant details -->
+      <h3>{{ selected.name }}</h3>
+      <p>{{ selected.description }}</p>
+      <p>{{ selected.restaurantUrl }}</p>
+      <p>{{ selected.phoneNumber }}</p>
+      <p>{{ selected.address.city }}</p>
+      <p>{{ selected.address.state }}</p>
 
+      <button  (click)="displayHome()">Back</button>
+      </div>
       <!-- Display List of Restaurants for State Search -->
-      <div class="col-md-6">
+      <div class="col-md-6" *ngIf="!selected">
         <div *ngIf="restaurantstateSearch.length > 0">
           <h2>Restaurants in the Searched State</h2>
-          <ul>
-            <li *ngFor="let restaurant of restaurantstateSearch">
+          <ul *ngFor="let restaurant of restaurantstateSearch">
+            <li (click)="displayRestaurant(restaurant)">
               {{ restaurant.name }}
             </li>
           </ul>
