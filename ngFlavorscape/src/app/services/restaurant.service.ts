@@ -61,7 +61,7 @@ private url = environment.baseUrl + "api/restaurants";
   }
 
   create(restaurant: Restaurant): Observable<Restaurant> {
-    return this.http.post<Restaurant>(this.url, restaurant).pipe(
+    return this.http.post<Restaurant>(this.url, restaurant, this.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError(
