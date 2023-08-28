@@ -16,6 +16,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { UpdateprofileComponent } from './components/updateprofile/updateprofile.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { MapComponent } from './components/map/map.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { MapComponent } from './components/map/map.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    GoogleMapsModule
 
   ],
   providers: [],
