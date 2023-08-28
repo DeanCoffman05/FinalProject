@@ -1,3 +1,5 @@
 export const environment = {
-  baseUrl: '/FlavorScape/'
+  baseUrl: '/FlavorScape/',
+  googleMapsApiKey: 'AIzaSyAB45etyNdHcLaa1S0s97YUJHGPPXilS2Y'
+
 };

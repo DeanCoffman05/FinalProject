@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -37,7 +39,10 @@ public class User {
 	@Column(name = "about_me")
 	private String aboutMe;
 	@Column(name = "create_date")
+	@CreationTimestamp
 	private LocalDateTime createDate;
+	private String latitude;
+	private String longitude;
 
 	@OneToMany(mappedBy = "user")
 	@JsonIgnore
@@ -201,6 +206,23 @@ public class User {
 
 	public void setUpvotedComments(List<Comment> upvotedComments) {
 		this.upvotedComments = upvotedComments;
+	}
+	
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 
 	@Override

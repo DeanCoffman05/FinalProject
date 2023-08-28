@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent {
+// center: LatLngLiteral|LatLng;
+zoom: any;
+moveMap: any;
 
 }

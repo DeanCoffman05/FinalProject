@@ -1,7 +1,7 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+
       <div class="h1-box bg-h1-box text-white text-center">
         <h1>Restaurants</h1>
       </div>
@@ -13,80 +13,153 @@
           </li>
         </ul>
 
-        <form>
-          <label for="newRestaurant">Restaurant Name: </label>
-          <input type="text" name="newRestaurant" [(ngModel)]="newRestaurant.name" />
-          <label for="newDescription">Description </label>
-          <input type="text" name="newRestaurant" [(ngModel)]="newRestaurant.name" />
-          <label for="newRestaurant">Restaurant Name: </label>
-          <input type="text" name="newRestaurant" [(ngModel)]="newRestaurant.name" />
-          <label for="newRestaurant">Restaurant Name: </label>
-          <input type="text" name="newRestaurant" [(ngModel)]="newRestaurant.name" />
-          <label for="newRestaurant">Restaurant Name: </label>
-          <input type="text" name="newRestaurant" [(ngModel)]="newRestaurant.name" />
+        <!-- Create form -->
+        <form class="row g-3">
+          <h1>Add a new Flavor to the scape</h1>
+          <div class="col-md-6">
+            <label class="form-label" for="newRestaurant">Restaurant Name: </label>
+            <input class="form-control" type="text" name="newRestaurant" [(ngModel)]="newRestaurant.name" placeholder="name" /><br>
+          </div>
+          <div class="col-md-6">
 
-          <div class="mb-3">
+              <label class="form-label" for="newDescription">Description </label>
+              <textarea class="form-control" type="text" name="newDescription" [(ngModel)]="newRestaurant.description"placeholder="Description" ></textarea><br>
+
+          </div>
+          <div class="col-md-4">
+
+            <label class="form-label" for="imageUrl">Pic of Restaurant: </label>
+            <input class="form-control" type="text" name="imageUrl" [(ngModel)]="newRestaurant.imageUrl" placeholder="Image"/><br>
+          </div>
+          <div class="col-md-4">
+
+            <label class="form-label" for="newRestaurantURL">Restaurants website: </label>
+            <input class="form-control"type="text" name="newRestaurantURL" [(ngModel)]="newRestaurant.restaurantUrl" placeholder="Website"/><br>
+          </div>
+          <div class="col-md-4">
+
+            <label class="form-label" for="newRestaurantTN">Phone Number: </label>
+            <input class="form-control" type="text" name="newRestaurantTN" [(ngModel)]="newRestaurant.phoneNumber" placeholder="Number"/>
+          </div>
+
+          <div >
             <label class="form-label">Address:</label>
             <input type="text" class="form-control" name="street" [(ngModel)]="address.street" placeholder="Street">
           </div>
 
-          <div class="mb-3">
+          <div >
             <input type="text" class="form-control" name="street2" [(ngModel)]="address.street2" placeholder="Street 2">
           </div>
 
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mb-3">
+              <div class="col-md-6">
                 <input type="text" class="form-control" name="city" [(ngModel)]="address.city" placeholder="City">
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="mb-3">
+
+              <div class="col-md-6">
                 <input type="text" class="form-control" name="state" [(ngModel)]="address.state" placeholder="State">
               </div>
-            </div>
-          </div>
 
-          <div class="mb-3">
+          <div class="col-12">
             <label for="zipcode" class="form-label">Zip Code:</label>
             <input type="text" class="form-control" id="zipcode" name="zipcode" [(ngModel)]="address.zipcode">
           </div>
-          <button class="btn btn-primary" (click)="addRestaurant(newRestaurant)">Add a new Flavor</button>
+          <div class="col-md-6">
+            <label for="latitude" class="form-label">Latitude:</label>
+            <input type="text" class="form-control" id="latitude" name="latitude" [(ngModel)]="address.latitude">
+          </div>
+          <div class="col-md-6">
+            <label for="longitude" class="form-label">Longitude:</label>
+            <input type="text" class="form-control" id="longitude" name="longitude" [(ngModel)]="address.longitude">
+          </div>
+          <div class="col-12">
+
+            <button type="button" class="btn btn-primary" (click)="addRestaurant(newRestaurant)">Add a new Flavor</button>
+          </div>
         </form>
 
       </div>
     </div>
-    <div class="col-md-6">
+    <div >
       <div *ngIf="selected && !editRestaurant">
         <!-- Display selected restaurant details -->
         <h3>{{ selected.name }}</h3>
         <p>{{ selected.description }}</p>
         <p>{{ selected.restaurantUrl }}</p>
         <p>{{ selected.phoneNumber }}</p>
+        <p>{{ selected.imageUrl }}</p>
+        <p>{{ selected.address.street }}</p>
         <p>{{ selected.address.city }}</p>
         <p>{{ selected.address.state }}</p>
 
-        <button class="btn btn-custom-blue" (click)="displayList()">Back</button>
         <div *ngIf="getCurrentRole()==='admin'">
-          <button class="btn btn-custom-blue" (click)="setEditRestaurant()">Edit</button>
+          <button class="btn btn-primary" (click)="setEditRestaurant()">Edit</button>
         </div>
+        <button class="btn btn-danger" (click)="displayList()">Back</button>
       </div>
+      <!-- Edit restaurant form -->
       <div *ngIf="editRestaurant && getCurrentRole()==='admin'">
-        <!-- Edit restaurant form -->
-        <form>
+        <form class="row g-3">
           <h4>Edit Restaurant #{{ editRestaurant.id }}</h4>
-          <label for="editTask">Name:</label>
-          <input type="text" name="editTask" [(ngModel)]="editRestaurant.name" /><br />
-          <label for="editDescription">Description:</label><br />
-          <textarea
+          <div class="col-md-6">
+
+            <label class="form-label" for="editTask">Name:</label>
+            <input class="form-control" type="text" name="editTask" [(ngModel)]="editRestaurant.name" /><br />
+          </div>
+          <div class="col-md-6">
+
+            <label class="form-label" for="editDescription">Description:</label><br />
+            <textarea
+            class="form-control"
             name="editDescription"
             [(ngModel)]="editRestaurant.description"
-          ></textarea
-          ><br />
-          <button class="btn btn-custom-blue" (click)="editRestaurant = null">Cancel</button>
-          <button class="btn btn-custom-blue" (click)="updateRestaurant(editRestaurant)">Save</button>
+            ></textarea
+            ><br />
+          </div>
+          <label class="form-label" for="editWebstie">Webstie:</label>
+          <input class="form-control" type="text" name="editWebstie" [(ngModel)]="editRestaurant.restaurantUrl" /><br />
+          <label class="form-label" for="editphoneNumber">Phone Number:</label>
+          <input class="form-control" type="text" name="editphoneNumber" [(ngModel)]="editRestaurant.phoneNumber" /><br />
+          <label class="form-label" for="editimageUrl">image:</label>
+          <input class="form-control" type="text" name="editimageUrl" [(ngModel)]="editRestaurant.imageUrl" /><br />
+          <div >
+            <label class="form-label">Address:</label>
+            <input type="text" class="form-control" name="street" [(ngModel)]="editRestaurant.address.street" placeholder="Street">
+          </div>
+
+          <div >
+            <input type="text" class="form-control" name="street2" [(ngModel)]="editRestaurant.address.street2" placeholder="Street 2">
+          </div>
+
+              <div class="col-md-6">
+                <input type="text" class="form-control" name="city" [(ngModel)]="editRestaurant.address.city" placeholder="City">
+              </div>
+
+              <div class="col-md-6">
+                <input type="text" class="form-control" name="state" [(ngModel)]="editRestaurant.address.state" placeholder="State">
+              </div>
+
+          <div class="col-12">
+            <label for="zipcode" class="form-label">Zip Code:</label>
+            <input type="text" class="form-control" id="zipcode" name="zipcode" [(ngModel)]="editRestaurant.address.zipcode">
+          </div>
+
+          <div class="col-md-6">
+            <label for="latitude" class="form-label">Latitude:</label>
+            <input type="text" class="form-control" id="latitude" name="latitude" [(ngModel)]="editRestaurant.address.latitude">
+          </div>
+
+          <div class="col-md-6">
+            <label for="longitude" class="form-label">Longitude:</label>
+            <input type="text" class="form-control" id="longitude" name="longitude" [(ngModel)]="editRestaurant.address.longitude">
+          </div>
+
+          <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-success" (click)="updateRestaurant(editRestaurant)">Save</button><br>
+            <button class="btn btn-danger " (click)="editRestaurant = null">Cancel</button>
+          </div>
+
         </form>
       </div>
     </div>
   </div>
-</div>
+
