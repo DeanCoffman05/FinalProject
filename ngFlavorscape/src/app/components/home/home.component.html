@@ -28,9 +28,9 @@
   <div class="container mt-8">
     <div class="row">
       <!-- City Search Card -->
-      <div class="col-md-6">
+      <div class="col-md-6" *ngIf="!selected">
         <div class="card bg-custom-coral text-white">
-          <div class="card-body">
+          <div class="card-body" >
             <h5 class="card-title">City</h5>
             <form>
               <div class="mb-3">
@@ -60,11 +60,11 @@
       </div> -->
 
       <!-- Display List of Restaurants for City Search -->
-      <div class="col-md-6">
+      <div class="col-md-6" *ngIf="!selected">
         <div *ngIf="restaurantCitySearch.length > 0">
           <h2>Restaurants in the Searched City</h2>
           <ul>
-            <li *ngFor="let restaurant of restaurantCitySearch">
+            <li *ngFor="let restaurant of restaurantCitySearch" (click)="displayRestaurant(restaurant)">
               {{ restaurant.name }}
             </li>
           </ul>
@@ -74,10 +74,25 @@
       <!-- Display List of Restaurants for State Search -->
 
       <div class="col-md-6">
+
+      <div *ngIf="selected">
+      <!-- Display selected restaurant details -->
+      <h3>{{ selected.name }}</h3>
+      <p>{{ selected.description }}</p>
+      <p>{{ selected.restaurantUrl }}</p>
+      <p>{{ selected.phoneNumber }}</p>
+      <p>{{ selected.address.city }}</p>
+      <p>{{ selected.address.state }}</p>
+
+      <button  (click)="displayHome()">Back</button>
+      </div>
+      <!-- Display List of Restaurants for State Search -->
+      <div class="col-md-6" *ngIf="!selected">
+
         <div *ngIf="restaurantstateSearch.length > 0">
           <h2>Restaurants in the Searched State</h2>
-          <ul>
-            <li *ngFor="let restaurant of restaurantstateSearch">
+          <ul *ngFor="let restaurant of restaurantstateSearch">
+<li (click)="displayRestaurant(restaurant)">
               {{ restaurant.name }}
             </li>
           </ul>
@@ -88,7 +103,6 @@
 
   <script>initMap(); </script>
   <div class="container-map">
-
   <div class="my-google-map" style="align-items: center;">
     <google-map [options]="mapOptions">
       <map-marker *ngFor="let marker of markers" [position]="marker.position"></map-marker>

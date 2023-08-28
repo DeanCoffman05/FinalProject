@@ -46,6 +46,7 @@ export class AuthService {
         // While credentials are stored in browser localStorage, we consider
         // ourselves logged in.
         localStorage.setItem('credentials', credentials);
+        localStorage.setItem('currentRole', newUser.role);
         return newUser;
       }),
       catchError((err: any) => {
@@ -59,6 +60,11 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('credentials');
+    localStorage.removeItem('currentRole');
+  }
+
+  getCurrentRole(){
+    return localStorage.getItem('currentRole');
   }
 
   getLoggedInUser(): Observable<User> {

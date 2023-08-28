@@ -67,7 +67,13 @@ public class RestaurantServiceImpl implements RestaurantService {
 				Restaurant existingRestaurant = optRestaurant.get();
 				existingRestaurant.setName(restaurant.getName());
 				existingRestaurant.setDescription(restaurant.getDescription());
-				existingRestaurant.setAddress(restaurant.getAddress());
+				existingRestaurant.getAddress().setStreet(restaurant.getAddress().getStreet());
+				existingRestaurant.getAddress().setStreet2(restaurant.getAddress().getStreet2());
+				existingRestaurant.getAddress().setCity(restaurant.getAddress().getCity());
+				existingRestaurant.getAddress().setState(restaurant.getAddress().getState());
+				existingRestaurant.getAddress().setZipcode(restaurant.getAddress().getZipcode());
+				existingRestaurant.getAddress().setCountry(restaurant.getAddress().getCountry());
+				
 				return restaurantRepo.saveAndFlush(existingRestaurant);
 			}
 		}

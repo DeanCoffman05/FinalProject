@@ -28,6 +28,8 @@ CREATE TABLE IF NOT EXISTS `address` (
   `state` VARCHAR(45) NOT NULL,
   `zipcode` VARCHAR(45) NOT NULL,
   `country` VARCHAR(45) NULL,
+  `latitude` VARCHAR(45) NULL,
+  `longitude` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -50,6 +52,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `image_url` VARCHAR(2000) NULL,
   `about_me` TEXT NULL,
   `create_date` DATETIME NULL,
+  `latitude` VARCHAR(45) NULL,
+  `longitude` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   INDEX `fk_user_address_idx` (`address_id` ASC),
@@ -381,16 +385,16 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flavorscapedb`;
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (1, '123', 'street', 'colorado springs', 'CO', '12345', NULL);
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (2, '345', 'way', 'turkeyville', 'CA', '45678', NULL);
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (3, '123 Main St', '', 'Springfield', 'IL', '12345', '');
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (4, '456 Oak Ave', '', 'Maplewood', 'NJ', '54321', '');
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (5, '789 Elm Rd', 'Unit 204', 'Riverside', 'CA', '98765', '');
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (6, '234 Pine St', '', 'Greenwood', 'SC', '34567', '');
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (7, '567 Maple Ln', '', 'Boulder', 'CO', '67890', '');
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (8, '890 Cedar Ave', '', 'Portland', 'OR', '45678', '');
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (9, '123 Pineapple St', 'Apartment 101', 'Honolulu', 'HI', '23456', '');
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`) VALUES (10, '456 Cherry Blvd', '', 'Cherry Hill', 'NJ', '76543', '');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (1, '123', 'street', 'Denver', 'CO', '12345', NULL, '39.7462', '-104.9253');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (2, '345', 'way', 'Denver', 'CO', '45678', NULL, '39.7135', '-104.9128');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (3, '123 Main St', '', 'Denver', 'CO', '12345', '', '39.7839', '-104.8557');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (4, '456 Oak Ave', '', 'Denver', 'CO', '54321', '', '39.6765', '-104.9301');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (5, '789 Elm Rd', 'Unit 204', 'Denver', 'CO', '98765', '', '39.7281', '-105.0543');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (6, '234 Pine St', '', 'Denver', 'CO', '34567', '', '39.7822', '-105.0231');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (7, '567 Maple Ln', '', 'Denver', 'CO', '67890', '', '39.6978', '-105.0915');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (8, '890 Cedar Ave', '', 'Denver', 'CO', '45678', '', '39.7204', '-104.8745');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (9, '123 Pineapple St', 'Apartment 101', 'Denver', 'CO', '23456', '', '39.6991', '-105.0652');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (10, '456 Cherry Blvd', '', 'Denver', 'CO', '76543', '', '39.7790', '-104.9582');
 
 COMMIT;
 
@@ -400,16 +404,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flavorscapedb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (1, 'admin', '$2a$10$nShOi5/f0bKNvHB8x0u3qOpeivazbuN0NE4TO0LGvQiTMafaBxLJS', 1, 'admin', 'John', 'Doe', 'jdoe@gmail.com', 1, NULL, 'just a silly goofy', NULL);
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (2, 'Alice123', '$2a$10$KQgnO0rrm.hjSb5bm6eTOe3q3AeM6tx5MZWG1yxweIMXmGs6pgA6K', true, 'admin', 'Alice', 'Johnson', 'alice@example.com', 2, 'http://fakeurl.com/alice.jpg', 'Passionate about coding and coffee', '2023-08-27 10:15:00');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (3, 'Bob456', '$2a$10$VH9aQBsEKf5cW4TjUdG2lOoVmXw0tS3b0lF6EGeqV9ZrVlty3RGWm', true, 'user', 'Bob', 'Smith', 'bob@example.com', 3, 'http://fakeurl.com/bob.jpg', 'Adventurer and book lover', '2023-08-26 14:30:00');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (4, 'Charlie789', '$2a$10$FLCvj5HXphZS6EojK4FZIu1mN4UePmeOTiJl/EhEUCp5X8pB1zJXm', true, 'user', 'Charlie', 'Brown', 'charlie@example.com', 4, 'http://fakeurl.com/charlie.jpg', 'Foodie at heart', '2023-08-25 09:45:00');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (5, 'David987', '$2a$10$X65NzNOeqoOHj4jp5jSxIuKQCMUbTmf9Eg5Fjx3aHIlrXcDV5uv9O', true, 'user', 'David', 'Miller', 'david@example.com', 5, 'http://fakeurl.com/david.jpg', 'Music is life', '2023-08-24 18:20:00');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (6, 'William01', '$2a$10$Y7vRuTtVdc.I81C6ffD6mOxVT0v4Zw6iBCChLQabqz4hqFdjLsDD6', true, 'user', 'William', 'Johnson', 'william@example.com', 6, 'http://fakeurl.com/william.jpg', 'Explorer of nature and wildlife', '2023-08-18 19:25:00');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (7, 'Maximus34', '$2a$10$Ur.PcAHusntaK08LB9y.KufAKU9Xa.Nb3YPmQg2hvBtJBJVlw6j5i', true, 'user', 'Maximus', 'Smith', 'maximus@example.com', 7, 'http://fakeurl.com/maximus.jpg', 'Adventurer with a love for the outdoors', '2023-08-26 09:45:00');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (8, 'Olivia87', '$2a$10$EQLKcFGKpLO3b/jH0/W1..aXrJHroPsTqGwN1rCO0WEg7yTrQ3TDe', true, 'user', 'Olivia', 'Brown', 'olivia@example.com', 8, 'http://fakeurl.com/olivia.jpg', 'Bookworm and tea enthusiast', '2023-08-25 12:15:00');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (9, 'Leo123', '$2a$10$qJTptnD2bwg.sq2bUCRuj.59m0dwwgrsI5N9z/9aSxOorWpOwv.kG', true, 'user', 'Leo', 'Miller', 'leo@example.com', 9, 'http://fakeurl.com/leo.jpg', 'Music lover and aspiring guitarist', '2023-08-24 14:20:00');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`) VALUES (10, 'Ava456', '$2a$10$az4pIK7qPVq7b/cnPG2Zr.Z9Zi7p9DZ4Pqr7gEmO5uSfZ7FfUn0nW', true, 'user', 'Ava', 'Johnson', 'ava@example.com', 10, 'http://fakeurl.com/ava.jpg', 'Foodie exploring flavors from around the world', '2023-08-23 17:10:00');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`, `latitude`, `longitude`) VALUES (1, 'admin', '$2a$10$nShOi5/f0bKNvHB8x0u3qOpeivazbuN0NE4TO0LGvQiTMafaBxLJS', 1, 'admin', 'John', 'Doe', 'jdoe@gmail.com', 1, NULL, 'just a silly goofy', NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`, `latitude`, `longitude`) VALUES (2, 'Alice123', '$2a$10$KQgnO0rrm.hjSb5bm6eTOe3q3AeM6tx5MZWG1yxweIMXmGs6pgA6K', true, 'admin', 'Alice', 'Johnson', 'alice@example.com', 2, 'http://fakeurl.com/alice.jpg', 'Passionate about coding and coffee', '2023-08-27 10:15:00', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`, `latitude`, `longitude`) VALUES (3, 'Bob456', '$2a$10$VH9aQBsEKf5cW4TjUdG2lOoVmXw0tS3b0lF6EGeqV9ZrVlty3RGWm', true, 'user', 'Bob', 'Smith', 'bob@example.com', 3, 'http://fakeurl.com/bob.jpg', 'Adventurer and book lover', '2023-08-26 14:30:00', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`, `latitude`, `longitude`) VALUES (4, 'Charlie789', '$2a$10$FLCvj5HXphZS6EojK4FZIu1mN4UePmeOTiJl/EhEUCp5X8pB1zJXm', true, 'user', 'Charlie', 'Brown', 'charlie@example.com', 4, 'http://fakeurl.com/charlie.jpg', 'Foodie at heart', '2023-08-25 09:45:00', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`, `latitude`, `longitude`) VALUES (5, 'David987', '$2a$10$X65NzNOeqoOHj4jp5jSxIuKQCMUbTmf9Eg5Fjx3aHIlrXcDV5uv9O', true, 'user', 'David', 'Miller', 'david@example.com', 5, 'http://fakeurl.com/david.jpg', 'Music is life', '2023-08-24 18:20:00', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`, `latitude`, `longitude`) VALUES (6, 'William01', '$2a$10$Y7vRuTtVdc.I81C6ffD6mOxVT0v4Zw6iBCChLQabqz4hqFdjLsDD6', true, 'user', 'William', 'Johnson', 'william@example.com', 6, 'http://fakeurl.com/william.jpg', 'Explorer of nature and wildlife', '2023-08-18 19:25:00', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`, `latitude`, `longitude`) VALUES (7, 'Maximus34', '$2a$10$Ur.PcAHusntaK08LB9y.KufAKU9Xa.Nb3YPmQg2hvBtJBJVlw6j5i', true, 'user', 'Maximus', 'Smith', 'maximus@example.com', 7, 'http://fakeurl.com/maximus.jpg', 'Adventurer with a love for the outdoors', '2023-08-26 09:45:00', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`, `latitude`, `longitude`) VALUES (8, 'Olivia87', '$2a$10$EQLKcFGKpLO3b/jH0/W1..aXrJHroPsTqGwN1rCO0WEg7yTrQ3TDe', true, 'user', 'Olivia', 'Brown', 'olivia@example.com', 8, 'http://fakeurl.com/olivia.jpg', 'Bookworm and tea enthusiast', '2023-08-25 12:15:00', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`, `latitude`, `longitude`) VALUES (9, 'Leo123', '$2a$10$qJTptnD2bwg.sq2bUCRuj.59m0dwwgrsI5N9z/9aSxOorWpOwv.kG', true, 'user', 'Leo', 'Miller', 'leo@example.com', 9, 'http://fakeurl.com/leo.jpg', 'Music lover and aspiring guitarist', '2023-08-24 14:20:00', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `image_url`, `about_me`, `create_date`, `latitude`, `longitude`) VALUES (10, 'Ava456', '$2a$10$az4pIK7qPVq7b/cnPG2Zr.Z9Zi7p9DZ4Pqr7gEmO5uSfZ7FfUn0nW', true, 'user', 'Ava', 'Johnson', 'ava@example.com', 10, 'http://fakeurl.com/ava.jpg', 'Foodie exploring flavors from around the world', '2023-08-23 17:10:00', NULL, NULL);
 
 COMMIT;
 

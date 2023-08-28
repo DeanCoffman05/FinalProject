@@ -5,6 +5,8 @@ export class Address {
   city: string;
   state: string;
   zipcode: number;
+  latitude: string;
+  longitude: string;
 
   constructor(
   id: number = 0,
@@ -12,7 +14,9 @@ export class Address {
   street2: string = '',
   city: string = '',
   state: string = '',
-  zipcode: number = 0
+  zipcode: number = 0,
+  latitude: string = '',
+  longitude: string = ''
   ) {
     this.id = id;
     this.street = street;
@@ -20,6 +24,8 @@ export class Address {
     this.city = city;
     this.state = state;
     this.zipcode = zipcode;
+    this.latitude = latitude;
+    this.longitude = longitude;
 
   }
 }

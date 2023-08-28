@@ -12,6 +12,48 @@
             {{ restaurant.name }}
           </li>
         </ul>
+
+        <form>
+          <label for="newRestaurant">Restaurant Name: </label>
+          <input type="text" name="newRestaurant" [(ngModel)]="newRestaurant.name" />
+          <label for="newDescription">Description </label>
+          <input type="text" name="newRestaurant" [(ngModel)]="newRestaurant.name" />
+          <label for="newRestaurant">Restaurant Name: </label>
+          <input type="text" name="newRestaurant" [(ngModel)]="newRestaurant.name" />
+          <label for="newRestaurant">Restaurant Name: </label>
+          <input type="text" name="newRestaurant" [(ngModel)]="newRestaurant.name" />
+          <label for="newRestaurant">Restaurant Name: </label>
+          <input type="text" name="newRestaurant" [(ngModel)]="newRestaurant.name" />
+
+          <div class="mb-3">
+            <label class="form-label">Address:</label>
+            <input type="text" class="form-control" name="street" [(ngModel)]="address.street" placeholder="Street">
+          </div>
+
+          <div class="mb-3">
+            <input type="text" class="form-control" name="street2" [(ngModel)]="address.street2" placeholder="Street 2">
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <input type="text" class="form-control" name="city" [(ngModel)]="address.city" placeholder="City">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <input type="text" class="form-control" name="state" [(ngModel)]="address.state" placeholder="State">
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="zipcode" class="form-label">Zip Code:</label>
+            <input type="text" class="form-control" id="zipcode" name="zipcode" [(ngModel)]="address.zipcode">
+          </div>
+          <button class="btn btn-primary" (click)="addRestaurant(newRestaurant)">Add a new Flavor</button>
+        </form>
+
       </div>
     </div>
     <div class="col-md-6">
@@ -25,9 +67,11 @@
         <p>{{ selected.address.state }}</p>
 
         <button class="btn btn-custom-blue" (click)="displayList()">Back</button>
-        <button class="btn btn-custom-blue" (click)="setEditRestaurant()">Edit</button>
+        <div *ngIf="getCurrentRole()==='admin'">
+          <button class="btn btn-custom-blue" (click)="setEditRestaurant()">Edit</button>
+        </div>
       </div>
-      <div *ngIf="editRestaurant">
+      <div *ngIf="editRestaurant && getCurrentRole()==='admin'">
         <!-- Edit restaurant form -->
         <form>
           <h4>Edit Restaurant #{{ editRestaurant.id }}</h4>

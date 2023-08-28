@@ -1,6 +1,7 @@
+import { Restaurant } from './../../models/restaurant';
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Restaurant } from 'src/app/models/restaurant';
+
 import { RestaurantService } from 'src/app/services/restaurant.service';
 // import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/services/auth.service';
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   citySearchInput: string = '';
   stateSearchInput: string = '';
 
+
   @ViewChild(GoogleMap) map!: GoogleMap;
 
   constructor(
@@ -37,11 +39,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private router: Router,
     private authService: AuthService
   ) {
-    this.marker = { position: { lat: 39.727383, lng: -104.995431 } };
-    this.marker1 = { position: { lat: 39.779890, lng: -105.047502  } };
-    this.marker2 = { position: { lat: 39.760622, lng: -105.032503 } };
-    this.markers = [this.marker, this.marker1, this.marker2];
+
   }
+
+  selected: Restaurant | null = null;
+
+
 
   ngOnInit() {
     this.authService.getLoggedInUser().subscribe({
@@ -80,10 +83,30 @@ export class HomeComponent implements OnInit, AfterViewInit {
     return bounds;
   }
 
-  restaurantcitySearch() {
-    console.log(this.citySearchInput);
+  displayRestaurant(restaurant: any) {
+    this.selected = restaurant;
+  }
+  displayHome() {
+    this.selected = null;
+  }
+  restaurantcitySearch() { // Remove the argument as it's not needed
+    console.log(this.citySearchInput); // Use this.citySearchInput
+
     this.restaurantservice.citySearch(this.citySearchInput).subscribe({
       next: (restaurants: Restaurant[]) => {
+
+        this.markers = [];
+        for(let i =0; i < restaurants.length; i++) {
+            let marker = new google.maps.Marker({position:  new google.maps.LatLng(parseFloat(restaurants[i].address.latitude), parseFloat(restaurants[i].address.longitude) )});
+
+
+            this.markers.push(marker);
+        }
+        var bounds = new google.maps.LatLngBounds();
+for (var i in this.markers) // your marker list here
+    bounds.extend(this.markers[i].position) // your marker position, must be a LatLng instance
+
+this.map.fitBounds(bounds);
         console.log('Received restaurants:', restaurants);
         this.restaurantCitySearch = restaurants;
       },
