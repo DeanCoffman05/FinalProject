@@ -3,6 +3,7 @@ import { RestaurantService } from './../../services/restaurant.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurant } from 'src/app/models/restaurant';
+import { User } from 'src/app/models/user';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class RestaurantComponent implements OnInit {
   newRestaurant: Restaurant = new Restaurant();
   editRestaurant: Restaurant | null = null;
   selected: Restaurant | null = null;
+  currentUser: User = new User();
 
 
   constructor(
@@ -52,6 +54,7 @@ export class RestaurantComponent implements OnInit {
     this.editRestaurant = Object.assign({}, this.selected);
   }
   updateRestaurant(updatedRestaurant: Restaurant, setSelected: boolean = true) {
+    this.loggedInUser();
     this.restaurantService.updateRestaurant(updatedRestaurant).subscribe({
       next: (updateRestaurant) => {
         if (setSelected) {
@@ -66,7 +69,10 @@ export class RestaurantComponent implements OnInit {
       },
     });
   }
-
+loggedInUser(){
+  this.authService.getLoggedInUser().subscribe({next:(user)=>{this.currentUser=user},error:(fail)=>{console.error('RestaurantComponent.loggedInUser: error updating restaurant');
+  console.error(fail);}})
+}
 
 
 }

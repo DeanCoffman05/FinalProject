@@ -72,7 +72,7 @@ private url = environment.baseUrl + "api/restaurants";
   }
 
   updateRestaurant(updateRestaurant: Restaurant): Observable<Restaurant> {
-    return this.http.put<Restaurant>(this.url + '/' + updateRestaurant.id, updateRestaurant).pipe(
+    return this.http.put<Restaurant>(this.url + '/' + updateRestaurant.id, updateRestaurant, this.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError(
@@ -80,6 +80,16 @@ private url = environment.baseUrl + "api/restaurants";
         );
       })
     );
+  }
+
+  getHttpOptions() {
+    let options = {
+      headers: {
+        Authorization: 'Basic ' + this.authService.getCredentials(),
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+    };
+    return options;
   }
 
 }
