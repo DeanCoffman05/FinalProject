@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   restaurantstateSearch: Restaurant[] = [];
   citySearchInput: string = '';
   stateSearchInput: string = '';
+  selected: Restaurant | null = null;
 
 
   @ViewChild(GoogleMap) map!: GoogleMap;
@@ -42,7 +43,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   }
 
-  selected: Restaurant | null = null;
 
 
 
