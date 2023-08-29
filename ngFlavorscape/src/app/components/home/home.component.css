@@ -23,7 +23,7 @@ html {
 
 .container-map {
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 #map {
@@ -31,3 +31,39 @@ html {
     width: 80vh;
     background-color: lightblue;
 }
+
+#restaurant-search {
+    text-size-adjust: small;
+    text-decoration-color: pink;
+}
+
+.restaurant-search h3 {
+    color: #FF69B4;
+}
+
+.restaurant-search-small {
+    color: #ba495c;
+}
+
+
+.results-container {
+  width: 50%;             /* This makes the container occupy 50% of the screen width */
+  height: 80vh;           /* This defines a height for the container */
+  overflow-y: scroll;     /* This makes it scrollable vertically */
+  position: fixed;        /* This makes the container fixed on the screen */
+  right: 0;               /* This pushes the container to the right side of the screen */
+  top: 10vh;              /* This gives a little margin from the top */
+  background-color: rgba(255, 165, 0, 0.3);  /* Light transparent orange */
+  border-left: 1px solid #ccc;  /* A border to separate it visually from the rest of the content */
+}
+.restaurant-result {
+  padding: 10px;               /* Adds some space around the content inside the box */
+  margin-bottom: 10px;         /* Adds some space between each result for better visual separation */
+  width: auto;                 /* It will auto adjust based on content width */
+  max-width: 90%;              /* This ensures the boxes don’t stretch too wide */
+  background-color: rgba(237, 237, 0, 0.6);   /* Semi-transparent yellow */
+  border: 1px solid #EEDD00;   /* A solid border for the yellow box */
+  border-radius: 5px;          /* Rounded corners for the box */
+}
+
+
