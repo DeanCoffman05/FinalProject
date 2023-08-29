@@ -140,6 +140,7 @@ export class RestaurantComponent implements OnInit {
     this.restaurantService.deleteRestaurant(restaurantId).subscribe({
       next: () => {
         this.displayList();
+        this.reload();
       },
       error: (fail) => {
         console.error(

@@ -9,6 +9,9 @@
       <ul class="list-unstyled" *ngFor="let restaurant of restaurants | enabled : showEnabled">
         <li (click)="displayRestaurant(restaurant)">
           {{ restaurant.name }}
+        </li>
+        <li>
+
           <div *ngIf="getCurrentRole() === 'admin'">
 
             <button
@@ -369,17 +372,11 @@
         <div class="d-grid gap-2 d-md-block">
           <button
             class="btn btn-success"
-            (click)="updateRestaurant(editRestaurant)">Save</button><br/>
+            (click)="updateRestaurant(editRestaurant)">Save</button><br/><br>
           <button class="btn btn-danger" (click)="editRestaurant = null">
             Cancel
           </button><br>
-          <br>
-          <button
-          class="btn btn-danger"
-          (click)="deleteRestaurant(editRestaurant.id)"
-        >
-          Remove the flavor</button
-        ><br />
+
         </div>
       </form>
     </div>
