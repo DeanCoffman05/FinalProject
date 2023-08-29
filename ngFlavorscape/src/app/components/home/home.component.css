@@ -45,6 +45,19 @@ html {
     color: #ba495c;
 }
 
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#map {
+  height: 80vh;
+  width: 80vh;
+  background-color: lightblue;
+}
+
 
 .results-container {
   width: 50%;             /* This makes the container occupy 50% of the screen width */
