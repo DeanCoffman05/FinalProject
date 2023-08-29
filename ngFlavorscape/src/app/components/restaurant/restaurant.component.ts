@@ -127,13 +127,29 @@ getRestaurantMenus() {
   });
 }
 }
-addMenuItem(menuItem: MenuItem) {
+// addMenuItem(menuItem: MenuItem) {
+//   if (this.selected) {
+//     // Set the restaurantId
+//     this.newMenuItem.restaurantId = this.selected.id;
 
-}
+//     // Send the newMenuItem to the API
+//     this.menuService.createMenuItem(this.newMenuItem).subscribe({
+//       next: () => {
+//         // Clear the form
+//         this.newMenuItem = new MenuItem();
 
-loggedIn(): boolean {
-  return this.authService.checkLogin();
-}
+//         // Refresh the menu items for the selected restaurant
+//         this.getRestaurantMenus();
+//       },
+//       error: (fail) => {
+//         console.error('Error adding menu item:');
+//         console.error(fail);
+//       },
+//     });
+//   }
+// }
 
-
+// loggedIn(): boolean {
+//   return this.authService.checkLogin();
+// }
 }

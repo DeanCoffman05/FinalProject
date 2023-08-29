@@ -4,16 +4,19 @@
     <div class="h1-box bg-h1-box text-white text-center">
       <h1>Restaurants</h1>
     </div>
-    <div *ngIf="!selected" class="list-group list-group-light">
+    <div *ngIf="!selected" class="list-group list-group-light custom-scroll-box">
       <!-- Restaurant list -->
       <ul class="list-unstyled" *ngFor="let restaurant of restaurants">
         <li (click)="displayRestaurant(restaurant)">
           {{ restaurant.name }}
         </li>
       </ul>
-
+      </div>
+      <br>
       <!-- Create form -->
-      <form class="row g-3">
+      <div class="form-container">
+        <br>
+        <form class="row g-3">
         <h1>Add a new Flavor to the scape</h1>
         <div class="col-md-6">
           <label class="form-label" for="newRestaurant"
@@ -350,17 +353,13 @@
             class="form-control"
             id="longitude"
             name="longitude"
-            [(ngModel)]="editRestaurant.address.longitude"
-          />
+            [(ngModel)]="editRestaurant.address.longitude"/>
         </div>
 
         <div class="d-grid gap-2 d-md-block">
           <button
             class="btn btn-success"
-            (click)="updateRestaurant(editRestaurant)"
-          >
-            Save</button
-          ><br />
+            (click)="updateRestaurant(editRestaurant)">Save</button><br/>
           <button class="btn btn-danger" (click)="editRestaurant = null">
             Cancel
           </button>

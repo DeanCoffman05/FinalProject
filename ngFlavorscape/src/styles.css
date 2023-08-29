@@ -34,8 +34,21 @@
 }
 
 .h1-box {
-  background-color: lightpink;
+  background-color: lightcoral;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
+}
+
+.custom-scroll-box {
+  height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.form-container {
+  background-color: rgba(255, 160, 173, 0.218);
+  padding: 20px;
+  border-radius: 10px;
 }

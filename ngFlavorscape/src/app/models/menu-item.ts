@@ -11,6 +11,7 @@ export class MenuItem {
   price: number;
   cuisines: Cuisine [];
   menu: Menu;
+  restaurantId: number;
 
   constructor(
     id: number = 0,

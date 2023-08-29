@@ -6,11 +6,15 @@ import { Restaurant } from '../models/restaurant';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { Menu } from '../models/menu';
+import { MenuItem } from '../models/menu-item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
+  createMenuItem(newMenuItem: any) {
+    throw new Error('Method not implemented.');
+  }
 
   private url = environment.baseUrl + "api/restaurants";
 
@@ -31,5 +35,15 @@ export class MenuService {
     );
   }
 
+  // addMenuItem(menuId: number, restaurantId: number): Observable<MenuItem> {
+  //   return this.http.post<MenuItem>(this.url, menuId, restaurantId).pipe(
+  //     catchError((err: any) => {
+  //       console.log(err);
+  //       return throwError(
+  //         () => new Error('RestaurantService.create(): error creating restaurant: ' + err)
+  //       );
+  //     })
+  //   );
+  // }
 
 }
