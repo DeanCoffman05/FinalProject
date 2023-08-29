@@ -6,7 +6,7 @@
     </div>
     <div *ngIf="!selected" class="list-group list-group-light custom-scroll-box">
       <!-- Restaurant list -->
-      <ul class="list-unstyled" *ngFor="let restaurant of restaurants">
+      <ul class="list-unstyled" *ngFor="let restaurant of restaurants ">
         <li (click)="displayRestaurant(restaurant)">
           {{ restaurant.name }}
         </li>

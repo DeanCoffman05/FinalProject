@@ -17,6 +17,7 @@ import { UpdateprofileComponent } from './components/updateprofile/updateprofile
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { MapComponent } from './components/map/map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { EnabledPipe } from './enabled.pipe';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     ProfileComponent,
     UpdateprofileComponent,
     RestaurantComponent,
-    MapComponent
+    MapComponent,
+    EnabledPipe
   ],
   imports: [
     BrowserModule,
