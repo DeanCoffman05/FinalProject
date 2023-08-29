@@ -92,4 +92,16 @@ private url = environment.baseUrl + "api/restaurants";
     return options;
   }
 
+  deleteRestaurant(restaurantId: number){
+    return this.http.put<Restaurant>(this.url + "/delete/" + restaurantId,restaurantId, this.getHttpOptions()).pipe(
+      catchError((err:any) => {
+        console.log(err);
+        return throwError(
+          () => new Error ('RestaurantService.deleteRestaurant(): error deleting restaurant' + err)
+        );
+      })
+    )
+
+  }
+
 }

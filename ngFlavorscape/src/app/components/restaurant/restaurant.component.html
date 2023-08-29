@@ -363,7 +363,14 @@
           ><br />
           <button class="btn btn-danger" (click)="editRestaurant = null">
             Cancel
-          </button>
+          </button><br>
+          <br>
+          <button
+          class="btn btn-danger"
+          (click)="deleteRestaurant(editRestaurant.id)"
+        >
+          Remove the flavor</button
+        ><br />
         </div>
       </form>
     </div>

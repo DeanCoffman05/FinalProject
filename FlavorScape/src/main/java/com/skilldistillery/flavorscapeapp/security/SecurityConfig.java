@@ -26,6 +26,7 @@ public class SecurityConfig {
         .antMatchers(HttpMethod.GET, "/api/restaurants").permitAll()  // Allow fetching all restaurants without authentication
         .antMatchers(HttpMethod.GET, "/api/restaurants/**").permitAll()  // Allow fetching all restaurants without authentication
         .antMatchers(HttpMethod.PUT, "/api/restaurants/*").hasAuthority("admin")  // Allow fetching all restaurants without authentication
+        .antMatchers(HttpMethod.PUT, "/api/restaurants/delete/*").hasAuthority("admin")  // Allow fetching all restaurants without authentication
         .antMatchers(HttpMethod.GET, "/api/restaurants/city/{city}").permitAll()  // Allow fetching all restaurants without authentication
         .antMatchers(HttpMethod.GET, "/api/restaurants/state/{state}").permitAll()  // Allow fetching all restaurants without authentication
         .antMatchers("/api/**").authenticated() // Other requests to our REST API must be authorized.
