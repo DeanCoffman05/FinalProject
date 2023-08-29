@@ -109,9 +109,10 @@ export class RestaurantComponent implements OnInit {
     });
   }
 
-getCurrentRole(){
-return this.authService.getCurrentRole();
-}
+  getCurrentRole() {
+    return this.authService.getCurrentRole();
+  }
+
   getRestaurantMenus() {
     if (this.selected) {
       this.menuService.indexForRestaurant(this.selected?.id).subscribe({
