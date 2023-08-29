@@ -22,7 +22,7 @@ export class RestaurantComponent implements OnInit {
   selected: Restaurant | null = null;
   currentUser: User = new User();
   address: Address = new Address();
-  menus: Menu [] = [];
+  menus: Menu[] = [];
   newMenuItem: MenuItem = new MenuItem();
 
   constructor(
@@ -109,6 +109,7 @@ export class RestaurantComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
 getCurrentRole(){
 return this.authService.getCurrentRole();
 }
@@ -152,4 +153,43 @@ getRestaurantMenus() {
 // loggedIn(): boolean {
 //   return this.authService.checkLogin();
 // }
+=======
+  getCurrentRole() {
+    return this.authService.getCurrentRole();
+  }
+
+  getRestaurantMenus() {
+    if (this.selected) {
+      this.menuService.indexForRestaurant(this.selected?.id).subscribe({
+        next: (menus: Menu[]) => {
+          console.log('Received menus:', menus);
+          this.menus = menus;
+        },
+        error: (fail) => {
+          console.error('RestauService.reload(): error getting restaurants');
+          console.error(fail);
+        },
+      });
+    }
+  }
+  addMenuItem(menuItem: MenuItem) {}
+
+  loggedIn(): boolean {
+    return this.authService.checkLogin();
+  }
+  deleteRestaurant(restaurantId: number) {
+    this.loggedInUser();
+    this.restaurantService.deleteRestaurant(restaurantId).subscribe({
+      next: () => {
+        this.reload();
+      },
+      error: (fail) => {
+        console.error(
+          'RestauService.deleteRestaurant(): error deleting restaurants'
+        );
+        console.error(fail);
+      },
+    });
+  }
+>>>>>>> b1e03602caceacf4bbf44d5e09c661c9b8f6c377
 }
