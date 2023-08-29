@@ -22,7 +22,8 @@ export class MenuItem {
     calories: number = 0,
     price: number = 0,
     cuisines: Cuisine [] = [],
-    menu: Menu = new Menu()
+    menu: Menu = new Menu(),
+    restaurantId: number = 0
   ){
     this.id = id;
     this.itemName = itemName;
@@ -33,5 +34,6 @@ export class MenuItem {
     this.price = price;
     this.cuisines = cuisines;
     this.menu = menu;
+    this.restaurantId = restaurantId;
   }
 }

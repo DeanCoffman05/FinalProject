@@ -109,51 +109,7 @@ export class RestaurantComponent implements OnInit {
     });
   }
 
-<<<<<<< HEAD
-getCurrentRole(){
-return this.authService.getCurrentRole();
-}
 
-getRestaurantMenus() {
-  if(this.selected) {
-  this.menuService.indexForRestaurant(this.selected?.id).subscribe({
-    next: (menus: Menu[]) => {
-      console.log('Received menus:', menus);
-      this.menus = menus;
-    },
-    error: (fail) => {
-      console.error('RestauService.reload(): error getting restaurants');
-      console.error(fail);
-    },
-  });
-}
-}
-// addMenuItem(menuItem: MenuItem) {
-//   if (this.selected) {
-//     // Set the restaurantId
-//     this.newMenuItem.restaurantId = this.selected.id;
-
-//     // Send the newMenuItem to the API
-//     this.menuService.createMenuItem(this.newMenuItem).subscribe({
-//       next: () => {
-//         // Clear the form
-//         this.newMenuItem = new MenuItem();
-
-//         // Refresh the menu items for the selected restaurant
-//         this.getRestaurantMenus();
-//       },
-//       error: (fail) => {
-//         console.error('Error adding menu item:');
-//         console.error(fail);
-//       },
-//     });
-//   }
-// }
-
-// loggedIn(): boolean {
-//   return this.authService.checkLogin();
-// }
-=======
   getCurrentRole() {
     return this.authService.getCurrentRole();
   }
@@ -191,5 +147,5 @@ getRestaurantMenus() {
       },
     });
   }
->>>>>>> b1e03602caceacf4bbf44d5e09c661c9b8f6c377
+
 }
