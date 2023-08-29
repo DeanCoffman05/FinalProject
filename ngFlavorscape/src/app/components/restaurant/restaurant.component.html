@@ -189,7 +189,7 @@
       </div>
 
       <div *ngIf="loggedIn()">
-        <form (ngSubmit)="addMenuItem(newMenuItem)" #form="ngForm">
+        <form (ngSubmit)="addMenuItem(newMenuItem.menu.id, newMenuItem.restaurantId, newMenuItem)" #form="ngForm">
           <div class="col-md-6">
             <label class="form-label" for="itemName">Name:</label>
             <input
@@ -228,7 +228,7 @@
           </div>
           <div class="col-md-6">
             <label class="form-label" for="description">Description: </label>
-            <textarea name="description" cols="30" rows="10"></textarea>
+            <textarea name="description" [(ngModel)]="newMenuItem.description" cols="30" rows="10"></textarea>
           </div>
           <div class="col-md-6">
             <label class="form-label" for="menu">Menu: </label>
@@ -236,7 +236,7 @@
               <option *ngFor="let menu of menus" value="{{menu.id}}">{{menu.type}}</option>
             </select>
           </div>
-          <button class="btn btn-primary" (click)="addMenuItem(newMenuItem)">
+          <button class="btn btn-primary" (click)="addMenuItem(newMenuItem.menu.id, newMenuItem.restaurantId, newMenuItem)">
             Add Menu Item
           </button>
         </form>
