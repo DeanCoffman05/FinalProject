@@ -45,7 +45,7 @@ import { EnabledPipe } from './enabled.pipe';
     GoogleMapsModule
 
   ],
-  providers: [],
+  providers: [EnabledPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

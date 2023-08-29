@@ -6,10 +6,20 @@
     </div>
     <div *ngIf="!selected" class="list-group list-group-light custom-scroll-box">
       <!-- Restaurant list -->
-      <ul class="list-unstyled" *ngFor="let restaurant of restaurants ">
+      <ul class="list-unstyled" *ngFor="let restaurant of restaurants | enabled : showEnabled">
         <li (click)="displayRestaurant(restaurant)">
           {{ restaurant.name }}
+          <div *ngIf="getCurrentRole() === 'admin'">
+
+            <button
+            class="btn btn-danger"
+            (click)="deleteRestaurant(restaurant.id)"
+          >
+            Remove the flavor</button
+          >
+          </div>
         </li>
+
       </ul>
       </div>
       <br>

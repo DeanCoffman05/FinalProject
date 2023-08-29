@@ -8,6 +8,7 @@ import { User } from 'src/app/models/user';
 import { MenuService } from 'src/app/services/menu.service';
 import { Menu } from 'src/app/models/menu';
 import { MenuItem } from 'src/app/models/menu-item';
+import { EnabledPipe } from 'src/app/enabled.pipe';
 
 @Component({
   selector: 'app-restaurant',
@@ -24,13 +25,15 @@ export class RestaurantComponent implements OnInit {
   address: Address = new Address();
   menus: Menu[] = [];
   newMenuItem: MenuItem = new MenuItem();
+  showEnabled: boolean = true;
 
   constructor(
     private restaurantService: RestaurantService,
     private authService: AuthService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private menuService: MenuService
+    private menuService: MenuService,
+    private showenabled: EnabledPipe
   ) {}
 
   ngOnInit() {
@@ -136,7 +139,7 @@ export class RestaurantComponent implements OnInit {
     this.loggedInUser();
     this.restaurantService.deleteRestaurant(restaurantId).subscribe({
       next: () => {
-        this.reload();
+        this.displayList();
       },
       error: (fail) => {
         console.error(
