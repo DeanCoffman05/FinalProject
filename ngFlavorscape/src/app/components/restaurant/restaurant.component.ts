@@ -48,6 +48,7 @@ export class RestaurantComponent implements OnInit {
   ngOnInit() {
     console.log('RestaurantComponent initialized.');
     this.reload();
+
   }
 
   reload() {
@@ -162,7 +163,6 @@ setRatingForRestaurant(restaurantId: number, star: number) {
       });
     }
   }
-  addMenuItem(menuItem: MenuItem) {}
 
   loggedIn(): boolean {
     return this.authService.checkLogin();
@@ -179,6 +179,20 @@ setRatingForRestaurant(restaurantId: number, star: number) {
         );
         console.error(fail);
       },
+    });
+  }
+
+  addMenuItem(menuId: number, restaurantId: number, newMenuItem: MenuItem) {
+    if(!newMenuItem || !newMenuItem.itemName || !newMenuItem.price) {
+      return;
+    }
+    this.menuService.addMenuItem(menuId, restaurantId,newMenuItem).subscribe ({
+      next: (addedMenuItem) => {
+        console.log('Added menu item: ', addedMenuItem);
+      },
+      error: (error) => {
+        console.error('Error adding menu item: ', error);
+      }
     });
   }
 }

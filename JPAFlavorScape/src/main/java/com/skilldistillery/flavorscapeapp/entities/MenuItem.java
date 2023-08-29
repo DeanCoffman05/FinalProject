@@ -40,6 +40,7 @@ public class MenuItem {
 	@ManyToOne
 	@JoinColumn(name = "menu_id")
 	private Menu menu;
+	
 	@JsonIgnoreProperties({"menuItems"})
 	@ManyToMany(mappedBy = "menuItems")
 	private List<Cuisine> cuisines;

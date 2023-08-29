@@ -2,6 +2,7 @@ package com.skilldistillery.flavorscapeapp.controllers;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -113,10 +114,29 @@ public class RestaurantController {
 		}
 
 	}
+
 	@PostMapping("restaurants/{id}/rate/{rating}")
 	public RestaurantReviewRatings addRestaurantReviewRating(HttpServletResponse res, HttpServletRequest req, @PathVariable Integer id, @PathVariable Integer rating, Principal principal) {
 		RestaurantReviewRatings restReviewRating = restaurantService.createRating(principal.getName(),id ,rating);
 		return restReviewRating;
 	}
 
-}
+	
+	@GetMapping("restaurants/cuisine/{cuisineId}")
+	public Set<Restaurant> findRestaurantByCuisineId(HttpServletResponse res, HttpServletRequest req, Principal principal,
+			@PathVariable Integer cuisineId) {
+
+			Set<Restaurant> restaurants = restaurantService.findByCuisine(cuisineId);
+
+			if (restaurants == null) {
+				res.setStatus(404);
+			}
+
+			return restaurants;
+
+		}
+		
+	}
+
+
+
