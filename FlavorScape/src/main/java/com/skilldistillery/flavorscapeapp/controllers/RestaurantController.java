@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.flavorscapeapp.entities.Restaurant;
+import com.skilldistillery.flavorscapeapp.entities.RestaurantReviewRatings;
 import com.skilldistillery.flavorscapeapp.services.RestaurantService;
 
 @RestController
@@ -111,6 +112,11 @@ public class RestaurantController {
 			res.setStatus(400);
 		}
 
+	}
+	@PostMapping("restaurants/{id}/rate/{rating}")
+	public RestaurantReviewRatings addRestaurantReviewRating(HttpServletResponse res, HttpServletRequest req, @PathVariable Integer id, @PathVariable Integer rating, Principal principal) {
+		RestaurantReviewRatings restReviewRating = restaurantService.createRating(principal.getName(),id ,rating);
+		return restReviewRating;
 	}
 
 }

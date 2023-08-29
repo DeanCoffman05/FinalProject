@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.skilldistillery.flavorscapeapp.entities.MenuItem;
 import com.skilldistillery.flavorscapeapp.entities.Restaurant;
+import com.skilldistillery.flavorscapeapp.entities.RestaurantReviewRatings;
 
 public interface RestaurantService {
 	
@@ -15,4 +16,5 @@ public interface RestaurantService {
 	public List<Restaurant> findCityByKeyword(String city);
 	public List<Restaurant> findStateByKeyword(String state);
 	public List<MenuItem> createFavorite(String username, MenuItem menuItem);
+	public RestaurantReviewRatings createRating(String username, int restaurantId, int rating);
 }
