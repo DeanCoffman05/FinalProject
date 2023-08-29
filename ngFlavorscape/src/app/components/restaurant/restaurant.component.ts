@@ -25,7 +25,7 @@ export class RestaurantComponent implements OnInit {
   address: Address = new Address();
   menus: Menu[] = [];
   newMenuItem: MenuItem = new MenuItem();
-  showEnabled: boolean = true;
+  showEnabled: boolean = false;
 
   constructor(
     private restaurantService: RestaurantService,
