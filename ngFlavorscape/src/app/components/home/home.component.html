@@ -74,8 +74,30 @@
                     </li>
                 </ul>
             </div>
-        </div>
+          </div>
+          <div class="col-md-12" *ngIf="selected">
+            <!-- Display selected restaurant details -->
+            <h3>{{ selected.name }}</h3>
+            <p>{{ selected.description }}</p>
+            <p>{{ selected.restaurantUrl }}</p>
+            <p>{{ selected.phoneNumber }}</p>
+            <p>{{ selected.imageUrl }}</p>
+            <p>{{ selected.address.street }}</p>
+            <p>{{ selected.address.city }}</p>
+            <p>{{ selected.address.state }}</p>
+            <!-- <h3>Menus</h3>
+            <div *ngFor="let menu of menus">
+              <h4>Menu Type: {{menu.type}}</h4>
+              <ul>
+                <li *ngFor="let item of menu.menuItems">
+                  {{item.itemName}}
+                </li>
+              </ul>
+            </div> -->
+            <button class="btn btn-danger" (click)="displayHome()">Back</button>
+            </div>
     </div>
+
 
   <script>initMap(); </script>
   <div class="container-map">
