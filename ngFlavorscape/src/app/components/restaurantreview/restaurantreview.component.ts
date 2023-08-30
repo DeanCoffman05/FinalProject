@@ -56,20 +56,5 @@ export class RestaurantreviewComponent implements OnInit {
     });
   }
 
-  addRestaurantReview(newRestaurantReview: Restaurantreview) {
-    newRestaurantReview.id = this.newRestaurantReview.id;
-    this.loggedInUser();
-    this.restaurantreviewService.createRestaurantReview(newRestaurantReview).subscribe({
-      next: () => {
-        this.newRestaurantReview = new Restaurantreview();
-        this.reload();
-      },
-      error: (fail) => {
-        console.error(
-          'RestaurantComponent.createRestaurant: error updating restaurant'
-        );
-        console.error(fail);
-      },
-    });
-  }
+
 }

@@ -54,3 +54,22 @@
   border-radius: 10px;
 }
 
+.form-container .custom-button {
+
+  background-color: black;
+  color: rgb(221, 172, 155);
+}
+
+.btn-custom {
+  background-color: #0b0a0a;
+  color: white;
+
+}
+.review-item {
+  background-color: #0b0a0a;
+  color: #e9ba7c;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+

@@ -50,8 +50,9 @@ export class RestaurantreviewService {
     );
   }
 
-  createRestaurantReview(restaurantReview: Restaurantreview): Observable<Restaurantreview> {
-    return this.http.post<Restaurantreview>(this.url, restaurantReview, this.getHttpOptions()).pipe(
+  createRestaurantReview(restaurantReview: Restaurantreview, restaurantId: number): Observable<Restaurantreview> {
+    const reviewsUrl = `${this.url}/${restaurantId}/reviews`;
+    return this.http.post<Restaurantreview>(reviewsUrl, restaurantReview, this.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError(

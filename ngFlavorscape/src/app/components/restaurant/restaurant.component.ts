@@ -1,5 +1,3 @@
-import { RestaurantreviewService } from './../../services/restaurantreview.service';
-import { Restaurantreview } from './../../models/restaurantreview';
 import { Address } from 'src/app/models/address';
 import { AuthService } from './../../services/auth.service';
 import { RestaurantService } from './../../services/restaurant.service';
@@ -11,6 +9,8 @@ import { MenuService } from 'src/app/services/menu.service';
 import { Menu } from 'src/app/models/menu';
 import { MenuItem } from 'src/app/models/menu-item';
 import { EnabledPipe } from 'src/app/enabled.pipe';
+import { Restaurantreview } from 'src/app/models/restaurantreview';
+import { RestaurantreviewService } from 'src/app/services/restaurantreview.service';
 
 
 @Component({
@@ -29,6 +29,9 @@ export class RestaurantComponent implements OnInit {
   menus: Menu[] = [];
   newMenuItem: MenuItem = new MenuItem();
   reviews: Restaurantreview [] = [];
+  newRestaurantReview: Restaurantreview = new Restaurantreview();
+
+
 
   showEnabled: boolean = true;
   selectedValue: number = 0;
@@ -195,6 +198,22 @@ setRatingForRestaurant(restaurantId: number, star: number) {
       },
       error: (fail) => {
         console.error('RestaurantreviewService.showRestaurantReviews(): error getting reviews');
+        console.error(fail);
+      },
+    });
+  }
+
+  addRestaurantReview(newRestaurantReview: Restaurantreview, restaurantId: number) {
+    this.loggedInUser();
+    this.restaurantreviewService.createRestaurantReview(newRestaurantReview, restaurantId).subscribe({
+      next: () => {
+        this.newRestaurantReview = new Restaurantreview();
+        this.showReviews(restaurantId);
+      },
+      error: (fail) => {
+        console.error(
+          'RestaurantComponent.createRestaurant: error updating restaurant'
+        );
         console.error(fail);
       },
     });

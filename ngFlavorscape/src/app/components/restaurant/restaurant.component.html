@@ -21,11 +21,8 @@
               </div>
                 <div *ngIf="getCurrentRole() === 'admin'">
 
-              <button
-                class="btn btn-danger"
-                (click)="deleteRestaurant(restaurant.id)"
-              >
-                Remove the flavor
+              <button class="btn btn-danger"
+                (click)="deleteRestaurant(restaurant.id)">Remove the flavor
               </button>
             </div>
           </div>
@@ -168,7 +165,7 @@
         <div class="col-12">
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-custom"
             (click)="addRestaurant(newRestaurant)"
           >
             Add a new Flavor
@@ -233,76 +230,14 @@
         </div>
       </div>
 
-      <!-- <div *ngIf="loggedIn()">
-        <form
-          (ngSubmit)="addMenuItem(newMenuItem.menu.id, newMenuItem.restaurantId, newMenuItem)"#form="ngForm">
-          <div class="col-md-6">
-            <label class="form-label" for="itemName">Name:</label>
-            <input
-              class="form-control"
-              type="text"
-              name="itemName"
-              [(ngModel)]="newMenuItem.itemName"
-            /><br />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label" for="itemUrl">Item URL:</label>
-            <input
-              class="form-control"
-              type="text"
-              name="itemUrl"
-              [(ngModel)]="newMenuItem.itemUrl"
-            /><br />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label" for="price">Price:</label>
-            <input
-              class="form-control"
-              type="number"
-              name="price"
-              [(ngModel)]="newMenuItem.price"
-            /><br />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label" for="calories">Calories:</label>
-            <input
-              class="form-control"
-              type="number"
-              name="calories"
-              [(ngModel)]="newMenuItem.calories"
-            /><br />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label" for="description">Description: </label>
-            <textarea
-              name="description"
-              [(ngModel)]="newMenuItem.description"
-              cols="30"
-              rows="10"
-            ></textarea>
-          </div>
-          <div class="col-md-6">
-            <label class="form-label" for="menu">Menu: </label>
-            <select name="menu" [(ngModel)]="newMenuItem.menu.id">
-              <option *ngFor="let menu of menus" value="{{ menu.id }}">
-                {{ menu.type }}
-              </option>
-            </select>
-          </div>
-          <button
-            class="btn btn-primary"
-            (click)="
-              addMenuItem(
-                newMenuItem.menu.id,
-                newMenuItem.restaurantId,
-                newMenuItem
-              )
-            "
-          >
-            Add Menu Item
-          </button>
-        </form>
-      </div> -->
+      <div class="center-block">
+        <ul class="restaurant-list">
+          <li *ngFor="let restaurant of currentUser.ratedRestaurants">
+            {{ restaurant.name }} - Rated: {{ restaurant.rating }}
+          </li>
+        </ul>
+
+
 
       <div *ngIf="getCurrentRole() === 'admin'">
         <button class="btn btn-primary" (click)="setEditRestaurant()">
@@ -312,6 +247,53 @@
       <button class="btn btn-danger" (click)="displayList()">Back</button>
     </div>
 
+    <!-- review form -->
+    <div class="form-container" *ngIf="newRestaurantReview">
+      <br />
+      <form class="row g-31">
+        <h1>Leave a Review!</h1>
+        <div class="col-md-6">
+          <label class="form-label" for="atmosphere">How was the overall atmosphere? </label>
+          <textarea
+            class="form-control" type="text" name="atmosphere" [(ngModel)]="newRestaurantReview.atmosphere"></textarea>
+            <br/>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="food">What food did you try during your visit? </label>
+          <textarea
+            class="form-control" type="text" name="food" [(ngModel)]="newRestaurantReview.food"></textarea>
+            <br/>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label" for="price">How much was your meal? </label>
+          <input
+            class="form-control" type="text" name="price" [(ngModel)]="newRestaurantReview.price"/><br />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label" for="service">Tell us about the service you received: </label>
+          <textarea
+            class="form-control" type="text" name="service" [(ngModel)]="newRestaurantReview.service"></textarea>
+          <br/>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label" for="smell">How was the over all smell of the restaurant? </label>
+          <textarea
+            class="form-control" type="text" name="smell" [(ngModel)]="newRestaurantReview.smell"></textarea>
+        </div>
+        <br>
+        <div>
+          <label class="form-label" for="imageUrl">Add Image: </label>
+          <input
+            type="text" class="form-control" name="imageUrl" [(ngModel)]="newRestaurantReview.imageUrl"/>
+        </div>
+        <div class="col-12">
+          <button
+            type="button" class="btn btn-custom" (click)="addRestaurantReview(newRestaurantReview, selected.id)">Add a new Flavor
+          </button>
+        </div>
+      </form>
+    </div>
+    </div>
     <!-- Edit restaurant form -->
     <div *ngIf="editRestaurant && getCurrentRole() === 'admin'" class="container">
       <form class="row g-3">
@@ -432,14 +414,10 @@
 
         <div class="d-grid gap-2 d-md-block mt-3">
           <button
-            class="btn btn-custom-blue"
-            (click)="updateRestaurant(editRestaurant)"
-          >
-            Save</button
-          ><br /><br />
-          <button class="btn btn-custom-blue" (click)="editRestaurant = null">
-            Cancel</button
-          ><br />
+            class="btn btn-custom"
+            (click)="updateRestaurant(editRestaurant)">Save</button><br /><br />
+          <button class="btn btn-custom" (click)="editRestaurant = null">Cancel</button>
+          <br/>
         </div>
       </form>
     </div>
