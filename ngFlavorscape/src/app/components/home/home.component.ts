@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   stateSearchInput: string = '';
   selected: Restaurant | null = null;
   showEnabled: boolean = false;
+  selectedCuisineType: String = 'All';
 
   @ViewChild(GoogleMap) map!: GoogleMap;
   @ViewChild('widgetsContent', { read: ElementRef })
