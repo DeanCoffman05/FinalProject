@@ -11,10 +11,10 @@
       <!-- Restaurant list -->
       <ul
         class="list-unstyled"
-        *ngFor="let restaurant of restaurants | enabled : showEnabled"
+
       >
         <li>
-          <div *ngFor="let restaurant of restaurants">
+          <div *ngFor="let restaurant of restaurants | enabled : showEnabled">
             <!--... your restaurant details ...-->
             <div (click)="displayRestaurant(restaurant)">
                 {{ restaurant.name }}<br />
