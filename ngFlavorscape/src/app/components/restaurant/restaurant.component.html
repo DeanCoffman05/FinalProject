@@ -177,9 +177,10 @@
       </form>
     </div>
   </div>
+
+<!-- Display selected restaurant details -->
   <div>
     <div *ngIf="selected && !editRestaurant">
-      <!-- Display selected restaurant details -->
       <h3>{{ selected.name }}</h3>
       <p>{{ selected.description }}</p>
       <p>{{ selected.restaurantUrl }}</p>
