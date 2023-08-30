@@ -33,7 +33,7 @@ export class RestaurantComponent implements OnInit {
 
 
 
-  showEnabled: boolean = true;
+  showEnabled: boolean = false;
   selectedValue: number = 0;
   hoverValue: number = 0;
   stars: number[] = [1, 2, 3, 4, 5];
