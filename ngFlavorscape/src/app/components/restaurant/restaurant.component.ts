@@ -28,6 +28,7 @@ export class RestaurantComponent implements OnInit {
   address: Address = new Address();
   menus: Menu[] = [];
   newMenuItem: MenuItem = new MenuItem();
+
   showEnabled: boolean = true;
   selectedValue: number = 0;
   hoverValue: number = 0;

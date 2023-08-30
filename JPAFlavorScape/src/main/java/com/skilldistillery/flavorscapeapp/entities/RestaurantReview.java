@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table (name = "restaurant_review")
 public class RestaurantReview {
@@ -44,6 +46,7 @@ public class RestaurantReview {
 	
 	@ManyToOne
 	@JoinColumn (name = "restaurant_id")
+	@JsonIgnoreProperties({"restaurant"})
 	private Restaurant restaurant;
 	
 	public RestaurantReview() {
