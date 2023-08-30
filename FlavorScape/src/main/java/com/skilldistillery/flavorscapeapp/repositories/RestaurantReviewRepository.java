@@ -13,6 +13,7 @@ public interface RestaurantReviewRepository extends JpaRepository<RestaurantRevi
 	public List<RestaurantReview> findByUser_Id(int userId);
 	
 	public RestaurantReview findByIdAndRestaurant_Id(int restaurantReviewId, int restaurntId);
+
 	
 	
 }
