@@ -17,7 +17,7 @@ export class User {
   latitude: number;
   longitude: number;
   ratedRestaurants: RatedRestaurant[];
-  favoriteRestaurant: Restaurant[];
+  favoriteRestaurants: Restaurant[];
 
   constructor(
     id: number = 0,
@@ -34,7 +34,7 @@ export class User {
     latitude: number = 0,
     longitude: number = 0,
     ratedRestaurants: RatedRestaurant[] = [],
-    favoriteRestaurant: Restaurant[] = []
+    favoriteRestaurants: Restaurant[] = []
   ){
     this.id = id;
     this.username = username;
@@ -50,7 +50,7 @@ export class User {
     this.latitude = latitude;
     this.longitude = longitude;
     this.ratedRestaurants = ratedRestaurants;
-    this.favoriteRestaurant = favoriteRestaurant;
+    this.favoriteRestaurants = favoriteRestaurants;
   }
 
 }

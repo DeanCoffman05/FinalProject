@@ -9,9 +9,13 @@
 
   <div class="favorite-restaurant">
     <h3>Favorite Restaurant:</h3>
-    <div *ngFor="let rest of currentUser.favoriteRestaurant">
 
-      <p >{{ rest.name}}</p>
+    <p>{{currentUser.address.street}}</p>
+
+
+    <div *ngFor="let rest of restaurantSearchs">
+      {{ rest.description}}
+
     </div>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
