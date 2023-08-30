@@ -177,9 +177,10 @@
       </form>
     </div>
   </div>
+
+<!-- Display selected restaurant details -->
   <div>
     <div *ngIf="selected && !editRestaurant">
-      <!-- Display selected restaurant details -->
       <h3>{{ selected.name }}</h3>
       <p>{{ selected.description }}</p>
       <p>{{ selected.restaurantUrl }}</p>
@@ -211,17 +212,30 @@
         </span>
       </div>
 
-      <div *ngIf="loggedIn()">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card">
+              <div class="card-header">
+                Restaurant Reviews
+              </div>
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item" *ngFor="let review of reviews">
+                    <h5 class="card-title">Rating: {{ review.rating }}</h5>
+                    <p class="card-text">Atmosphere: {{ review.atmosphere }}</p>
+                    <p class="card-text">Review Text: {{ review.service }}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div *ngIf="loggedIn()">
         <form
-          (ngSubmit)="
-            addMenuItem(
-              newMenuItem.menu.id,
-              newMenuItem.restaurantId,
-              newMenuItem
-            )
-          "
-          #form="ngForm"
-        >
+          (ngSubmit)="addMenuItem(newMenuItem.menu.id, newMenuItem.restaurantId, newMenuItem)"#form="ngForm">
           <div class="col-md-6">
             <label class="form-label" for="itemName">Name:</label>
             <input
@@ -288,7 +302,7 @@
             Add Menu Item
           </button>
         </form>
-      </div>
+      </div> -->
 
       <div *ngIf="getCurrentRole() === 'admin'">
         <button class="btn btn-primary" (click)="setEditRestaurant()">
@@ -297,8 +311,9 @@
       </div>
       <button class="btn btn-danger" (click)="displayList()">Back</button>
     </div>
+
     <!-- Edit restaurant form -->
-    <div *ngIf="editRestaurant && getCurrentRole() === 'admin'">
+    <div *ngIf="editRestaurant && getCurrentRole() === 'admin'" class="container">
       <form class="row g-3">
         <h4>Edit Restaurant #{{ editRestaurant.id }}</h4>
         <div class="col-md-6">
@@ -415,14 +430,14 @@
           />
         </div>
 
-        <div class="d-grid gap-2 d-md-block">
+        <div class="d-grid gap-2 d-md-block mt-3">
           <button
-            class="btn btn-success"
+            class="btn btn-custom-blue"
             (click)="updateRestaurant(editRestaurant)"
           >
             Save</button
           ><br /><br />
-          <button class="btn btn-danger" (click)="editRestaurant = null">
+          <button class="btn btn-custom-blue" (click)="editRestaurant = null">
             Cancel</button
           ><br />
         </div>
