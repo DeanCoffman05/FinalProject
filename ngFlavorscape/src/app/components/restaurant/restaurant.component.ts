@@ -28,16 +28,14 @@ export class RestaurantComponent implements OnInit {
   address: Address = new Address();
   menus: Menu[] = [];
   newMenuItem: MenuItem = new MenuItem();
-<<<<<<< HEAD
-  showEnabled: boolean = false;
-=======
+
   showEnabled: boolean = true;
   selectedValue: number = 0;
   hoverValue: number = 0;
   stars: number[] = [1, 2, 3, 4, 5];
 
 
->>>>>>> 00ee2f3dda23d888aac799b1e21cc7e323593aa1
+
 
   constructor(
     private restaurantService: RestaurantService,
@@ -188,9 +186,6 @@ setRatingForRestaurant(restaurantId: number, star: number) {
   }
 
   addMenuItem(menuId: number, restaurantId: number, newMenuItem: MenuItem) {
-    if(!newMenuItem || !newMenuItem.itemName || !newMenuItem.price) {
-      return;
-    }
     this.menuService.addMenuItem(menuId, restaurantId,newMenuItem).subscribe ({
       next: (addedMenuItem) => {
         console.log('Added menu item: ', addedMenuItem);

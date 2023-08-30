@@ -22,7 +22,6 @@ export class MenuService {
     private http: HttpClient,
     private userService: UserService,
     private authService: AuthService,
-    private menuService: MenuService
     ) { }
 
   indexForRestaurant(restaurantId: number): Observable<Menu[]> {

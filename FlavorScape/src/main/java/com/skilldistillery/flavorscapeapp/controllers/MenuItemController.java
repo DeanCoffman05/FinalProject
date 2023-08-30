@@ -23,8 +23,12 @@ public class MenuItemController {
 
 	@PostMapping("restaurants/{restaurantId}/menus/{menuId}/menuItems")
 	public MenuItem createFavoriteMenuItem(Principal principal, Integer restaurantId, Integer menuId, @RequestBody MenuItem menuItem) {
+		System.out.println("************************" + principal + "************************************8");
+		System.out.println("************************" + restaurantId + "************************************8");
+		System.out.println("************************" + menuId + "************************************8");
+		System.out.println("************************" + menuItem + "************************************8");
 		menuItem = menuService.addNewMenuItem(principal.getName(), restaurantId, menuId, menuItem);
-
+		System.out.println("************************" + menuItem + "************************************8");
 		return menuItem;
 	}
 }
