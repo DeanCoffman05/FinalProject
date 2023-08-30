@@ -7,6 +7,7 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user';
 import { GoogleMap } from '@angular/google-maps';
+import { EnabledPipe } from 'src/app/enabled.pipe';
 
 @Component({
   selector: 'app-home',
@@ -31,14 +32,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
   citySearchInput: string = '';
   stateSearchInput: string = '';
   selected: Restaurant | null = null;
-
+  showEnabled: boolean = false;
 
   @ViewChild(GoogleMap) map!: GoogleMap;
 
   constructor(
     private restaurantservice: RestaurantService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private showenabled: EnabledPipe
   ) {
 
   }

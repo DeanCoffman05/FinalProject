@@ -2,18 +2,24 @@ package com.skilldistillery.flavorscapeapp.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.flavorscapeapp.entities.Cuisine;
 import com.skilldistillery.flavorscapeapp.entities.Menu;
 import com.skilldistillery.flavorscapeapp.entities.MenuItem;
 import com.skilldistillery.flavorscapeapp.entities.Restaurant;
+import com.skilldistillery.flavorscapeapp.entities.RestaurantReviewRatingId;
+import com.skilldistillery.flavorscapeapp.entities.RestaurantReviewRatings;
 import com.skilldistillery.flavorscapeapp.entities.User;
 import com.skilldistillery.flavorscapeapp.repositories.AddressRepository;
+import com.skilldistillery.flavorscapeapp.repositories.CuisineRepository;
 import com.skilldistillery.flavorscapeapp.repositories.MenuItemRepository;
 import com.skilldistillery.flavorscapeapp.repositories.MenuRepository;
 import com.skilldistillery.flavorscapeapp.repositories.RestaurantRepository;
+import com.skilldistillery.flavorscapeapp.repositories.RestaurantReviewRatingsRepository;
 import com.skilldistillery.flavorscapeapp.repositories.UserRepository;
 
 @Service
@@ -33,6 +39,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Autowired
 	private MenuItemRepository menuItemRepo;
+	
+	@Autowired
+	private CuisineRepository cuisineRepo;
+
+	@Autowired
+	private RestaurantReviewRatingsRepository restReviewRepo;
 
 	@Override
 	public List<Restaurant> index() {
@@ -92,21 +104,21 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public boolean destroy(String username, int restaurantId) {
-		User user = userRepo.findByUsername(username);		
+		User user = userRepo.findByUsername(username);
 		boolean destroy = false;
-		if(user != null) {
+		if (user != null) {
 			Optional<Restaurant> optRestaurant = restaurantRepo.findById(restaurantId);
-			if(optRestaurant.isPresent()) {
+			if (optRestaurant.isPresent()) {
 				Restaurant restaurantToDelete = optRestaurant.get();
-				if(restaurantToDelete != null) {
+				if (restaurantToDelete != null) {
 					restaurantToDelete.setEnabled(false);
 					destroy = true;
 					restaurantRepo.saveAndFlush(restaurantToDelete);
 				}
 			}
-			
+
 		}
-		
+
 		return destroy;
 	}
 
@@ -130,9 +142,23 @@ public class RestaurantServiceImpl implements RestaurantService {
 					menuItem.setMenu(menu);
 					menuItemRepo.save(menuItem);
 				}
-				
+
 				return getMenuItemsForRestaurant(menuItem.getMenu().getRestaurant().getId());
 			}
+		}
+		return null;
+	}
+
+	@Override
+	public RestaurantReviewRatings createRating(String username, int restaurantId, int rating) {
+		User user = userRepo.findByUsername(username);
+		if (user != null) {
+			RestaurantReviewRatings restreview = new RestaurantReviewRatings();
+			RestaurantReviewRatingId restReviewRatingId = new RestaurantReviewRatingId(user.getId(),
+					restaurantId);
+			restreview.setId(restReviewRatingId);
+			restreview.setRating(rating);
+			return restReviewRepo.saveAndFlush(restreview);
 		}
 		return null;
 	}
@@ -150,4 +176,11 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return null;
 	}
 
+	public Set<Restaurant> findByCuisine(int cuisineId) {
+		Optional <Cuisine> cuisineOpt = cuisineRepo.findById(cuisineId);
+		if(cuisineOpt.isPresent()) {
+			return restaurantRepo.findByMenus_MenuItems_Cuisines_Id(cuisineId);
+		}
+		return null;
+	}
 }

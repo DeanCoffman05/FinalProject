@@ -24,7 +24,7 @@ public class Cuisine {
 	private String iconUrl;
 
 	@ManyToMany
-	@JoinTable(name = "menu_item_has_cuisine", joinColumns = @JoinColumn(name = "menu_item_id"), inverseJoinColumns = @JoinColumn(name = "cuisine_id"))
+	@JoinTable(name = "menu_item_has_cuisine", joinColumns = @JoinColumn(name = "cuisine_id"), inverseJoinColumns = @JoinColumn(name = "menu_item_id"))
 	private List<MenuItem> menuItems;
 
 	public void addMenuItem(MenuItem menuItem) {
