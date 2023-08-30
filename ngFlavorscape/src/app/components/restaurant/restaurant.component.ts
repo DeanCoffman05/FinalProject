@@ -78,10 +78,10 @@ removeStar(star: number) {
 }
 
 
-setRatingForRestaurant(restaurantId: number, star: number) {
+setRatingForRestaurantReview(reviewId: number, star: number) {
     this.selectedValue = star;
 
-    this.restaurantService.rateRestaurant(restaurantId, star).subscribe({
+    this.restaurantService.rateRestaurant(reviewId, star).subscribe({
         next: () => {
             console.log('Rating saved successfully');
         },
