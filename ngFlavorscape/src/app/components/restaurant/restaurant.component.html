@@ -196,18 +196,7 @@
         </ul>
       </div>
 
-      <div class="rating">
-        <span
-          *ngFor="let star of stars; let i = index"
-          [class.selected]="i < selectedValue"
-          (mouseover)="countStar(star)"
-          (mouseout)="removeStar(star)"
-          (click)="setRatingForRestaurant(selected.id, star)"
-          [attr.id]="'starId' + i"
-        >
-          ★
-        </span>
-      </div>
+
 
       <div class="container">
         <div class="row">
@@ -285,6 +274,21 @@
           <label class="form-label" for="imageUrl">Add Image: </label>
           <input
             type="text" class="form-control" name="imageUrl" [(ngModel)]="newRestaurantReview.imageUrl"/>
+        </div>
+        <div>
+          <label class="form-label" for="rating">Add rating: </label>
+        </div>
+        <div class="rating">
+          <span
+            *ngFor="let star of stars; let i = index"
+            [class.selected]="i < newRestaurantReview.rating"
+            (mouseover)="countStar(star)"
+            (mouseout)="removeStar(star)"
+            (click)=" newRestaurantReview.rating = star"
+            [attr.id]="'starId' + i"
+          >
+            ★
+          </span>
         </div>
         <div class="col-12">
           <button

@@ -40,7 +40,7 @@ export class RestaurantreviewService {
 
   showRestaurantReviews(restaurantId: number): Observable<Restaurantreview[]> {
     const reviewsUrl = `${this.url}/${restaurantId}/reviews`;
-    return this.http.get<Restaurantreview[]>(reviewsUrl, this.getHttpOptions()).pipe(
+    return this.http.get<Restaurantreview[]>(reviewsUrl).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError(

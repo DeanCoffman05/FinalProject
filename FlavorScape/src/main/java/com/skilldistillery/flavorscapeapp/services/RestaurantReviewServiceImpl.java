@@ -39,6 +39,7 @@ public class RestaurantReviewServiceImpl implements RestaurantReviewService {
 	    if (user != null) {
 	        restaurantReview.setRestaurant(restaurant); 
 	        restaurantReview.setUser(user);
+	        restaurantReview.setEnabled(true);
 	        restaurantReviewRepo.save(restaurantReview);
 	        return restaurantReview;
 	    }

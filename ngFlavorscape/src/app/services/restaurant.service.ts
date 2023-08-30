@@ -104,7 +104,7 @@ private url = environment.baseUrl + "api/restaurants";
 
   }
   rateRestaurant(restaurantId: number, rating: number): Observable<any> {
-    const rateUrl = `${this.url}/${restaurantId}/rate/${rating}`
+    const rateUrl = `${this.url}/${restaurantId}/rate/${rating}`;
     return this.http.post(rateUrl, null, this.getHttpOptions()).pipe(
         catchError((err: any) => {
             console.log(err);
