@@ -81,6 +81,8 @@
             </div>
 
 
+
+
         <!-- Display List of Restaurants for State Search -->
         <div class="col-md-12" *ngIf="!selected">   <!-- Changed from col-md-6 to col-md-12 to occupy full width -->
             <div *ngIf="restaurantstateSearch.length > 0">
@@ -100,10 +102,10 @@
           <div class="col-md-12" *ngIf="selected">
             <!-- Display selected restaurant details -->
             <h3>{{ selected.name }}</h3>
+            <img src="{{selected.imageUrl}}">
             <p>{{ selected.description }}</p>
             <p>{{ selected.restaurantUrl }}</p>
             <p>{{ selected.phoneNumber }}</p>
-            <p>{{ selected.imageUrl }}</p>
             <p>{{ selected.address.street }}</p>
             <p>{{ selected.address.city }}</p>
             <p>{{ selected.address.state }}</p>
@@ -119,6 +121,8 @@
             <button class="btn btn-danger" (click)="displayHome()">Back</button>
             </div>
     </div>
+
+
 
 
   <script>initMap(); </script>
