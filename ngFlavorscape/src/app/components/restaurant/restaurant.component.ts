@@ -30,7 +30,7 @@ export class RestaurantComponent implements OnInit {
   newMenuItem: MenuItem = new MenuItem();
   reviews: Restaurantreview [] = [];
 
-  showEnabled: boolean = true;
+  showEnabled: boolean = false;
   selectedValue: number = 0;
   hoverValue: number = 0;
   stars: number[] = [1, 2, 3, 4, 5];
