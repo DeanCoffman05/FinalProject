@@ -100,10 +100,10 @@
           <div class="col-md-12" *ngIf="selected">
             <!-- Display selected restaurant details -->
             <h3>{{ selected.name }}</h3>
+            <img src="{{selected.imageUrl}}">
             <p>{{ selected.description }}</p>
             <p>{{ selected.restaurantUrl }}</p>
             <p>{{ selected.phoneNumber }}</p>
-            <p>{{ selected.imageUrl }}</p>
             <p>{{ selected.address.street }}</p>
             <p>{{ selected.address.city }}</p>
             <p>{{ selected.address.state }}</p>

@@ -583,16 +583,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flavorscapedb`;
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (1, 'jacobs seafood shack', NULL, NULL, NULL, 1, 1, 'seafood');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (2, 'athenas wonderland ', NULL, NULL, NULL, 2, 1, 'is only cotton candy');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (3, 'Delicious Bites', 'http://deliciousbites.example', NULL, '(123) 456-7890', 3, 1, 'culinary adventure of flavors that tickle your taste buds.');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (4, 'SunnySide Café', NULL, NULL, NULL, 4, 1, 'A place where every meal brings a touch of sunshine to your day.');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (5, 'Urban Grill House', NULL, NULL, NULL, 5, 1, 'Savor the bold and smoky creations from the heart of the city.');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (6, 'Green Oasis Eatery', NULL, NULL, NULL, 6, 1, 'A tranquil haven offering fresh and wholesome delights.');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (7, 'SpiceFusion Bazaar', NULL, NULL, NULL, 7, 1, 'Embark on a journey through a vibrant marketplace of flavors.');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (8, 'Sweet Serenity Café', NULL, NULL, NULL, 8, 1, 'Sweetness and serenity converge in every cup and bite.');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (9, 'HarborView Grill', NULL, NULL, NULL, 9, 1, 'Captivating views meet delectable dishes at the water\'s edge.');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (10, 'Artisan Bread Chronicles', NULL, NULL, NULL, 10, 1, 'Explore the saga of artisanal bread with every crust and crumb.');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (1, 'Izakaya Den', 'https://izakayaden.net/our-menu/', 'assets/izakayaDen.png', '303-777-0691', 1, 1, 'Welcome to Denver’s popular Japanese gastro pub serving global cuisine. The menu is tapas style, serving traditional Japanese plates along with dishes infused with international flavors.');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (2, 'Fruition Restaurant', 'https://www.fruitionrestaurant.com/', 'assets/fruition.png', '303-831-1962', 2, 1, 'Special anytime, \nalways an occasion.');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (3, 'The Capital Grille', 'https://www.thecapitalgrille.com/locations/co/denver/denver/8018', 'assets/capitalGrille.png', '(303) 539-2500', 3, 1, 'Nationally renowned dry-aged steaks, fresh seafood, and acclaimed world-class wines. With service as gracious as it is attentive, we look forward to impressing you.');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (4, 'Sushi Den', 'https://www.sushiden.net/', 'assets/sushiDen.png', '303-777-0826', 4, 1, 'Sushi Den has been regarded as one of the premier sushi and Japanese restaurants in the United States for 38 years.');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (5, 'Guard and Grace ', 'https://www.guardandgrace.com/', 'assets/guardAndGrace.png', '303-293-8500', 5, 1, 'Named after the chef’s daughter, Guard and Grace is a take on the big, fancy, modern steakhouse – miles and miles of fiery grills and charcuterie, oyster bar and bar tops, private rooms, and a posh, walk-in, floor-to-high-ceiling glassed wine cellar – yet still, with more of a bright, airy playfulness than the usual dark, stiff, mano a mano atmosphere.');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (6, 'Barolo Grille', 'https://www.barologrilldenver.com/our-story-1', 'assets/BaroloGrille.png', '303.393.1040', 6, 1, 'Barolo Grill prides itself on serving authentic northern Italian food while maintaining a comfortable, elegant ambiance. Annual staff trips to Italy keep the Barolo Grill dining experience inspired and genuine. Hand-crafted modern Piemontese cuisine, a spectacular wine cellar, and knowledgeable, attentive staff make Barolo Grill the perfect choice for special occasions or just a great night out.');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (7, 'Rioja', 'https://www.riojadenver.com/', 'assets/rioja.png', '303-820-2282', 7, 1, 'a menu inspired by Mediterranean ingredients and influenced by local and seasonal products.');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (8, 'Cho Lon Modern Asian', 'http://www.cholon.com/downtown/dinnermenu/', 'assets/choLonModernAsian.png', '303 353 5223', 8, 1, 'ChoLon’s menu plays on interpretations of traditional dishes found across the Far East, combined with slight nods to Lon’s classical European training');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (9, 'Edge Restaurant & Bar', 'http://www.edgerestaurantdenver.com/', 'assets/Edge.png', '303-389-3050', 9, 1, 'EDGE Restaurant & Bar is a premier American steakhouse influenced by cuisine and culture from around the world. EDGE Restaurant is led by Four Seasons Hotel Denver\'s Craig Dryhurst and Alec Bruno, who infuses passion and creativity into every dining experience. EDGE Restaurant utilizes top quality cuts, locally sourced Colorado game, fresh seafood, and produce from nearby farms to cultivate dishes full of seasonal flavors. The knowledgeable, talented culinary team at EDGE graciously provide intuitive service throughout the contemporary restaurant. ');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (10, 'Lucile\'s Creole Cafe', 'https://www.luciles.com/denver-location-menu/', 'assets/luciles.png', '303-282-6258', 10, 1, 'Lucile’s Creole Café serves an array of gourmet and delectable breakfast and lunch items. Our mouth-watering menu is simple but varied and our large portions are guaranteed to leave you satisfied.');
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (70, 'Flavor', 'http://flavor.com', 'http://flavor.com/images/flavor.jpg', '555276716', 70, 1, 'tender artisanal exquisite sumptuous roasted tasty.');
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (71, 'Kraken', 'http://kraken.com', 'http://kraken.com/images/kraken.jpg', '086403052', 71, 1, 'modern delectable baked fluffy satisfying melted.');
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (72, 'Harvest', 'http://harvest.com', 'http://harvest.com/images/harvest.jpg', '215388527', 72, 1, 'authentic marinated steamed exquisite tangy.');
@@ -658,6 +658,7 @@ INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VAL
 INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (4, 4, 'brunch', 1, 'what about second breakfast');
 INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (5, 5, 'drinks', 1, 'alcoholic beverages');
 INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (6, 6, 'specialty', 1, 'specials');
+INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (7, 1, 'lunch', 1, NULL);
 
 COMMIT;
 
@@ -667,8 +668,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flavorscapedb`;
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (1, 'tomato fancy', NULL, 1, 50, 'fancy tomato', 100, 1);
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (2, 'Spaghetti Carbonara', 'http://fakeurl.com/spaghetti.jpg', 2, 12.99, 'A classic Italian pasta dish with eggs cheese and bacon', 550, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (1, 'tomato fancy', NULL, 3, 50, 'fancy tomato', 100, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (2, 'Spaghetti Carbonara', 'http://fakeurl.com/spaghetti.jpg', 3, 12.99, 'A classic Italian pasta dish with eggs cheese and bacon', 550, 1);
 INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (3, 'Chicken Teriyaki Bowl', 'http://fakeurl.com/teriyaki.jpg', 3, 9.95, 'Grilled chicken served over a bed of rice with teriyaki sauce', 450, 1);
 INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (4, 'Margherita Pizza', 'http://fakeurl.com/margherita.jpg', 2, 14.50, 'A traditional pizza topped with tomato mozzarella and fresh basil', 800, 1);
 INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (5, 'Beef Stir-Fry', 'http://fakeurl.com/stirfry.jpg', 4, 11.75, 'Tender beef strips with colorful vegetables in a savory sauce', 520, 1);
@@ -706,15 +707,16 @@ COMMIT;
 START TRANSACTION;
 USE `flavorscapedb`;
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (1, 'chinese', 'yum', NULL);
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (2, 'Italian', 'Indulge in the rich flavors of Italian cuisine, from pasta to pizza.', 'http://fakeurl.com/italian-icon.jpg');
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (3, 'japanese', 'Experience the art of sushi, sashimi, and delicate Japanese flavors.', 'http://fakeurl.com/japanese-icon.jpg');
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (4, 'mexican', 'Spice up your palate with vibrant Mexican dishes and bold spices.', 'http://fakeurl.com/mexican-icon.jpg');
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (5, 'indian', 'Embark on a journey through aromatic curries, naan, and Indian spices.', 'http://fakeurl.com/indian-icon.jpg');
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (6, 'vegan', 'Savor the variety of Chinese dishes, from stir-fries to dim sum.', 'http://fakeurl.com/chinese-icon.jpg');
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (7, 'french', 'Elevate your dining with elegant French classics and refined flavors.', 'http://fakeurl.com/french-icon.jpg');
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (8, 'thai', 'Delight in the balance of sweet, sour, salty, and spicy Thai cuisine.', 'http://fakeurl.com/thai-icon.jpg');
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (9, 'american', 'Indulge in American comfort food, from burgers to mac and cheese.', 'http://fakeurl.com/american-icon.jpg');
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (10, 'greek', 'Taste the freshness of Mediterranean ingredients in Greek dishes.', 'http://fakeurl.com/greek-icon.jpg');
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (2, 'Italian', 'Indulge in the rich flavors of Italian cuisine, from pasta to pizza.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (3, 'japanese', 'Experience the art of sushi, sashimi, and delicate Japanese flavors.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (4, 'mexican', 'Spice up your palate with vibrant Mexican dishes and bold spices.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (5, 'indian', 'Embark on a journey through aromatic curries, naan, and Indian spices.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (6, 'vegan', 'Savor the variety of Chinese dishes, from stir-fries to dim sum.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (7, 'french', 'Elevate your dining with elegant French classics and refined flavors.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (8, 'thai', 'Delight in the balance of sweet, sour, salty, and spicy Thai cuisine.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (9, 'american', 'Indulge in American comfort food, from burgers to mac and cheese.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (10, 'greek', 'Taste the freshness of Mediterranean ingredients in Greek dishes.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (11, 'japanese', NULL, NULL);
 
 COMMIT;
 
