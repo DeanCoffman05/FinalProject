@@ -29,6 +29,7 @@ export class ProfileComponent implements OnInit {
   reload() {
     this.authService.getLoggedInUser().subscribe({
       next: (user) => {
+        console.log(user);
         this.currentUser = user;
       },
       error: (err) => {

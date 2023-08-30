@@ -49,7 +49,6 @@ public class User {
 	private List<RestaurantReview> restaurantReviews;
 
 	@ManyToMany(mappedBy = "users")
-	@JsonIgnore
 	private List<Restaurant> restaurants;
 
 	@OneToMany(mappedBy = "user")
