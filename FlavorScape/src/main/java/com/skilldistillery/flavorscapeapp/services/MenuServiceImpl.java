@@ -41,10 +41,13 @@ public class MenuServiceImpl implements MenuService {
 	@Override
 	public MenuItem addNewMenuItem(String username, int restaurantId, int menuId, MenuItem menuItem) {
 		User user = userRepo.findByUsername(username);
+		System.out.println("**************************" + user + "*********************************");
 		Menu menu = menuRepo.findByIdAndRestaurant_Id(menuId, restaurantId);
+		System.out.println("**********************" + menu + "**********************************");
 		
 		if(user != null && menu != null) {
 			menuItem.setMenu(menu);
+			System.out.println("*********************" + menuItem + "********************************");
 			return menuItemRepo.saveAndFlush(menuItem);
 		}
 		return null;

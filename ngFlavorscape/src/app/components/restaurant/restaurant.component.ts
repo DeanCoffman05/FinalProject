@@ -151,9 +151,6 @@ export class RestaurantComponent implements OnInit {
   }
 
   addMenuItem(menuId: number, restaurantId: number, newMenuItem: MenuItem) {
-    if(!newMenuItem || !newMenuItem.itemName || !newMenuItem.price) {
-      return;
-    }
     this.menuService.addMenuItem(menuId, restaurantId,newMenuItem).subscribe ({
       next: (addedMenuItem) => {
         console.log('Added menu item: ', addedMenuItem);
