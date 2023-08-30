@@ -12,7 +12,7 @@ export class EnabledPipe implements PipeTransform {
     let results: Restaurant[] = [];
 
     restaurants.forEach((restaurant)=>{
-      if(!restaurant.enabled){
+      if(restaurant.enabled){
         results.push(restaurant)
       }
     })

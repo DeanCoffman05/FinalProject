@@ -35,6 +35,7 @@ export class RestaurantComponent implements OnInit {
 
 
 
+
   constructor(
     private restaurantService: RestaurantService,
     private authService: AuthService,
@@ -172,6 +173,7 @@ setRatingForRestaurant(restaurantId: number, star: number) {
     this.restaurantService.deleteRestaurant(restaurantId).subscribe({
       next: () => {
         this.displayList();
+        this.reload();
       },
       error: (fail) => {
         console.error(
