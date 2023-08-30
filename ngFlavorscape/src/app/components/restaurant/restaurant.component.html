@@ -7,25 +7,26 @@
     <div *ngIf="!selected" class="list-group list-group-light custom-scroll-box">
       <!-- Restaurant list -->
       <ul class="list-unstyled" *ngFor="let restaurant of restaurants | enabled : showEnabled">
-        <li (click)="displayRestaurant(restaurant)">
-          {{ restaurant.name }}
+        <li >
           <div *ngIf="getCurrentRole() === 'admin'">
+            <div *ngFor="let restaurant of restaurants">
+              <!--... your restaurant details ...-->
+              <div (click)="displayRestaurant(restaurant)">
+              {{ restaurant.name}}<br>
+              </div>
 
-            <button
-            class="btn btn-danger"
-            (click)="deleteRestaurant(restaurant.id)"
-          >
-            Remove the flavor</button
-          >
+
+              <button class="btn btn-danger" (click)="deleteRestaurant(restaurant.id)"> Remove the flavor </button>
+
           </div>
-        </li>
-
-      </ul>
-      </div>
-      <br>
-      <!-- Create form -->
-      <div class="form-container" *ngIf="!selected">
-        <br>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <!-- Create form -->
+  <div class="form-container" *ngIf="!selected">
+    <br>
         <form class="row g-3">
         <h1>Add a new Flavor to the scape</h1>
         <div class="col-md-6">
@@ -187,6 +188,17 @@
           </li>
         </ul>
       </div>
+
+      <div class="rating">
+        <span *ngFor="let star of stars; let i = index"
+              [class.selected]="i < selectedValue"
+              (mouseover)="countStar(star)"
+              (mouseout)="removeStar(star)"
+              (click)="setRatingForRestaurant(selected.id, star)"
+              [attr.id]="'starId' + i">
+            ★
+    </span>
+    </div>
 
       <div *ngIf="loggedIn()">
         <form (ngSubmit)="addMenuItem(newMenuItem.menu.id, newMenuItem.restaurantId, newMenuItem)" #form="ngForm">

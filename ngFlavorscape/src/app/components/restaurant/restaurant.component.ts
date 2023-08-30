@@ -1,3 +1,5 @@
+
+
 import { Address } from 'src/app/models/address';
 import { AuthService } from './../../services/auth.service';
 import { RestaurantService } from './../../services/restaurant.service';
@@ -9,6 +11,7 @@ import { MenuService } from 'src/app/services/menu.service';
 import { Menu } from 'src/app/models/menu';
 import { MenuItem } from 'src/app/models/menu-item';
 import { EnabledPipe } from 'src/app/enabled.pipe';
+
 
 @Component({
   selector: 'app-restaurant',
@@ -26,6 +29,11 @@ export class RestaurantComponent implements OnInit {
   menus: Menu[] = [];
   newMenuItem: MenuItem = new MenuItem();
   showEnabled: boolean = true;
+  selectedValue: number = 0;
+  hoverValue: number = 0;
+  stars: number[] = [1, 2, 3, 4, 5];
+
+
 
   constructor(
     private restaurantService: RestaurantService,
@@ -34,6 +42,7 @@ export class RestaurantComponent implements OnInit {
     private router: Router,
     private menuService: MenuService,
     private showenabled: EnabledPipe
+
   ) {}
 
   ngOnInit() {
@@ -54,6 +63,29 @@ export class RestaurantComponent implements OnInit {
       },
     });
   }
+  countStar(star: number) {
+    this.hoverValue = star;
+}
+
+removeStar(star: number) {
+    this.hoverValue = 0;
+}
+
+
+setRatingForRestaurant(restaurantId: number, star: number) {
+    this.selectedValue = star;
+
+    this.restaurantService.rateRestaurant(restaurantId, star).subscribe({
+        next: () => {
+            console.log('Rating saved successfully');
+        },
+        error: (error) => {
+            console.error('Error saving rating:', error);
+        }
+    });
+}
+
+
   displayRestaurant(restaurant: any) {
     this.selected = restaurant;
     this.getRestaurantMenus();
