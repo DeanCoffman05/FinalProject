@@ -1,4 +1,5 @@
 import { Address } from "./address";
+export type RatedRestaurant = { name: string, rating: number};
 
 export class User {
   id: number;
@@ -14,6 +15,8 @@ export class User {
   address: Address;
   latitude: number;
   longitude: number;
+  ratedRestaurants: RatedRestaurant[];
+  favoriteRestaurant: string;
 
   constructor(
     id: number = 0,
@@ -28,7 +31,9 @@ export class User {
     aboutMe: string = '',
     address: Address = new Address(),
     latitude: number = 0,
-    longitude: number = 0
+    longitude: number = 0,
+    ratedRestaurants: RatedRestaurant[] = [],
+    favoriteRestaurant: string = ''
   ){
     this.id = id;
     this.username = username;
@@ -43,6 +48,8 @@ export class User {
     this.address = address;
     this.latitude = latitude;
     this.longitude = longitude;
+    this.ratedRestaurants = ratedRestaurants;
+    this.favoriteRestaurant = favoriteRestaurant;
   }
 
 }
