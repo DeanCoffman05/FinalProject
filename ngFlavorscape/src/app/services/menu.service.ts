@@ -21,7 +21,8 @@ export class MenuService {
   constructor(
     private http: HttpClient,
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private menuService: MenuService
     ) { }
 
   indexForRestaurant(restaurantId: number): Observable<Menu[]> {
@@ -35,15 +36,16 @@ export class MenuService {
     );
   }
 
-  // addMenuItem(menuId: number, restaurantId: number): Observable<MenuItem> {
-  //   return this.http.post<MenuItem>(this.url, menuId, restaurantId).pipe(
-  //     catchError((err: any) => {
-  //       console.log(err);
-  //       return throwError(
-  //         () => new Error('RestaurantService.create(): error creating restaurant: ' + err)
-  //       );
-  //     })
-  //   );
-  // }
+  addMenuItem(menuId: number, restaurantId: number, newMenuItem: MenuItem): Observable<MenuItem> {
+    const endpointUrl = `${this.url}/${restaurantId}/menus/${menuId}/menuItems`;
 
+    return this.http.post<MenuItem>(endpointUrl, newMenuItem).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError(
+          () => new Error('MenuService.addMenuItem(): error adding menu item: ' + err)
+        );
+      })
+    );
+  }
 }
