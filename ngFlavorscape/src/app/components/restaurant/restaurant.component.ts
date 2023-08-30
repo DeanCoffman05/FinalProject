@@ -1,5 +1,5 @@
-
-
+import { RestaurantreviewService } from './../../services/restaurantreview.service';
+import { Restaurantreview } from './../../models/restaurantreview';
 import { Address } from 'src/app/models/address';
 import { AuthService } from './../../services/auth.service';
 import { RestaurantService } from './../../services/restaurant.service';
@@ -28,6 +28,7 @@ export class RestaurantComponent implements OnInit {
   address: Address = new Address();
   menus: Menu[] = [];
   newMenuItem: MenuItem = new MenuItem();
+  reviews: Restaurantreview [] = [];
 
   showEnabled: boolean = true;
   selectedValue: number = 0;
@@ -43,14 +44,14 @@ export class RestaurantComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private menuService: MenuService,
-    private showenabled: EnabledPipe
+    private showenabled: EnabledPipe,
+    private restaurantreviewService: RestaurantreviewService
 
   ) {}
 
   ngOnInit() {
     console.log('RestaurantComponent initialized.');
     this.reload();
-
   }
 
   reload() {
@@ -91,6 +92,7 @@ setRatingForRestaurant(restaurantId: number, star: number) {
   displayRestaurant(restaurant: any) {
     this.selected = restaurant;
     this.getRestaurantMenus();
+    this.showReviews(restaurant.id);
   }
   displayList() {
     this.selected = null;
@@ -185,14 +187,17 @@ setRatingForRestaurant(restaurantId: number, star: number) {
     });
   }
 
-  addMenuItem(menuId: number, restaurantId: number, newMenuItem: MenuItem) {
-    this.menuService.addMenuItem(menuId, restaurantId,newMenuItem).subscribe ({
-      next: (addedMenuItem) => {
-        console.log('Added menu item: ', addedMenuItem);
+  showReviews(restaurantId: number) {
+    this.restaurantreviewService.showRestaurantReviews(restaurantId).subscribe({
+      next: (reviews: Restaurantreview[]) => {
+        console.log('Received reviews:', reviews);
+        this.reviews = reviews;
       },
-      error: (error) => {
-        console.error('Error adding menu item: ', error);
-      }
+      error: (fail) => {
+        console.error('RestaurantreviewService.showRestaurantReviews(): error getting reviews');
+        console.error(fail);
+      },
     });
   }
 }
+

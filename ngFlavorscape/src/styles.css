@@ -1,5 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
+
 .navbar-custom-gradient {
   background-image: linear-gradient(to right, #e31146, #ef9199);
 
@@ -52,3 +53,4 @@
   padding: 20px;
   border-radius: 10px;
 }
+

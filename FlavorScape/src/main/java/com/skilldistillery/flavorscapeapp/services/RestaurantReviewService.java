@@ -7,4 +7,5 @@ import com.skilldistillery.flavorscapeapp.entities.RestaurantReview;
 public interface RestaurantReviewService {
 
 	public List<RestaurantReview> getRestaurantReviews(int restaurantId);
+	public RestaurantReview createRestaurantReview(String username, RestaurantReview restaurantReview);
 }
