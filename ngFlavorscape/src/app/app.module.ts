@@ -19,6 +19,7 @@ import { MapComponent } from './components/map/map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { EnabledPipe } from './enabled.pipe';
 import { RestaurantreviewComponent } from './components/restaurantreview/restaurantreview.component';
+import { CuisinePipe } from './pipes/cuisine.pipe';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { RestaurantreviewComponent } from './components/restaurantreview/restaur
     RestaurantComponent,
     MapComponent,
     EnabledPipe,
-    RestaurantreviewComponent
+    RestaurantreviewComponent,
+    CuisinePipe
   ],
   imports: [
     BrowserModule,

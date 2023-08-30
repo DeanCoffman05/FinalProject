@@ -10,7 +10,7 @@ export class Restaurant {
   description: string;
   phoneNumber: string;
   address: Address;
-  menus: Menu [];
+  menus: Menu[];
 
   constructor(
     id: number = 0,

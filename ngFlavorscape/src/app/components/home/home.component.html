@@ -52,8 +52,8 @@
                     <h2>Cuisines </h2>
                     <div #widgetsContent class="middle">
                       <img src="https://cdn0.iconfinder.com/data/icons/octicons/1024/arrow-small-left-512.png" >
-
-                      <div *ngFor="let cuisine of cuisines" class="inline-item">
+                      <div class = "inline-item" (click)="selectedCuisineType='All'">All</div>
+                      <div *ngFor="let cuisine of cuisines" class="inline-item" (click)="selectedCuisineType = cuisine.type">
                       {{cuisine.type}}
                       </div>
                     </div>
@@ -68,7 +68,7 @@
 
                 <ul>
 
-                    <li *ngFor="let restaurant of restaurantCitySearch | enabled : showEnabled" (click)="displayRestaurant(restaurant)">
+                    <li *ngFor="let restaurant of restaurantCitySearch | enabled : showEnabled | cuisine : selectedCuisineType" (click)="displayRestaurant(restaurant)">
                         <div class="restaurant-search">
                             <h3>{{ restaurant.name }}</h3>
                         </div>
