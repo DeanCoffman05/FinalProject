@@ -193,4 +193,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
       },
     });
   }
+
+  isCuisineTypeEmpty(): boolean {
+    return this.cuisines.some(cuisine => cuisine.type === '');
+}
+
 }
