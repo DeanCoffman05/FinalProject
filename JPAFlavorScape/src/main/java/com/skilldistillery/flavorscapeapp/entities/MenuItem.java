@@ -30,7 +30,7 @@ public class MenuItem {
 	private String itemUrl;
 	private Double price;
 	private String description;
-	private int calories;
+	private Integer calories;
 	private boolean enabled;
 	
 	@JsonIgnore
@@ -123,11 +123,11 @@ public class MenuItem {
 		this.description = description;
 	}
 
-	public int getCalories() {
+	public Integer getCalories() {
 		return calories;
 	}
 
-	public void setCalories(int calories) {
+	public void setCalories(Integer calories) {
 		this.calories = calories;
 	}
 
