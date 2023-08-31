@@ -718,7 +718,9 @@ INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (7, 'fren
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (8, 'thai', 'Delight in the balance of sweet, sour, salty, and spicy Thai cuisine.', NULL);
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (9, 'american', 'Indulge in American comfort food, from burgers to mac and cheese.', NULL);
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (10, 'greek', 'Taste the freshness of Mediterranean ingredients in Greek dishes.', NULL);
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (11, 'japanese ', NULL, NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (11, 'japanese ', 'japanese', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (12, 'seafood', 'seafood', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (13, 'grille', 'grilled yummies', NULL);
 
 COMMIT;
 
@@ -785,16 +787,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flavorscapedb`;
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (1, 1);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (2, 1);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (3, 1);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (4, 4);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (5, 5);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (6, 1);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (7, 7);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (8, 8);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (9, 9);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (10, 10);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (1, 11);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (2, 11);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (3, 11);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (4, 11);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (5, 11);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (6, 11);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (7, 12);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (8, 2);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (9, 2);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (10, 13);
 
 COMMIT;
 
