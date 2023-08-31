@@ -1,6 +1,5 @@
 package com.skilldistillery.flavorscapeapp.entities;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Restaurant {
@@ -44,7 +43,7 @@ public class Restaurant {
 	private List<User> users;
 
 	@OneToMany(mappedBy = "restaurant")
-	@JsonIgnore
+	@JsonIgnoreProperties({"restaurant"})
 	private List<Menu> menus;
 
 	@OneToOne
