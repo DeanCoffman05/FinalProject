@@ -32,6 +32,9 @@ export class UpdateprofileComponent implements OnInit {
       },
     });
   }
+  backtoprofile(){
+    this.router.navigateByUrl("/profile");
+  }
 
   reload() {
     this.authService.getLoggedInUser().subscribe({
