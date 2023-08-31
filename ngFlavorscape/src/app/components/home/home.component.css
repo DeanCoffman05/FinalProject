@@ -101,3 +101,8 @@ img{
   height: 50px;
 }
 
+.navbar-item {
+  color: rgb(255, 152, 170);
+  background-color: black;
+  border-radius: 15px;
+}

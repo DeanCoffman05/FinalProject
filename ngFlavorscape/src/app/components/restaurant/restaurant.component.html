@@ -198,43 +198,49 @@
 
 
 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 mx-auto">
-            <div class="card">
-              <div class="card-header">
-                Restaurant Reviews
-              </div>
-              <div class="card-body">
-                <ul class="list-group">
-                  <li class="list-group-item" *ngFor="let review of reviews">
-                    <h5 class="card-title">Rating: {{ review.rating }}</h5>
-                    <p class="card-text">Atmosphere: {{ review.atmosphere }}</p>
-                    <p class="card-text">Review Text: {{ review.service }}</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="center-block">
+<div class="center-block">
         <ul class="restaurant-list">
           <li *ngFor="let restaurant of currentUser.ratedRestaurants">
             {{ restaurant.name }} - Rated: {{ restaurant.rating }}
           </li>
         </ul>
-
-
-
-      <div *ngIf="getCurrentRole() === 'admin'">
-        <button class="btn btn-primary" (click)="setEditRestaurant()">
+       <div *ngIf="getCurrentRole() === 'admin'">
+        <button class="navbar-item" (click)="setEditRestaurant()">
           Edit
         </button>
+        <br>
+        <br>
       </div>
-      <button class="btn btn-danger" (click)="displayList()">Back</button>
+      <button class="navbar-item" (click)="displayList()">Back</button>
     </div>
+
+
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header">
+              Restaurant Reviews
+            </div>
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item" *ngFor="let review of reviews">
+                  <h5 class="card-title">Rating: {{ review.rating }}</h5>
+                  <p class="card-text">Atmosphere: {{ review.atmosphere }}</p>
+                  <p class="card-text">Review Text: {{ review.service }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
     <!-- review form -->
     <div class="form-container" *ngIf="newRestaurantReview">
@@ -292,7 +298,7 @@
         </div>
         <div class="col-12">
           <button
-            type="button" class="btn btn-custom" (click)="addRestaurantReview(newRestaurantReview, selected.id)">Add a new Flavor
+            type="button" class="navbar-item" (click)="addRestaurantReview(newRestaurantReview, selected.id)">Add a new Flavor
           </button>
         </div>
       </form>
@@ -418,9 +424,9 @@
 
         <div class="d-grid gap-2 d-md-block mt-3">
           <button
-            class="btn btn-custom"
+          class="navbar-item"
             (click)="updateRestaurant(editRestaurant)">Save</button><br /><br />
-          <button class="btn btn-custom" (click)="editRestaurant = null">Cancel</button>
+          <button class="navbar-item" (click)="editRestaurant = null">Cancel</button>
           <br/>
         </div>
       </form>

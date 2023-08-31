@@ -19,27 +19,12 @@
                 <label for="city">Search By City or State:      </label>
                 <input name="city" type="text" [(ngModel)]="citySearchInput" class="form-control" />
               </div>
-              <button (click)="restaurantcitySearch()" class="btn btn-custom-blue">Search</button>
+              <button (click)="restaurantcitySearch()" class="navbar-item">Search</button>
             </form>
           </div>
         </div>
       </div>
 
-
-       <!-- <div class="col-md-6">
-        <div class="card bg-custom-coral text-white">
-          <div class="card-body">
-            <h5 class="card-title">State</h5>
-            <form>
-              <div class="mb-3">
-                <label for="state">Search state here: </label>
-                <input name="state" type="text" [(ngModel)]="stateSearchInput" class="form-control" />
-              </div>
-              <button (click)="restaurantStateSearch()" class="btn btn-custom-blue">Search</button>
-            </form>
-          </div>
-        </div>
-      </div> -->
       <div class="results-container">
         <!-- Display List of Restaurants for City Search -->
         <div class="col-md-12" *ngIf="!selected">   <!-- Changed from col-md-6 to col-md-12 to occupy full width -->
