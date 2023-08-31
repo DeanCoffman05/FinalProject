@@ -94,16 +94,19 @@
               </ul>
           </div>
         </div>
-        <div class="col-md-5" *ngIf="selected">
+        <div class="col-md-5" *ngIf="selected" id="restaurantDeets">
           <!-- Display selected restaurant details -->
+
           <h3>{{ selected.name }}</h3>
-          <img  src="{{selected.imageUrl}}" width="350px" height="auto">
+          <img  id="restaurantimage" src="{{selected.imageUrl}}" width="350px" height="auto">
           <p>{{ selected.description }}</p>
-          <p>{{ selected.restaurantUrl }}</p>
-          <p>{{ selected.phoneNumber }}</p>
-          <p>{{ selected.address.street }}</p>
-          <p>{{ selected.address.city }}</p>
-          <p>{{ selected.address.state }}</p>
+          <hr>
+          Address: <br>
+          {{ selected.restaurantUrl }}<br>
+          {{ selected.phoneNumber }}<br>
+          {{ selected.address.street }}<br>
+          {{ selected.address.city }}<br>
+          {{ selected.address.state }}<br>
           <!-- <h3>Menus</h3>
           <div *ngFor="let menu of menus">
             <h4>Menu Type: {{menu.type}}</h4>
@@ -113,7 +116,9 @@
               </li>
             </ul>
           </div> -->
-          <button class="btn btn-danger" (click)="displayHome()">Back</button>
+          <button class="navbar-item" (click)="displayHome()">Back</button><br>
+          <br>
+
           </div>
   </div>
 

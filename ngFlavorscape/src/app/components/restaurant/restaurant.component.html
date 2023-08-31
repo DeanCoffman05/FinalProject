@@ -1,505 +1,499 @@
-<br />
 <div class="container">
   <div class="row">
     <div class="h1-box bg-h1-box text-white text-center">
       <h1>Restaurants</h1>
     </div>
+  </div>
+  <!-- Restaurant list -->
 
-    <!-- Restaurant list -->
-    <div
-      *ngIf="!selected"
-      class="list-group list-group-light custom-scroll-box"
-    >
+  <div class="d-flex flex-row restaurant-container justify-content-center">
+    <div class="d-flex flex-row">
+      <!-- <div class="container"> -->
+      <div
+        *ngIf="!selected"
+        class="list-group list-group-light custom-scroll-box"
+      >
+      <hr>
       <ul class="list-unstyled">
         <li>
+          <h4 *ngIf="getCurrentRole() === 'admin'">Click the "X" to remove the Flavor</h4>
           <div *ngFor="let restaurant of restaurants | enabled : showEnabled">
             <!--... your restaurant details ...-->
             <div (click)="displayRestaurant(restaurant)">
-              {{ restaurant.name }}<br />
+
+              <br>
+              <strong>{{ restaurant.name }}</strong>
             </div>
             <div *ngIf="getCurrentRole() === 'admin'">
-              <button
-                class="btn btn-danger"
-                (click)="deleteRestaurant(restaurant.id)"
-              >
-                Remove the flavor
-              </button>
+                <img class="smallx" src="https://media.istockphoto.com/id/1332100993/vector/wrong-sign-x-icon-bubble-style-wrong-or-x-symbol-red-icon-red-color-line-design.jpg?s=612x612&w=0&k=20&c=rOaP9VhqjNJ0qVB5x9givfs3sq5JjYOw4XJVjkwmXKs="
+                  (click)="deleteRestaurant(restaurant.id)">
+                  <hr>
+
+
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <br />
-
-    <!-- Create form -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-container" *ngIf="!selected">
-            <br />
-            <form class="row g-3">
-              <h1>Add a new Flavor to the scape</h1>
-              <div class="col-md-6">
-                <label class="form-label" for="newRestaurant"
-                  >Restaurant Name:
-                </label>
-                <input
-                  class="form-control"
-                  type="text"
-                  name="newRestaurant"
-                  [(ngModel)]="newRestaurant.name"
-                  placeholder="name"
-                /><br />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" for="newDescription"
-                  >Description
-                </label>
-                <textarea
-                  class="form-control"
-                  type="text"
-                  name="newDescription"
-                  [(ngModel)]="newRestaurant.description"
-                  placeholder="Description"
-                ></textarea
-                ><br />
-              </div>
-              <div class="col-md-4">
-                <label class="form-label" for="imageUrl"
-                  >Pic of Restaurant:
-                </label>
-                <input
-                  class="form-control"
-                  type="text"
-                  name="imageUrl"
-                  [(ngModel)]="newRestaurant.imageUrl"
-                  placeholder="Image"
-                /><br />
-              </div>
-              <div class="col-md-4">
-                <label class="form-label" for="newRestaurantURL"
-                  >Restaurants website:
-                </label>
-                <input
-                  class="form-control"
-                  type="text"
-                  name="newRestaurantURL"
-                  [(ngModel)]="newRestaurant.restaurantUrl"
-                  placeholder="Website"
-                /><br />
-              </div>
-              <div class="col-md-4">
-                <label class="form-label" for="newRestaurantTN"
-                  >Phone Number:
-                </label>
-                <input
-                  class="form-control"
-                  type="text"
-                  name="newRestaurantTN"
-                  [(ngModel)]="newRestaurant.phoneNumber"
-                  placeholder="Number"
-                />
-              </div>
-
-              <div>
-                <label class="form-label">Address:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="street"
-                  [(ngModel)]="address.street"
-                  placeholder="Street"
-                />
-              </div>
-
-              <div>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="street2"
-                  [(ngModel)]="address.street2"
-                  placeholder="Street 2"
-                />
-              </div>
-
-              <div class="col-md-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="city"
-                  [(ngModel)]="address.city"
-                  placeholder="City"
-                />
-              </div>
-
-              <div class="col-md-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="state"
-                  [(ngModel)]="address.state"
-                  placeholder="State"
-                />
-              </div>
-
-              <div class="col-12">
-                <label for="zipcode" class="form-label">Zip Code:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="zipcode"
-                  name="zipcode"
-                  [(ngModel)]="address.zipcode"
-                />
-              </div>
-              <div class="col-md-6">
-                <label for="latitude" class="form-label">Latitude:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="latitude"
-                  name="latitude"
-                  [(ngModel)]="address.latitude"
-                />
-              </div>
-              <div class="col-md-6">
-                <label for="longitude" class="form-label">Longitude:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="longitude"
-                  name="longitude"
-                  [(ngModel)]="address.longitude"
-                />
-              </div>
-              <div class="col-12">
-                <button
-                  type="button"
-                  class="btn btn-custom"
-                  (click)="addRestaurant(newRestaurant)"
-                >
-                  Add A New Flavor
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
+      <!-- </div> -->
+
+      <!-- Create form -->
+
+      <div class="container">
+
+      <div class="form-container" *ngIf="!selected">
+        <br />
+        <form>
+          <h1>Add a new Flavor to the scape</h1>
+          <div class="newRestaurant-container">
+            <label class="form-label" for="newRestaurant"
+              >Restaurant Name:
+            </label>
+            <input
+              class="form-control"
+              type="text"
+              name="newRestaurant"
+              [(ngModel)]="newRestaurant.name"
+              placeholder="name"
+            /><br />
+            </div>
+             <div class="col-md-6">
+            <label class="form-label" for="newDescription">Description </label>
+            <textarea
+              class="form-control"
+              type="text"
+              name="newDescription"
+              [(ngModel)]="newRestaurant.description"
+              placeholder="Description"
+            ></textarea
+            ><br />
+            </div>
+            <div class="col-md-4">
+            <label class="form-label" for="imageUrl">Pic of Restaurant: </label>
+            <input
+              class="form-control"
+              type="text"
+              name="imageUrl"
+              [(ngModel)]="newRestaurant.imageUrl"
+              placeholder="Image"
+            /><br />
+            </div>
+            <div class="col-md-4">
+            <label class="form-label" for="newRestaurantURL"
+              >Restaurants website:
+            </label>
+            <input
+              class="form-control"
+              type="text"
+              name="newRestaurantURL"
+              [(ngModel)]="newRestaurant.restaurantUrl"
+              placeholder="Website"
+            /><br />
+            </div>
+            <div class="col-md-4">
+            <label class="form-label" for="newRestaurantTN"
+              >Phone Number:
+            </label>
+            <input
+              class="form-control"
+              type="text"
+              name="newRestaurantTN"
+              [(ngModel)]="newRestaurant.phoneNumber"
+              placeholder="Number"
+            />
+            </div>
+
+            <div>
+              <label class="form-label">Address:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="street"
+                [(ngModel)]="address.street"
+                placeholder="Street"
+              />
+            </div>
+
+            <div>
+              <input
+                type="text"
+                class="form-control"
+                name="street2"
+                [(ngModel)]="address.street2"
+                placeholder="Street 2"
+              />
+            </div>
+
+            <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              name="city"
+              [(ngModel)]="address.city"
+              placeholder="City"
+            />
+            </div>
+
+            <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              name="state"
+              [(ngModel)]="address.state"
+              placeholder="State"
+            />
+            </div>
+
+            <div class="col-12">
+            <label for="zipcode" class="form-label">Zip Code:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="zipcode"
+              name="zipcode"
+              [(ngModel)]="address.zipcode"
+            />
+            </div>
+            <div class="col-md-6">
+            <label for="latitude" class="form-label">Latitude:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="latitude"
+              name="latitude"
+              [(ngModel)]="address.latitude"
+            />
+            </div>
+            <div class="col-md-6">
+            <label for="longitude" class="form-label">Longitude:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="longitude"
+              name="longitude"
+              [(ngModel)]="address.longitude"
+            />
+            </div>
+            <div class="col-12">
+            <button
+              type="button"
+              class="btn btn-custom"
+              (click)="addRestaurant(newRestaurant)"
+            >
+              Add A New Flavor
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     </div>
   </div>
 
   <!-- Restaurant Information -->
   <div style="display: flex">
-    <div style="flex: 1; padding-right: 20px">
-      <div *ngIf="selected && !editRestaurant">
-        <h3>
-          <strong>{{ selected.name }}</strong>
-        </h3>
-        <a href="{{ selected.restaurantUrl }}" target="_blank"
-          >Restaurant Website</a
-        >
-        <br />
-        <strong>Description:</strong>
-        <p>{{ selected.description }}</p>
-        <strong>Phone Number:</strong>
-        <p>{{ selected.phoneNumber }}</p>
-        <p>{{ selected.imageUrl }}</p>
-        <h3><strong>Address:</strong></h3>
-        <strong>Street:</strong>
-        <p>{{ selected.address.street }}</p>
-        <strong>City:</strong>
-        <p>{{ selected.address.city }}</p>
-        <strong>State:</strong>
-        <p>{{ selected.address.state }}</p>
-        <strong>Zip Code:</strong>
-        <p>{{ selected.address.zipcode }}</p>
+  <div style="flex: 1; padding-right: 20px">
+  <div *ngIf="selected && !editRestaurant">
+    <h3>
+      <strong>{{ selected.name }}</strong>
+    </h3>
+    <a href="{{ selected.restaurantUrl }}" target="_blank"
+      >Restaurant Website</a
+    >
+    <br />
+    <strong>Description:</strong>
+    <p>{{ selected.description }}</p>
+    <strong>Phone Number:</strong>
+    <p>{{ selected.phoneNumber }}</p>
+    <p>{{ selected.imageUrl }}</p>
+    <h3><strong>Address:</strong></h3>
+    <strong>Street:</strong>
+    <p>{{ selected.address.street }}</p>
+    <strong>City:</strong>
+    <p>{{ selected.address.city }}</p>
+    <strong>State:</strong>
+    <p>{{ selected.address.state }}</p>
+    <strong>Zip Code:</strong>
+    <p>{{ selected.address.zipcode }}</p>
 
-        <div class="h1-box bg-h1-box text-white text-center">
-          <h3 class="menu-type">Menus</h3>
-        </div>
-        <div *ngFor="let menu of menus">
-          <h4 class="menu-type">Menu Type: {{ menu.type }}</h4>
-          <ul>
-            <li *ngFor="let item of menu.menuItems">
-              {{ item.itemName }}
-            </li>
-          </ul>
-        </div>
-        <div
-          *ngIf="getCurrentRole() === 'admin' && selected && !editRestaurant"
-          style="display: flex; gap: 10px"
-        >
-          <button class="navbar-item" (click)="setEditRestaurant()">Edit</button>
-        </div>
-        <button class="navbar-item" (click)="displayList()">Back</button>
-      </div>
-
-      <ul class="restaurant-list">
-        <li *ngFor="let restaurant of currentUser.restaurantReviews">
-          Restaurant: {{ restaurant.id }} - Rated: {{ restaurant.rating }}
+    <div class="h1-box bg-h1-box text-white text-center">
+      <h3 class="menu-type">Menus</h3>
+    </div>
+    <div *ngFor="let menu of menus">
+      <h4 class="menu-type">Menu Type: {{ menu.type }}</h4>
+      <ul>
+        <li *ngFor="let item of menu.menuItems">
+          {{ item.itemName }}
         </li>
       </ul>
+    </div>
+    <div
+      *ngIf="getCurrentRole() === 'admin' && selected && !editRestaurant"
+      style="display: flex; gap: 10px"
+    >
+      <button class="navbar-item" (click)="setEditRestaurant()">Edit</button> </div>
+<button class="navbar-item" (click)="displayList()">Back</button>
+  </div>
 
+  <!-- <ul class="restaurant-list">
+    <li *ngFor="let restaurant of currentUser.restaurantReviews">
+      Restaurant: {{ restaurant.id }} - Rated: {{ restaurant.rating }}
+    </li>
+  </ul> -->
+</div>
+<br />
+<!-- Review Card -->
+<div class="col-md-6" *ngIf="selected && !editRestaurant">
+  <div class="card review-card">
+    <div class="card-header">Restaurant Reviews:</div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li
+          class="list-group-item review-item"
+          *ngFor="let review of reviews; let i = index"
+        >
+          <p class="card-title"><strong>Rating:</strong> {{ review.rating }}</p>
+          <p class="card-text">
+            <strong>Atmosphere:</strong> {{ review.atmosphere }}
+          </p>
+          <p class="card-text">
+            <strong>Service:</strong> {{ review.service }}
+          </p>
+          <p class="card-text"><strong>Food:</strong> {{ review.food }}</p>
+          <p class="card-text"><strong>Smell:</strong> {{ review.smell }}</p>
+          <p class="card-text">
+            <strong>Taste Tested By:</strong> {{ review.user?.firstName }}
+          </p>
+        </li>
+      </ul>
     </div>
+  </div>
+</div>
+</div>
+<br />
+<!-- review form -->
+<div *ngIf="selected && !editRestaurant">
+  <div class="form-container" *ngIf="newRestaurantReview">
     <br />
-    <!-- Review Card -->
-    <div class="col-md-6" *ngIf="selected && !editRestaurant">
-      <div class="card review-card">
-        <div class="card-header">Restaurant Reviews:</div>
-        <div class="card-body">
-          <ul class="list-group">
-            <li
-              class="list-group-item review-item"
-              *ngFor="let review of reviews; let i = index"
-            >
-              <p class="card-title">
-                <strong>Rating:</strong> {{ review.rating }}
-              </p>
-              <p class="card-text">
-                <strong>Atmosphere:</strong> {{ review.atmosphere }}
-              </p>
-              <p class="card-text">
-                <strong>Service:</strong> {{ review.service }}
-              </p>
-              <p class="card-text"><strong>Food:</strong> {{ review.food }}</p>
-              <p class="card-text">
-                <strong>Smell:</strong> {{ review.smell }}
-              </p>
-              <p class="card-text">
-                <strong>Taste Tested By:</strong> {{ review.user?.firstName }}
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br />
-  <!-- review form -->
-  <div *ngIf="selected && !editRestaurant">
-    <div class="form-container" *ngIf="newRestaurantReview">
-      <br />
-      <form class="row g-31">
-        <h1>Leave a Review!</h1>
-        <div class="col-md-6">
-          <label class="form-label" for="atmosphere"
-            >How was the overall atmosphere?
-          </label>
-          <textarea
-            class="form-control"
-            type="text"
-            name="atmosphere"
-            [(ngModel)]="newRestaurantReview.atmosphere"
-          ></textarea>
-          <br />
-        </div>
-        <div class="col-md-6">
-          <label class="form-label" for="food"
-            >What food did you try during your visit?
-          </label>
-          <textarea
-            class="form-control"
-            type="text"
-            name="food"
-            [(ngModel)]="newRestaurantReview.food"
-          ></textarea>
-          <br />
-        </div>
-        <div class="col-md-4">
-          <label class="form-label" for="price">How much was your meal? </label>
-          <input
-            class="form-control"
-            type="text"
-            name="price"
-            [(ngModel)]="newRestaurantReview.price"
-          /><br />
-        </div>
-        <div class="col-md-4">
-          <label class="form-label" for="service"
-            >Tell us about the service you received:
-          </label>
-          <textarea
-            class="form-control"
-            type="text"
-            name="service"
-            [(ngModel)]="newRestaurantReview.service"
-          ></textarea>
-          <br />
-        </div>
-        <div class="col-md-4">
-          <label class="form-label" for="smell"
-            >How was the over all smell of the restaurant?
-          </label>
-          <textarea
-            class="form-control"
-            type="text"
-            name="smell"
-            [(ngModel)]="newRestaurantReview.smell"
-          ></textarea>
-        </div>
-        <br />
-        <div>
-          <label class="form-label" for="imageUrl">Add Image: </label>
-          <input
-            type="text"
-            class="form-control"
-            name="imageUrl"
-            [(ngModel)]="newRestaurantReview.imageUrl"
-          />
-        </div>
-        <div>
-          <label class="form-label" for="rating">Add rating: </label>
-        </div>
-        <div class="rating">
-          <span
-            *ngFor="let star of stars; let i = index"
-            [class.selected]="i < newRestaurantReview.rating"
-            (mouseover)="countStar(star)"
-            (mouseout)="removeStar(star)"
-            (click)="newRestaurantReview.rating = star"
-            [attr.id]="'starId' + i"
-            >★
-          </span>
-        </div>
-        <div class="col-12">
-          <button
-            type="button"
-            class="navbar-item"
-            (click)="addRestaurantReview(newRestaurantReview, selected.id)"
-          >
-            Add a new Flavor
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <!-- Edit restaurant form -->
-  <div *ngIf="editRestaurant && getCurrentRole() === 'admin'" class="container">
-    <form class="row g-3">
-      <h4>Edit Restaurant #{{ editRestaurant.id }}</h4>
+    <form>
+      <h1>Leave a Review!</h1>
       <div class="col-md-6">
-        <label class="form-label" for="editTask">Name:</label>
-        <input
-          class="form-control"
-          type="text"
-          name="editTask"
-          [(ngModel)]="editRestaurant.name"
-        /><br />
-      </div>
-      <div class="col-md-6">
-        <label class="form-label" for="editDescription">Description:</label
-        ><br />
+        <label class="form-label" for="atmosphere"
+          >How was the overall atmosphere?
+        </label>
         <textarea
           class="form-control"
-          name="editDescription"
-          [(ngModel)]="editRestaurant.description"
-        ></textarea
-        ><br />
-      </div>
-      <label class="form-label" for="editWebstie">Webstie:</label>
-      <input
-        class="form-control"
-        type="text"
-        name="editWebstie"
-        [(ngModel)]="editRestaurant.restaurantUrl"
-      /><br />
-      <label class="form-label" for="editphoneNumber">Phone Number:</label>
-      <input
-        class="form-control"
-        type="text"
-        name="editphoneNumber"
-        [(ngModel)]="editRestaurant.phoneNumber"
-      /><br />
-      <label class="form-label" for="editimageUrl">image:</label>
-      <input
-        class="form-control"
-        type="text"
-        name="editimageUrl"
-        [(ngModel)]="editRestaurant.imageUrl"
-      /><br />
-      <div>
-        <label class="form-label">Address:</label>
-        <input
           type="text"
-          class="form-control"
-          name="street"
-          [(ngModel)]="editRestaurant.address.street"
-          placeholder="Street"
-        />
-      </div>
-
-      <div>
-        <input
-          type="text"
-          class="form-control"
-          name="street2"
-          [(ngModel)]="editRestaurant.address.street2"
-          placeholder="Street 2"
-        />
-      </div>
-
-      <div class="col-md-6">
-        <input
-          type="text"
-          class="form-control"
-          name="city"
-          [(ngModel)]="editRestaurant.address.city"
-          placeholder="City"
-        />
-      </div>
-
-      <div class="col-md-6">
-        <input
-          type="text"
-          class="form-control"
-          name="state"
-          [(ngModel)]="editRestaurant.address.state"
-          placeholder="State"
-        />
-      </div>
-
-      <div class="col-12">
-        <label for="zipcode" class="form-label">Zip Code:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="zipcode"
-          name="zipcode"
-          [(ngModel)]="editRestaurant.address.zipcode"
-        />
-      </div>
-
-      <div class="col-md-6">
-        <label for="latitude" class="form-label">Latitude:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="latitude"
-          name="latitude"
-          [(ngModel)]="editRestaurant.address.latitude"
-        />
-      </div>
-
-      <div class="col-md-6">
-        <label for="longitude" class="form-label">Longitude:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="longitude"
-          name="longitude"
-          [(ngModel)]="editRestaurant.address.longitude"
-        />
-      </div>
-
-      <div class="d-grid gap-2 d-md-block mt-3">
-        <button class="navbar-item" (click)="updateRestaurant(editRestaurant)">
-          Save</button
-        ><br /><br />
-        <button class="navbar-item" (click)="editRestaurant = null">
-          Cancel
-        </button>
+          name="atmosphere"
+          [(ngModel)]="newRestaurantReview.atmosphere"
+        ></textarea>
         <br />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label" for="food"
+          >What food did you try during your visit?
+        </label>
+        <textarea
+          class="form-control"
+          type="text"
+          name="food"
+          [(ngModel)]="newRestaurantReview.food"
+        ></textarea>
+        <br />
+      </div>
+      <div class="col-md-4">
+        <label class="form-label" for="price">How much was your meal? </label>
+        <input
+          class="form-control"
+          type="text"
+          name="price"
+          [(ngModel)]="newRestaurantReview.price"
+        /><br />
+      </div>
+      <div class="col-md-4">
+        <label class="form-label" for="service"
+          >Tell us about the service you received:
+        </label>
+        <textarea
+          class="form-control"
+          type="text"
+          name="service"
+          [(ngModel)]="newRestaurantReview.service"
+        ></textarea>
+        <br />
+      </div>
+      <div class="col-md-4">
+        <label class="form-label" for="smell"
+          >How was the over all smell of the restaurant?
+        </label>
+        <textarea
+          class="form-control"
+          type="text"
+          name="smell"
+          [(ngModel)]="newRestaurantReview.smell"
+        ></textarea>
+      </div>
+      <br />
+      <div>
+        <label class="form-label" for="imageUrl">Add Image: </label>
+        <input
+          type="text"
+          class="form-control"
+          name="imageUrl"
+          [(ngModel)]="newRestaurantReview.imageUrl"
+        />
+      </div>
+      <div>
+        <label class="form-label" for="rating">Add rating: </label>
+      </div>
+      <div class="rating">
+        <span
+          *ngFor="let star of stars; let i = index"
+          [class.selected]="i < newRestaurantReview.rating"
+          (mouseover)="countStar(star)"
+          (mouseout)="removeStar(star)"
+          (click)="newRestaurantReview.rating = star"
+          [attr.id]="'starId' + i"
+          >★
+        </span>
+      </div>
+      <div class="col-12">
+        <button
+          type="button"
+          class="navbar-item"
+          (click)="addRestaurantReview(newRestaurantReview, selected.id)"
+        >
+          Add a new Flavor
+        </button>
       </div>
     </form>
   </div>
+</div>
+<!-- Edit restaurant form -->
+<div *ngIf="editRestaurant && getCurrentRole() === 'admin'" class="container">
+  <form class="row g-3">
+    <h4>Edit Restaurant #{{ editRestaurant.id }}</h4>
+    <div class="col-md-6">
+      <label class="form-label" for="editTask">Name:</label>
+      <input
+        class="form-control"
+        type="text"
+        name="editTask"
+        [(ngModel)]="editRestaurant.name"
+      /><br />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label" for="editDescription">Description:</label><br />
+      <textarea
+        class="form-control"
+        name="editDescription"
+        [(ngModel)]="editRestaurant.description"
+      ></textarea
+      ><br />
+    </div>
+    <label class="form-label" for="editWebstie">Webstie:</label>
+    <input
+      class="form-control"
+      type="text"
+      name="editWebstie"
+      [(ngModel)]="editRestaurant.restaurantUrl"
+    /><br />
+    <label class="form-label" for="editphoneNumber">Phone Number:</label>
+    <input
+      class="form-control"
+      type="text"
+      name="editphoneNumber"
+      [(ngModel)]="editRestaurant.phoneNumber"
+    /><br />
+    <label class="form-label" for="editimageUrl">image:</label>
+    <input
+      class="form-control"
+      type="text"
+      name="editimageUrl"
+      [(ngModel)]="editRestaurant.imageUrl"
+    /><br />
+    <div>
+      <label class="form-label">Address:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="street"
+        [(ngModel)]="editRestaurant.address.street"
+        placeholder="Street"
+      />
+    </div>
+
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        name="street2"
+        [(ngModel)]="editRestaurant.address.street2"
+        placeholder="Street 2"
+      />
+    </div>
+
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        name="city"
+        [(ngModel)]="editRestaurant.address.city"
+        placeholder="City"
+      />
+    </div>
+
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        name="state"
+        [(ngModel)]="editRestaurant.address.state"
+        placeholder="State"
+      />
+    </div>
+
+    <div class="col-12">
+      <label for="zipcode" class="form-label">Zip Code:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="zipcode"
+        name="zipcode"
+        [(ngModel)]="editRestaurant.address.zipcode"
+      />
+    </div>
+
+    <div class="col-md-6">
+      <label for="latitude" class="form-label">Latitude:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="latitude"
+        name="latitude"
+        [(ngModel)]="editRestaurant.address.latitude"
+      />
+    </div>
+
+    <div class="col-md-6">
+      <label for="longitude" class="form-label">Longitude:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="longitude"
+        name="longitude"
+        [(ngModel)]="editRestaurant.address.longitude"
+      />
+    </div>
+
+    <div class="d-grid gap-2 d-md-block mt-3">
+      <button class="navbar-item" (click)="updateRestaurant(editRestaurant)">
+        Save</button
+      ><br /><br />
+      <button class="navbar-item" (click)="editRestaurant = null">
+        Cancel
+      </button>
+      <br />
+    </div>
+  </form>
+</div>
 </div>

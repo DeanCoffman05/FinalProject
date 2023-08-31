@@ -118,3 +118,11 @@ ul {
   list-style-type: none;
 }
 
+#restaurantDeets {
+border: 2px solid #ba495c;
+}
+
+#restaurantimage {
+  border-radius: 15px;
+}
+

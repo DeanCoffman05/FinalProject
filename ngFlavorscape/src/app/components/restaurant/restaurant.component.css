@@ -53,3 +53,18 @@
   font-family: "handlee", sans-serif;
 }
 
+.restaurant-container {
+  width: 100%;
+}
+
+.container {
+  background-size: contain;
+ background-position: center;
+ background-repeat: no-repeat;
+  background-image: url('../../../assets/YoursTrulyCupcake.png');
+  background-attachment: fixed;
+}
+.smallx {
+  width: 35px;
+  height: auto;
+}
