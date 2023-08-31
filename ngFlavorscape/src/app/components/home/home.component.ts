@@ -150,6 +150,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
+
   restaurantStateSearch() {
     console.log(this.stateSearchInput);
     this.restaurantservice.stateSearch(this.stateSearchInput).subscribe({
