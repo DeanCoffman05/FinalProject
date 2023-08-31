@@ -1,34 +1,60 @@
-
 <div class="center-block">
+  <h1>Welcome back {{ currentUser.firstName }}</h1>
+  <h2>User Info:</h2>
+  <ul>
+    <li>
+      Name:
+      {{ currentUser.firstName }}
+      {{ currentUser.lastName }}
+    </li>
+    <li>
+      About me:
+      {{ currentUser.aboutMe }}
+    </li>
+    <li>
+      Username:
+      {{ currentUser.username }}
+    </li>
+    <li>Email: {{ currentUser.email }}</li>
+    <li>
+      Address:
+      {{ currentUser.address.street }}
+      {{ currentUser.address.city }}
+      {{ currentUser.address.state }}
+      {{ currentUser.address.zipcode }}
+    </li>
+  </ul>
+
   <h2>Rated Restaurants</h2>
   <ul class="restaurant-list">
     <li *ngFor="let restaurantReview of currentUser.restaurantReviews">
-
-Restaurant Id:  {{ restaurantReview.id}} <br>
-      Rated:{{restaurantReview.rating}} <br>
-    Restaurant Name: {{restaurantReview.restaurant?.name}} <br>
+      Restaurant Id: {{ restaurantReview.id }} <br />
+      Rated:{{ restaurantReview.rating }} <br />
+      Restaurant Name: {{ restaurantReview.restaurant?.name }} <br />
     </li>
   </ul>
 
   <div class="favorite-restaurant">
     <h3>Favorite Restaurant:</h3>
 
-    <p>{{currentUser.address.street}}</p>
-
-<ul>
-    <div *ngFor="let rest of restaurantSearchs">
-
-      {{ rest.description}}
-
-    </div>
-  </ul>
+    <ul class="list-group list-group-flush">
+      <div *ngFor="let restaurantReview of currentUser.restaurantReviews">
+        <li class="list-group-item">
+          Restaurant Name: {{ restaurantReview.restaurant?.name }}<br />
+        </li>
+        <li id="list-unstyled" class="list-group-item">
+          Restaurant description: {{ restaurantReview.restaurant?.description }}
+        </li>
+      </div>
+    </ul>
+    <br />
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-      <li class="nav-item" >
-        <a class="navbar-item" [routerLink]="['/updateprofile']">Update Profile</a>
+      <li class="nav-item">
+        <a class="navbar-item" [routerLink]="['/updateprofile']"
+          >Update Profile</a
+        >
       </li>
     </ul>
     <!-- <button class="navbar-item" routerLink]="['/updateprofile']">Update User Info</button> -->
   </div>
 </div>
-

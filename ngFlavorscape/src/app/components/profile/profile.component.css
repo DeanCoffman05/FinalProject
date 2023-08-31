@@ -3,10 +3,18 @@
   background-color: rgba(255, 182, 193, 0.5); /* This is a light pink with 50% transparency */
   padding: 20px; /* Add some padding for content */
   border-radius: 15px; /* optional: for rounded corners */
-  height: 500px;
+
   overflow: fixed; /* for scrolling */
 }
+#list-unstyled {
+  background-image: linear-gradient(to right,rgba(4, 210, 251, 0.5), rgba(251, 4, 247, 0.5) ) ;
 
+
+}
+
+.list-group-item{
+  background-image: linear-gradient(to right, rgba(251, 4, 247, 0.5),rgba(4, 210, 251, 0.5) ) ;
+}
 .restaurant-list {
   list-style-type: none; /* to remove bullet points */
   padding: 0; /* to reset default padding */
