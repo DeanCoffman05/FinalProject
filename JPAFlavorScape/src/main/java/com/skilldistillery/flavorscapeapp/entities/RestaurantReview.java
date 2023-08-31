@@ -46,7 +46,7 @@ public class RestaurantReview {
 	
 	@ManyToOne
 	@JoinColumn (name = "restaurant_id")
-	@JsonIgnoreProperties({"restaurant"})
+	@JsonIgnoreProperties({"restaurantReviews", "users", "menu", "address", "comments"})
 	private Restaurant restaurant;
 	
 	public RestaurantReview() {

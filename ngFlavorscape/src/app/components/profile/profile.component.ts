@@ -33,7 +33,9 @@ export class ProfileComponent implements OnInit {
       next: (user) => {
         console.log(user);
         this.currentUser = user;
-        this.restaurantSearchs = this.currentUser.favoriteRestaurants;
+        console.log(user.restaurantReviews);
+
+
       },
       error: (err) => {
         console.error('Error loading users:', err);

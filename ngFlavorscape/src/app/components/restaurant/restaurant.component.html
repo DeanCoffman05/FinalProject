@@ -221,8 +221,8 @@
 
       <div class="center-block">
         <ul class="restaurant-list">
-          <li *ngFor="let restaurant of currentUser.ratedRestaurants">
-            {{ restaurant.id }} - Rated: {{ restaurant.rating }}
+          <li *ngFor="let restaurant of currentUser.restaurantReviews">
+            Restaurant: {{ restaurant.id }} - Rated: {{ restaurant.rating }}
           </li>
         </ul>
 

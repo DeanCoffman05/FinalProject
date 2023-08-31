@@ -2,8 +2,11 @@
 <div class="center-block">
   <h2>Rated Restaurants</h2>
   <ul class="restaurant-list">
-    <li *ngFor="let restaurant of currentUser.ratedRestaurants">
-      {{ restaurant.id }} - Rated: {{ restaurant.rating }}
+    <li *ngFor="let restaurantReview of currentUser.restaurantReviews">
+
+     Restaurant Id:  {{ restaurantReview.id}} <br>
+      Rated:{{restaurantReview.rating}} <br>
+   Restaurant Name: {{restaurantReview.restaurant?.name}} <br>
     </li>
   </ul>
 
@@ -12,11 +15,13 @@
 
     <p>{{currentUser.address.street}}</p>
 
+<ul>
+    <div *ngFor="let rest of restaurantSearchs">
 
-    <div *ngFor="let rest of currentUser.favoriteRestaurants">
       {{ rest.description}}
 
     </div>
+  </ul>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
       <li class="nav-item" >
