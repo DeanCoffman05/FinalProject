@@ -65,7 +65,7 @@ html {
   right: 10vh;               /* This pushes the container to the right side of the screen */
   top: 10vh;              /* This gives a little margin from the top */
   background-color: rgba(255, 213, 213, 0.369);  /* Light transparent orange */
-  background-image: url(/assets/homebackground.png);
+  background-image: url(../../../assets/homebackground.png);
   border-left: 1px solid #ccc;
   text-align: center;
 }

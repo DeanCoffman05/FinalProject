@@ -1,37 +1,39 @@
 
 
-<br>
-<div class="container mt-8">
-  <div class="row">
-    <!-- City Search Card -->
-    <div class="col-md-5" *ngIf="!selected">
-      <div class="card bg-custom-coral text-white">
-        <div class="card-body" >
-          <h5 class="card-title"></h5>
-          <form>
-            <div class="mb-3">
-              <label for="city">Search By City or State:      </label>
-              <input name="city" type="text" [(ngModel)]="citySearchInput" class="form-control" />
-            </div>
-            <button (click)="restaurantcitySearch()" class="navbar-item">Search</button>
-          </form>
+  </head>
+<body>
+  <br>
+  <div class="container mt-8">
+    <div class="row">
+      <!-- City Search Card -->
+      <div class="col-md-5" *ngIf="!selected">
+        <div class="card bg-custom-coral text-white">
+          <div class="card-body" >
+            <h5 class="card-title"></h5>
+            <form>
+              <div class="mb-3">
+                <label for="city">Search By City or State:      </label>
+                <input name="city" type="text" [(ngModel)]="citySearchInput" class="form-control" />
+              </div>
+              <button (click)="restaurantcitySearch()" class="navbar-item">Search</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="results-container">
-      <!-- Display List of Restaurants for City Search -->
-     <br> <img class="logo" src="/assets/logo.png">
-      <div class="col-md-12" *ngIf="!selected">   <!-- Changed from col-md-6 to col-md-12 to occupy full width -->
-          <div *ngIf="restaurantCitySearch.length > 0">
-            <br>
-              <h2>Restaurants in the Searched City</h2>
-              <div *ngFor="let restaurant of restaurantCitySearch">
-                <div>
+      <div class="results-container">
+        <!-- Display List of Restaurants for City Search -->
+       <br> <img class="logo" src="assets/logo.png">
+        <div class="col-md-12" *ngIf="!selected">   <!-- Changed from col-md-6 to col-md-12 to occupy full width -->
+            <div *ngIf="restaurantCitySearch.length > 0">
+              <br>
+                <h2>Restaurants in the Searched City</h2>
+                <div *ngFor="let restaurant of restaurantCitySearch">
+                  <div>
+                  </div>
                 </div>
-              </div>
-                <div>
-                  <br>
-                  <hr>
+                  <div>
+                    <br>
+                    <hr>
 
                   <h3>Restaurants By Cuisines </h3>
                   <div #widgetsContent class="middle">
