@@ -5,11 +5,51 @@
   color: lightgray;
 }
 .rating span.selected {
-  color: gold;
+  color: rgb(12, 12, 11);
 }
 
 .navbar-item {
-  color: rgb(255, 152, 170);
+  color: rgb(248, 244, 245);
   background-color: black;
   border-radius: 15px;
 }
+
+.review-card {
+  font-family: "Arial", Dancing Script;
+  color: rgb(22, 21, 21);
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+}
+
+.review-card {
+  font-family: "Arial", Dancing Script;
+  color: rgb(7, 7, 7);
+  border: 1px solid #ccc;
+}
+
+.review-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+.review-item {
+  border-bottom: 1px solid #a3a3a3;
+  padding: 10px;
+  color: black; /* Add this line to set text color */
+}
+
+.review-item:nth-child(odd) {
+  background: linear-gradient(to right,  rgb(209, 206, 207),  rgb(167, 167, 167));
+}
+
+.review-item:nth-child(even) {
+  background: linear-gradient(to right, rgb(167, 167, 167),  rgb(209, 206, 207));
+}
+.review-item strong {
+  font-weight: bold;
+  font-family: "handlee", sans-serif;
+}
+
+.menu-type {
+  font-family: "handlee", sans-serif;
+}
+
