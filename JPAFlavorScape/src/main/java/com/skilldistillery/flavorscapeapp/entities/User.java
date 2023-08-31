@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class User {
@@ -45,11 +46,10 @@ public class User {
 	private String longitude;
 
 	@OneToMany(mappedBy = "user")
-	@JsonIgnore
+	@JsonIgnoreProperties(value = {"user"})
 	private List<RestaurantReview> restaurantReviews;
 
 	@ManyToMany(mappedBy = "users")
-	@JsonIgnore
 	private List<Restaurant> restaurants;
 
 	@OneToMany(mappedBy = "user")

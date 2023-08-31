@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Restaurant } from "src/app/models/restaurant";
 import { User } from "src/app/models/user";
 import { AuthService } from "src/app/services/auth.service";
 import { UserService } from "src/app/services/user.service";
@@ -13,6 +14,7 @@ import { UserService } from "src/app/services/user.service";
 export class ProfileComponent implements OnInit {
 
   currentUser: User = new User();
+  restaurantSearchs: Restaurant[] = [];
 
 
   constructor(
@@ -29,7 +31,11 @@ export class ProfileComponent implements OnInit {
   reload() {
     this.authService.getLoggedInUser().subscribe({
       next: (user) => {
+        console.log(user);
         this.currentUser = user;
+        console.log(user.restaurantReviews);
+
+
       },
       error: (err) => {
         console.error('Error loading users:', err);

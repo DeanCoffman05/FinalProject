@@ -117,11 +117,11 @@ DROP TABLE IF EXISTS `menu_item` ;
 
 CREATE TABLE IF NOT EXISTS `menu_item` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `item_name` VARCHAR(45) NULL,
+  `item_name` VARCHAR(100) NULL,
   `item_url` VARCHAR(2000) NULL,
   `menu_id` INT NOT NULL,
   `price` DOUBLE NULL,
-  `description` VARCHAR(150) NULL,
+  `description` VARCHAR(1500) NULL,
   `calories` INT NULL,
   `enabled` TINYINT NULL,
   PRIMARY KEY (`id`),
@@ -652,13 +652,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flavorscapedb`;
-INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (1, 1, 'breakfast', 1, 'best meal of the day');
-INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (2, 2, 'lunch', 1, 'Delicious and creative lunch specials');
-INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (3, 3, 'dinner', 1, 'Fresh and expertly crafted dinners');
-INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (4, 4, 'brunch', 1, 'what about second breakfast');
+INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (1, 4, 'Sushi Den Dinner', 1, 'sushi sashimi and udon and more');
+INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (2, 1, 'Izakaya Den Dinner ', 1, 'Sashimi and rolls');
+INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (3, 2, 'Fruition Dinner ', 1, 'dinner');
+INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (4, 3, 'Capital Grille Dinner', 1, 'Dinner');
 INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (5, 5, 'drinks', 1, 'alcoholic beverages');
 INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (6, 6, 'specialty', 1, 'specials');
-INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (7, 1, 'lunch', 1, NULL);
+INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (7, 1, 'lunch', 1, 'something');
 
 COMMIT;
 
@@ -668,16 +668,18 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flavorscapedb`;
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (1, 'tomato fancy', NULL, 3, 50, 'fancy tomato', 100, 1);
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (2, 'Spaghetti Carbonara', 'http://fakeurl.com/spaghetti.jpg', 3, 12.99, 'A classic Italian pasta dish with eggs cheese and bacon', 550, 1);
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (3, 'Chicken Teriyaki Bowl', 'http://fakeurl.com/teriyaki.jpg', 3, 9.95, 'Grilled chicken served over a bed of rice with teriyaki sauce', 450, 1);
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (4, 'Margherita Pizza', 'http://fakeurl.com/margherita.jpg', 2, 14.50, 'A traditional pizza topped with tomato mozzarella and fresh basil', 800, 1);
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (5, 'Beef Stir-Fry', 'http://fakeurl.com/stirfry.jpg', 4, 11.75, 'Tender beef strips with colorful vegetables in a savory sauce', 520, 1);
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (6, 'Caesar Salad', 'http://fakeurl.com/caesarsalad.jpg', 3, 8.99, 'A refreshing salad with romaine lettuce croutons and Caesar dressing', 300, 1);
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (7, 'Grilled Salmon', 'http://fakeurl.com/salmon.jpg', 4, 17.25, 'Flaky salmon fillet with a lemon-dill glaze served with veggies', 600, 1);
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (8, 'Chocolate Lava Cake', 'http://fakeurl.com/lavacake.jpg', 6, 7.50, 'A decadent chocolate cake with a gooey molten center', 400, 1);
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (9, 'Vegetable Spring Rolls', 'http://fakeurl.com/springrolls.jpg', 5, 5.25, 'Crispy spring rolls filled with a mix of fresh vegetables', 250, 1);
-INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (10, 'BBQ Ribs Platter', 'http://fakeurl.com/bbqribs.jpg', 4, 22.99, 'Smoky and tender BBQ ribs served with coleslaw and fries', 800, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (1, 'Wagyu Beef Kushiyaki', NULL, 2, 22, 'shimeji mushrooms truffle infused mashed potatoes with a teriyaki sauce', 150, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (2, 'Sriracha Garlic Shrimp', '', 2, 36, 'Grilled spicy jumbo tiger shrimp drizzled with a roasted red pepper chili sauce atop whipped potatoes plus mango salsa', 200, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (3, 'Sashimi Dinner', '', 2, 38, 'Tuna Yellowtail Salmon White Fish Scallop Shrimp and Octopus nigiri', 1, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (4, 'Wagyu Beef Roll', '', 1, 38, 'Wagyu beef lettuce scallions shichimi asparagus sesame seeds and mayo', 1, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (5, 'Tuna Firecracker Roll', '', 1, 25, 'Spicy Tuna mayo mix avocado cucumber tempura flakes and amadare on the inside topped with diced red and yellow peppers red onion wasabi tobiko jalapeno and cilantro', 1, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (6, 'Crispy Bincho Roll', '', 1, 42, 'Tempura fried albacore tuna cream cheese masago burdock root asparagus avocado tempura flakes sesame seeds and sriracha mayo wrapped with soy paper', 1, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (7, 'Grilled Wellfleet Oysters', '', 3, 25.25, 'with calabrian chili lardo and herbed bread crumb', 1, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (8, 'White Shrimp Agnolotti', '', 3, 23.23, 'with preserved fennel and spicy shrimp bisque', 1, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (9, 'Sauteed Barramundi', '', 3, 48.48, 'with buttered spinach baby artichokes and smoked trout roe emulsion ', 1, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (10, 'Steak Tartare', '', 4, 18, 'Served with capers chives sweet onion hard boiled egg and brioche toasts', 1, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (11, 'Grand Plateau', NULL, 4, 108, 'Jumbo lump crab North Atlantic lobster  shrimp cocktail oysters on the half shell', NULL, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (12, 'Bone In Kona Crusted Dry Aged NY Strip with Shallot Butter', NULL, 4, 58, 'Our acclaimed coffee rubbed boldly flavored New York strip', NULL, 1);
 
 COMMIT;
 
@@ -716,7 +718,7 @@ INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (7, 'fren
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (8, 'thai', 'Delight in the balance of sweet, sour, salty, and spicy Thai cuisine.', NULL);
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (9, 'american', 'Indulge in American comfort food, from burgers to mac and cheese.', NULL);
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (10, 'greek', 'Taste the freshness of Mediterranean ingredients in Greek dishes.', NULL);
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (11, 'japanese', NULL, NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (11, 'japanese ', NULL, NULL);
 
 COMMIT;
 

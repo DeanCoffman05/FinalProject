@@ -168,7 +168,7 @@
             class="btn btn-custom"
             (click)="addRestaurant(newRestaurant)"
           >
-            Add a new Flavor
+            Add A New Flavor
           </button>
         </div>
       </form>
@@ -176,7 +176,7 @@
   </div>
 
 <!-- Display selected restaurant details -->
-  <div>
+  <!-- <div>
     <div *ngIf="selected && !editRestaurant">
       <h3>{{ selected.name }}</h3>
       <p>{{ selected.description }}</p>
@@ -201,8 +201,8 @@
 
 <div class="center-block">
         <ul class="restaurant-list">
-          <li *ngFor="let restaurant of currentUser.ratedRestaurants">
-            {{ restaurant.name }} - Rated: {{ restaurant.rating }}
+          <li *ngFor="let restaurant of currentUser.restaurantReviews">
+            Restaurant: {{ restaurant.id }} - Rated: {{ restaurant.rating }}
           </li>
         </ul>
        <div *ngIf="getCurrentRole() === 'admin'">
@@ -238,8 +238,60 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
+
+    <div style="display: flex; background-color: lightpink; padding: 20px;">
+      <!-- Restaurant Information -->
+      <div style="flex: 1; padding-right: 20px;">
+        <div *ngIf="selected && !editRestaurant">
+          <h3>{{ selected.name }}</h3>
+          <p>{{ selected.description }}</p>
+          <p>{{ selected.restaurantUrl }}</p>
+          <p>{{ selected.phoneNumber }}</p>
+          <p>{{ selected.imageUrl }}</p>
+          <p>{{ selected.address.street }}</p>
+          <p>{{ selected.address.city }}</p>
+          <p>{{ selected.address.state }}</p>
+          <h3>Menus</h3>
+          <div *ngFor="let menu of menus">
+            <h4>Menu Type: {{ menu.type }}</h4>
+            <ul>
+              <li *ngFor="let item of menu.menuItems">
+                {{ item.itemName }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+       <ul class="restaurant-list">
+          <li *ngFor="let restaurant of currentUser.restaurantReviews">
+            Restaurant: {{ restaurant.id }} - Rated: {{ restaurant.rating }}
+          </li>
+        </ul>
+
+        <div *ngIf="getCurrentRole() === 'admin'" style="display: flex; justify-content: space-between;">
+          <button class="navbar-item" (click)="setEditRestaurant()">Edit</button>
+          <button class="navbar-item" (click)="displayList()">Back</button>
+        </div>
+      </div>
+
+      <!-- Review Card -->
+      <div *ngIf="selected" class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Restaurant Reviews
+          </div>
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let review of reviews">
+                <h5 class="card-title">Rating: {{ review.rating }}</h5>
+                <p class="card-text">Atmosphere: {{ review.atmosphere }}</p>
+                <p class="card-text">Review Text: {{ review.service }}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
 
 
     <!-- review form -->
@@ -298,7 +350,7 @@
         </div>
         <div class="col-12">
           <button
-            type="button" class="navbar-item" (click)="addRestaurantReview(newRestaurantReview, selected.id)">Add a new Flavor
+             type="button" class="navbar-item" (click)="addRestaurantReview(newRestaurantReview, selected.id)">Add a new Flavor
           </button>
         </div>
       </form>

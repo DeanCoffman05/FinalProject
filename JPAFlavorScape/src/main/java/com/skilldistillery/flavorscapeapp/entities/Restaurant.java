@@ -34,7 +34,7 @@ public class Restaurant {
 	boolean enabled;
 
 	@OneToMany(mappedBy = "restaurant")
-	@JsonIgnore
+	@JsonIgnore 
 	private List<RestaurantReview> restaurantReviews;
 
 	@ManyToMany

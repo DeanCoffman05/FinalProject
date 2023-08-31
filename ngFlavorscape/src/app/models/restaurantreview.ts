@@ -1,3 +1,7 @@
+import { Restaurant } from "./restaurant";
+import { User } from "./user";
+
+
 export class Restaurantreview {
 
   id: number;
@@ -9,8 +13,10 @@ export class Restaurantreview {
   price: string;
   food: string;
   rating: number;
-  userId: number;
+  user: User | null;
+  restaurant: Restaurant | null;
   restaurantId: number;
+  userId: number;
 
   constructor(
     id: number = 0,
@@ -22,8 +28,10 @@ export class Restaurantreview {
     price: string = '',
     food: string = '',
     rating: number = 0,
-    userId: number = 0,
-    restaurantId: number = 0
+    user: User | null = null,
+    restaurant: Restaurant | null = null,
+    restaurantId: number = 0,
+    userId: number = 0
   ){
     this.id = id;
     this.atmosphere = atmosphere;
@@ -34,8 +42,10 @@ export class Restaurantreview {
     this.price = price;
     this.food = food;
     this.rating = rating;
-    this.userId = userId;
+    this.user = user;
+    this.restaurant = restaurant;
     this.restaurantId = restaurantId;
+    this.userId = userId;
   }
 
 }
