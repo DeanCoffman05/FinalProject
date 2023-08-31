@@ -3,7 +3,7 @@
   <h2>Rated Restaurants</h2>
   <ul class="restaurant-list">
     <li *ngFor="let restaurant of currentUser.ratedRestaurants">
-      {{ restaurant.name }} - Rated: {{ restaurant.rating }}
+      {{ restaurant.id }} - Rated: {{ restaurant.rating }}
     </li>
   </ul>
 
@@ -13,7 +13,7 @@
     <p>{{currentUser.address.street}}</p>
 
 
-    <div *ngFor="let rest of restaurantSearchs">
+    <div *ngFor="let rest of currentUser.favoriteRestaurants">
       {{ rest.description}}
 
     </div>

@@ -1,5 +1,7 @@
+
 import { Address } from "./address";
 import { Restaurant } from "./restaurant";
+import { Restaurantreview } from "./restaurantreview";
 export type RatedRestaurant = { name: string, rating: number};
 
 export class User {
@@ -16,7 +18,7 @@ export class User {
   address: Address;
   latitude: number;
   longitude: number;
-  ratedRestaurants: RatedRestaurant[];
+  ratedRestaurants: Restaurantreview[];
   favoriteRestaurants: Restaurant[];
 
   constructor(
@@ -33,7 +35,7 @@ export class User {
     address: Address = new Address(),
     latitude: number = 0,
     longitude: number = 0,
-    ratedRestaurants: RatedRestaurant[] = [],
+    ratedRestaurants: Restaurantreview[] = [],
     favoriteRestaurants: Restaurant[] = []
   ){
     this.id = id;
