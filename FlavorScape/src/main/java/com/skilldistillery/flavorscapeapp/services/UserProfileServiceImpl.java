@@ -27,6 +27,12 @@ public class UserProfileServiceImpl implements UserProfileService {
 			existingUser.setAboutMe(user.getAboutMe());
 			existingUser.setEmail(user.getEmail());
 			existingUser.setImageUrl(user.getImageUrl());
+			existingUser.getAddress().setStreet(user.getAddress().getStreet());
+			existingUser.getAddress().setStreet2(user.getAddress().getStreet2());
+			existingUser.getAddress().setCity(user.getAddress().getCity());
+			existingUser.getAddress().setState(user.getAddress().getState());
+			existingUser.getAddress().setZipcode(user.getAddress().getZipcode());
+			existingUser.getAddress().setCountry(user.getAddress().getCountry());
 			return userRepo.saveAndFlush(existingUser);
 		}
 
