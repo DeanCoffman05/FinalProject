@@ -1,8 +1,14 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
+h2 {
+  text-shadow: 2px 2px rgba(251, 104, 87, 0.537);
+}
 
+h3 {
+  text-shadow: 2px 2px rgba(251, 104, 87, 0.537);
+}
 .navbar-custom-gradient {
-  background-image: linear-gradient(to right, #e31146, #ef9199);
+  background-image: linear-gradient(to right, #d3607d, #ef9199);
 
 }
 .custom-font-color {
@@ -14,7 +20,7 @@
 }
 
 .bg-custom-coral {
-  background-color: coral;
+  background-image: linear-gradient(to right, #d3607d, #ffd5d9);
 }
 
 .btn-custom-blue {
@@ -42,7 +48,7 @@
 }
 
 .custom-scroll-box {
-  height: 200px;
+  height: 250px;
   overflow-y: auto;
   border: 1px solid #ccc;
   padding: 10px;
@@ -73,3 +79,6 @@
   transition: color 0.3s;
 }
 
+.searchList li {
+  border-bottom: 1px solid black;
+  }

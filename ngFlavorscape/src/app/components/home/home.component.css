@@ -19,26 +19,29 @@ html {
 
 .my-google-map {
     margin-top: 2rem;
+    border-radius: 15px;
 }
 
 .container-map {
     display: flex;
     justify-content: left;
+    border-radius: 15px;
 }
 
 #map {
     height: 80vh;
-    width: 80vh;
+    width: 100vh;
     background-color: lightblue;
+
 }
 
 #restaurant-search {
     text-size-adjust: small;
-    text-decoration-color: pink;
+    text-decoration-color: rgb(105, 77, 82);
 }
 
 .restaurant-search h3 {
-    color: #FF69B4;
+    color: #aa517c;
 }
 
 .restaurant-search-small {
@@ -46,28 +49,25 @@ html {
 }
 
 #container {
-  height: 100vh;
+  height: 200vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#map {
-  height: 80vh;
-  width: 80vh;
-  background-color: lightblue;
-}
-
 
 .results-container {
   width: 50%;             /* This makes the container occupy 50% of the screen width */
-  height: 80vh;           /* This defines a height for the container */
+  height: 85vh;           /* This defines a height for the container */
   overflow-y: scroll;     /* This makes it scrollable vertically */
   position: fixed;        /* This makes the container fixed on the screen */
-  right: 0;               /* This pushes the container to the right side of the screen */
+  right: 10vh;               /* This pushes the container to the right side of the screen */
   top: 10vh;              /* This gives a little margin from the top */
-  background-color: rgba(255, 165, 0, 0.3);  /* Light transparent orange */
-  border-left: 1px solid #ccc;  /* A border to separate it visually from the rest of the content */
+  background-color: rgba(255, 213, 213, 0.369);  /* Light transparent orange */
+  background-image: url(../../../assets/homebackground.png);
+  border-left: 1px solid #ccc;
+  text-align: center;
 }
 .restaurant-result {
   padding: 10px;               /* Adds some space around the content inside the box */
@@ -96,7 +96,7 @@ html {
   display: inline-block;
   margin-right: 10px;
 }
-img{
+.arrows{
   width:50px;
   height: 50px;
 }
@@ -106,3 +106,15 @@ img{
   background-color: black;
   border-radius: 15px;
 }
+
+.logo{
+  width: 350px;
+  height: 350px;
+  object-position: 50%, 50%;
+  border-radius: 15px;
+
+}
+ul {
+  list-style-type: none;
+}
+

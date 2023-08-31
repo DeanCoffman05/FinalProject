@@ -4,15 +4,12 @@
     <div class="h1-box bg-h1-box text-white text-center">
       <h1>Restaurants</h1>
     </div>
+
+    <!-- Restaurant list -->
     <div
       *ngIf="!selected"
-      class="list-group list-group-light custom-scroll-box"
-    >
-      <!-- Restaurant list -->
-      <ul
-        class="list-unstyled"
-
-      >
+      class="list-group list-group-light custom-scroll-box">
+      <ul class="list-unstyled">
         <li>
           <div *ngFor="let restaurant of restaurants | enabled : showEnabled">
             <!--... your restaurant details ...-->
@@ -20,7 +17,6 @@
                 {{ restaurant.name }}<br />
               </div>
                 <div *ngIf="getCurrentRole() === 'admin'">
-
               <button class="btn btn-danger"
                 (click)="deleteRestaurant(restaurant.id)">Remove the flavor
               </button>
@@ -30,7 +26,12 @@
       </ul>
     </div>
     <br />
+
+
     <!-- Create form -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
     <div class="form-container" *ngIf="!selected">
       <br />
       <form class="row g-3">
@@ -166,96 +167,44 @@
           <button
             type="button"
             class="btn btn-custom"
-            (click)="addRestaurant(newRestaurant)"
-          >
+            (click)="addRestaurant(newRestaurant)">
             Add A New Flavor
           </button>
         </div>
       </form>
     </div>
-  </div>
-
-<!-- Display selected restaurant details -->
-  <!-- <div>
-    <div *ngIf="selected && !editRestaurant">
-      <h3>{{ selected.name }}</h3>
-      <p>{{ selected.description }}</p>
-      <p>{{ selected.restaurantUrl }}</p>
-      <p>{{ selected.phoneNumber }}</p>
-      <p>{{ selected.imageUrl }}</p>
-      <p>{{ selected.address.street }}</p>
-      <p>{{ selected.address.city }}</p>
-      <p>{{ selected.address.state }}</p>
-      <h3>Menus</h3>
-      <div *ngFor="let menu of menus">
-        <h4>Menu Type: {{ menu.type }}</h4>
-        <ul>
-          <li *ngFor="let item of menu.menuItems">
-            {{ item.itemName }}
-          </li>
-        </ul>
-      </div>
+</div>
+</div>
+</div>
+</div>
 
 
-
-
-<div class="center-block">
-        <ul class="restaurant-list">
-          <li *ngFor="let restaurant of currentUser.restaurantReviews">
-            Restaurant: {{ restaurant.id }} - Rated: {{ restaurant.rating }}
-          </li>
-        </ul>
-       <div *ngIf="getCurrentRole() === 'admin'">
-        <button class="navbar-item" (click)="setEditRestaurant()">
-          Edit
-        </button>
-        <br>
-        <br>
-      </div>
-      <button class="navbar-item" (click)="displayList()">Back</button>
-    </div>
-
-
-
-
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="card">
-            <div class="card-header">
-              Restaurant Reviews
-            </div>
-            <div class="card-body">
-              <ul class="list-group">
-                <li class="list-group-item" *ngFor="let review of reviews">
-                  <h5 class="card-title">Rating: {{ review.rating }}</h5>
-                  <p class="card-text">Atmosphere: {{ review.atmosphere }}</p>
-                  <p class="card-text">Review Text: {{ review.service }}</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-
-    <div style="display: flex; background-color: lightpink; padding: 20px;">
-      <!-- Restaurant Information -->
+   <!-- Restaurant Information -->
+     <div style="display: flex">
       <div style="flex: 1; padding-right: 20px;">
         <div *ngIf="selected && !editRestaurant">
-          <h3>{{ selected.name }}</h3>
+          <h3><strong>{{ selected.name }}</strong></h3>
+          <a href="{{selected.restaurantUrl}}" target="_blank">Restaurant Website</a> <br>
+          <strong>Description:</strong>
           <p>{{ selected.description }}</p>
-          <p>{{ selected.restaurantUrl }}</p>
+          <strong>Phone Number:</strong>
           <p>{{ selected.phoneNumber }}</p>
           <p>{{ selected.imageUrl }}</p>
+         <h3><strong>Address:</strong></h3>
+         <strong>Street:</strong>
           <p>{{ selected.address.street }}</p>
+          <strong>City:</strong>
           <p>{{ selected.address.city }}</p>
+          <strong>State:</strong>
           <p>{{ selected.address.state }}</p>
-          <h3>Menus</h3>
+          <strong>Zip Code:</strong>
+          <p>{{ selected.address.zipcode }}</p>
+
+          <div class="h1-box bg-h1-box text-white text-center">
+          <h3 class="menu-type">Menus</h3>
+        </div>
           <div *ngFor="let menu of menus">
-            <h4>Menu Type: {{ menu.type }}</h4>
+            <h4 class="menu-type">Menu Type: {{ menu.type }}</h4>
             <ul>
               <li *ngFor="let item of menu.menuItems">
                 {{ item.itemName }}
@@ -270,31 +219,36 @@
           </li>
         </ul>
 
-        <div *ngIf="getCurrentRole() === 'admin'" style="display: flex; justify-content: space-between;">
+        <div *ngIf="getCurrentRole() === 'admin' && selected" style="display: flex; gap: 10px;">
           <button class="navbar-item" (click)="setEditRestaurant()">Edit</button>
           <button class="navbar-item" (click)="displayList()">Back</button>
         </div>
       </div>
-
+      <br>
       <!-- Review Card -->
-      <div *ngIf="selected" class="col-md-6">
-        <div class="card">
+      <div class="col-md-6" *ngIf="selected && !editRestaurant">
+        <div class="card review-card">
           <div class="card-header">
-            Restaurant Reviews
+            Restaurant Reviews:
           </div>
           <div class="card-body">
             <ul class="list-group">
-              <li class="list-group-item" *ngFor="let review of reviews">
-                <h5 class="card-title">Rating: {{ review.rating }}</h5>
-                <p class="card-text">Atmosphere: {{ review.atmosphere }}</p>
-                <p class="card-text">Review Text: {{ review.service }}</p>
+              <li class="list-group-item review-item" *ngFor="let review of reviews; let i = index">
+                <p class="card-title"><strong>Rating:</strong> {{ review.rating }}</p>
+                <p class="card-text"><strong>Atmosphere:</strong> {{ review.atmosphere }}</p>
+                <p class="card-text"><strong>Service:</strong> {{ review.service }}</p>
+                <p class="card-text"><strong>Food:</strong> {{ review.food }}</p>
+                <p class="card-text"><strong>Smell:</strong> {{ review.smell }}</p>
+                <p class="card-text"><strong>Taste Tested By:</strong> {{ review.user?.firstName }}</p>
               </li>
             </ul>
           </div>
         </div>
-
-
+      </div>
+    </div>
+    <br>
     <!-- review form -->
+    <div *ngIf="selected" >
     <div class="form-container" *ngIf="newRestaurantReview">
       <br />
       <form class="row g-31">
@@ -343,9 +297,7 @@
             (mouseover)="countStar(star)"
             (mouseout)="removeStar(star)"
             (click)=" newRestaurantReview.rating = star"
-            [attr.id]="'starId' + i"
-          >
-            ★
+            [attr.id]="'starId' + i">★
           </span>
         </div>
         <div class="col-12">
@@ -355,7 +307,7 @@
         </div>
       </form>
     </div>
-    </div>
+  </div>
     <!-- Edit restaurant form -->
     <div *ngIf="editRestaurant && getCurrentRole() === 'admin'" class="container">
       <form class="row g-3">
@@ -484,4 +436,3 @@
       </form>
     </div>
   </div>
-</div>
