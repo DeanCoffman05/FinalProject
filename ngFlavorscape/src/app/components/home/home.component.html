@@ -1,138 +1,130 @@
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
 
-
-  </head>
-<body>
-  <br>
-  <div class="container mt-8">
-    <div class="row">
-      <!-- City Search Card -->
-      <div class="col-md-5" *ngIf="!selected">
-        <div class="card bg-custom-coral text-white">
-          <div class="card-body" >
-            <h5 class="card-title"></h5>
-            <form>
-              <div class="mb-3">
-                <label for="city">Search By City or State:      </label>
-                <input name="city" type="text" [(ngModel)]="citySearchInput" class="form-control" />
-              </div>
-              <button (click)="restaurantcitySearch()" class="navbar-item">Search</button>
-            </form>
-          </div>
+<br>
+<div class="container mt-8">
+  <div class="row">
+    <!-- City Search Card -->
+    <div class="col-md-5" *ngIf="!selected">
+      <div class="card bg-custom-coral text-white">
+        <div class="card-body" >
+          <h5 class="card-title"></h5>
+          <form>
+            <div class="mb-3">
+              <label for="city">Search By City or State:      </label>
+              <input name="city" type="text" [(ngModel)]="citySearchInput" class="form-control" />
+            </div>
+            <button (click)="restaurantcitySearch()" class="navbar-item">Search</button>
+          </form>
         </div>
       </div>
-      <div class="results-container">
-        <!-- Display List of Restaurants for City Search -->
-       <br> <img class="logo" src="/assets/logo.png">
-        <div class="col-md-12" *ngIf="!selected">   <!-- Changed from col-md-6 to col-md-12 to occupy full width -->
-            <div *ngIf="restaurantCitySearch.length > 0">
-              <br>
-                <h2>Restaurants in the Searched City</h2>
-                <div *ngFor="let restaurant of restaurantCitySearch">
-                  <div>
-                  </div>
+    </div>
+    <div class="results-container">
+      <!-- Display List of Restaurants for City Search -->
+     <br> <img class="logo" src="/assets/logo.png">
+      <div class="col-md-12" *ngIf="!selected">   <!-- Changed from col-md-6 to col-md-12 to occupy full width -->
+          <div *ngIf="restaurantCitySearch.length > 0">
+            <br>
+              <h2>Restaurants in the Searched City</h2>
+              <div *ngFor="let restaurant of restaurantCitySearch">
+                <div>
                 </div>
-                  <div>
-                    <br>
-                    <hr>
-
-                    <h3>Restaurants By Cuisines </h3>
-                    <div #widgetsContent class="middle">
-                      <img class="arrows" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/arrow-small-left-512.png">
-
-                      <!-- Check if cuisines array exists and has content -->
-
-                      <div class="inline-item" (click)="selectedCuisineType='All'">All</div>
-                      <div *ngFor="let cuisine of cuisines" class="inline-item" (click)="selectedCuisineType = cuisine.type">
-                        {{cuisine.type}}
-                         </div>
-                      </div>
-                    </div>
-                    <img class="arrows" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/arrow-small-right-128.png">
-                  </div>
-                  <ng-template #noCuisine>
-                    NO CUISINE FOUND
-                  </ng-template>
-                </div>
-                <ul>
+              </div>
+                <div>
                   <br>
                   <hr>
-                    <li *ngFor="let restaurant of restaurantCitySearch | enabled : showEnabled | cuisine : selectedCuisineType" (click)="displayRestaurant(restaurant)">
-                        <div class="restaurant-search">
-                            <h2>{{ restaurant.name }}</h2>
-                        </div>
-                        <div class="restaurant-search-small">
-                          State:   {{ restaurant.address.state}}<br>
 
-                          <br>
-                          <h4><strong>Description: </strong><br> </h4>  {{ restaurant.description}} <br>
-                            <br>
-                            <hr>
-                            <br>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                  <h3>Restaurants By Cuisines </h3>
+                  <div #widgetsContent class="middle">
+                    <img class="arrows" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/arrow-small-left-512.png">
 
+                    <!-- Check if cuisines array exists and has content -->
 
-
-
-        <!-- Display List of Restaurants for State Search -->
-        <div class="col-md-12" *ngIf="!selected">   <!-- Changed from col-md-6 to col-md-12 to occupy full width -->
-            <div *ngIf="restaurantstateSearch.length > 0">
-                <h2>Restaurants in the Searched State</h2>
-                <ul class= "searchList" *ngFor="let restaurant of restaurantstateSearch | enabled : showEnabled" >
-                    <li (click)="displayRestaurant(restaurant)">
-                      <div class="restaurant-result">
-                        {{ restaurant.name }}<br>
-                        <br>
-                        {{ restaurant.address}}<br>
-                        {{ restaurant.description}}<br>
-                        </div>
-
-
-                    </li>
-                </ul>
-            </div>
-          </div>
-          <div class="col-md-12" *ngIf="selected">
-            <!-- Display selected restaurant details -->
-            <h3>{{ selected.name }}</h3>
-            <img  src="{{selected.imageUrl}}" width="350px" height="auto">
-            <p>{{ selected.description }}</p>
-            <p>{{ selected.restaurantUrl }}</p>
-            <p>{{ selected.phoneNumber }}</p>
-            <p>{{ selected.address.street }}</p>
-            <p>{{ selected.address.city }}</p>
-            <p>{{ selected.address.state }}</p>
-            <!-- <h3>Menus</h3>
-            <div *ngFor="let menu of menus">
-              <h4>Menu Type: {{menu.type}}</h4>
+                    <div class="inline-item" (click)="selectedCuisineType='All'">All</div>
+                    <div *ngFor="let cuisine of cuisines" class="inline-item" (click)="selectedCuisineType = cuisine.type">
+                      {{cuisine.type}}
+                       </div>
+                    </div>
+                  </div>
+                  <img class="arrows" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/arrow-small-right-128.png">
+                </div>
+                <ng-template #noCuisine>
+                  NO CUISINE FOUND
+                </ng-template>
+              </div>
               <ul>
-                <li *ngFor="let item of menu.menuItems">
-                  {{item.itemName}}
-                </li>
+                <br>
+                <hr>
+                  <li *ngFor="let restaurant of restaurantCitySearch | enabled : showEnabled | cuisine : selectedCuisineType" (click)="displayRestaurant(restaurant)">
+                      <div class="restaurant-search">
+                          <h2>{{ restaurant.name }}</h2>
+                      </div>
+                      <div class="restaurant-search-small">
+                        State:   {{ restaurant.address.state}}<br>
+
+                        <br>
+                        <h4><strong>Description: </strong><br> </h4>  {{ restaurant.description}} <br>
+                          <br>
+                          <hr>
+                          <br>
+                      </div>
+                  </li>
               </ul>
-            </div> -->
-            <button class="btn btn-danger" (click)="displayHome()">Back</button>
-            </div>
-    </div>
+          </div>
 
 
 
 
-  <script>initMap(); </script>
-  <div class="container-map">
-  <div class="my-google-map" style="align-items: center;">
-    <google-map [options]="mapOptions">
-      <map-marker *ngFor="let marker of markers" [position]="marker.position"></map-marker>
+      <!-- Display List of Restaurants for State Search -->
+      <div class="col-md-12" *ngIf="!selected">   <!-- Changed from col-md-6 to col-md-12 to occupy full width -->
+          <div *ngIf="restaurantstateSearch.length > 0">
+              <h2>Restaurants in the Searched State</h2>
+              <ul class= "searchList" *ngFor="let restaurant of restaurantstateSearch | enabled : showEnabled" >
+                  <li (click)="displayRestaurant(restaurant)">
+                    <div class="restaurant-result">
+                      {{ restaurant.name }}<br>
+                      <br>
+                      {{ restaurant.address}}<br>
+                      {{ restaurant.description}}<br>
+                      </div>
 
-    </google-map>
+
+                  </li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-md-12" *ngIf="selected">
+          <!-- Display selected restaurant details -->
+          <h3>{{ selected.name }}</h3>
+          <img  src="{{selected.imageUrl}}" width="350px" height="auto">
+          <p>{{ selected.description }}</p>
+          <p>{{ selected.restaurantUrl }}</p>
+          <p>{{ selected.phoneNumber }}</p>
+          <p>{{ selected.address.street }}</p>
+          <p>{{ selected.address.city }}</p>
+          <p>{{ selected.address.state }}</p>
+          <!-- <h3>Menus</h3>
+          <div *ngFor="let menu of menus">
+            <h4>Menu Type: {{menu.type}}</h4>
+            <ul>
+              <li *ngFor="let item of menu.menuItems">
+                {{item.itemName}}
+              </li>
+            </ul>
+          </div> -->
+          <button class="btn btn-danger" (click)="displayHome()">Back</button>
+          </div>
   </div>
-  </div>
 
+
+
+
+<script>initMap(); </script>
+<div class="container-map">
+<div class="my-google-map" style="align-items: center;">
+  <google-map [options]="mapOptions">
+    <map-marker *ngFor="let marker of markers" [position]="marker.position"></map-marker>
+
+  </google-map>
+</div>
+</div>
 

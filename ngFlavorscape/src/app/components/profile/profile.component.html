@@ -4,7 +4,7 @@
   <ul class="restaurant-list">
     <li *ngFor="let restaurantReview of currentUser.restaurantReviews">
 
-     Restaurant Id:  {{ restaurantReview.id}} <br>
+Restaurant Id:  {{ restaurantReview.id}} <br>
       Rated:{{restaurantReview.rating}} <br>
     Restaurant Name: {{restaurantReview.restaurant?.name}} <br>
     </li>
@@ -28,6 +28,7 @@
         <a class="navbar-item" [routerLink]="['/updateprofile']">Update Profile</a>
       </li>
     </ul>
+    <!-- <button class="navbar-item" routerLink]="['/updateprofile']">Update User Info</button> -->
   </div>
 </div>
 
