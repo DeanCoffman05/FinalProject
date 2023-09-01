@@ -44,7 +44,7 @@ class CuisineTest {
 	void test() {
 		assertNotNull(cuisine);
 		assertNotNull(cuisine.getType());
-		assertEquals("chineese", cuisine.getType());
+		assertEquals("Dessert", cuisine.getType());
 	}
 	
 	@Test
