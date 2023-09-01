@@ -597,12 +597,12 @@ INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_nu
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (71, 'Kraken', 'http://kraken.com', 'http://kraken.com/images/kraken.jpg', '086403052', 71, 1, 'modern delectable baked fluffy satisfying melted.');
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (72, 'Yours Truly Cupcake', 'https://yourstrulycupcake.com/', 'assets/YoursTrulyCupcake.png', '303.638.3528', 72, 1, 'At Yours Truly Cupcake, we can’t wait to sweeten your celebration. We are a full service dessert catering company & bakery located in the RiNo Arts District of Denver.');
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (73, 'Taste', 'http://taste.com', 'http://taste.com/images/taste.jpg', '611830967', 73, 1, 'creative timeless spicy tender.');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (74, 'Sunrise', 'http://sunrise.com', 'http://sunrise.com/images/sunrise.jpg', '881775566', 74, 1, 'exceptional traditional scrumptious spicy nutritious roasted tangy refined.');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (75, 'Feast', 'http://feast.com', 'http://feast.com/images/feast.jpg', '000806976', 75, 1, 'creamy signature distinctive marinated.');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (74, 'Chef Zorbas', 'http://www.chefzorbas.com/', 'assets/greek', ' 303.321.0091', 74, 1, 'Deleicious traditional greek delicacies to enlighten your taste buds.');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (75, 'Feast', 'http://feast.com', 'assets/cupcake', '000806976', 75, 1, 'creamy signature distinctive marinated.');
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (76, 'Galaxy', 'http://galaxy.com', 'http://galaxy.com/images/galaxy.jpg', '053134501', 76, 1, 'refined smoky nutritious elegant roasted hearty zesty.');
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (77, 'Relish', 'http://relish.com', 'http://relish.com/images/relish.jpg', '772703318', 77, 1, 'sweet creamy distinctive bright creative.');
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (78, 'Blues', 'http://blues.com', 'http://blues.com/images/blues.jpg', '805215914', 78, 1, 'tangy roasted scrumptious timeless hearty exceptional crunchy.');
-INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (79, 'Zest', 'http://zest.com', 'http://zest.com/images/zest.jpg', '660396227', 79, 1, 'gourmet creative artisanal distinctive braised zesty scrumptious seasoned.');
+INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (79, 'Zest', 'http://zest.com', 'assets/cupcake', '660396227', 79, 1, 'gourmet creative artisanal distinctive braised zesty scrumptious seasoned.');
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (80, 'Bliss', 'http://bliss.com', 'http://bliss.com/images/bliss.jpg', '618834679', 80, 1, 'satisfying elegant fluffy unique.');
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (81, 'Starlight', 'http://starlight.com', 'http://starlight.com/images/starlight.jpg', '039645238', 81, 1, 'exceptional melted fresh sumptuous.');
 INSERT INTO `restaurant` (`id`, `name`, `restaurant_url`, `image_url`, `phone_number`, `address_id`, `enabled`, `description`) VALUES (82, 'Tavern', 'http://tavern.com', 'http://tavern.com/images/tavern.jpg', '359235395', 82, 1, 'magnificent sumptuous exquisite authentic memorable.');
@@ -658,6 +658,9 @@ INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VAL
 INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (4, 3, 'Capital Grille Dinner', 1, 'Dinner');
 INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (5, 4, 'D Bar Desserts', 1, 'desserts');
 INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (6, 72, 'YoursTrulyCupcakes Desserts', 1, 'cupcakes');
+INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (7, 74, 'Zorbas Lunch', 1, 'Greek');
+INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (8, 5, 'Guard and Grace Dinner', 1, NULL);
+INSERT INTO `menu` (`id`, `restaurant_id`, `type`, `enabled`, `description`) VALUES (9, 6, 'Barolo Grille Dinner', 1, 'Italian and steakhouse');
 
 COMMIT;
 
@@ -689,6 +692,21 @@ INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `des
 INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (20, 'Caramel Swirl Cupcake', '', 6, 8.50, 'Enjoy the sweet and gooey goodness of our Caramel Swirl Cupcake.', 360, 1);
 INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (21, 'Raspberry Lemon Cupcake', '', 6, 7.80, 'Savor the tangy freshness of raspberries paired with the zesty kick of lemon in our Raspberry Lemon Cupcake.', 315, 1);
 INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (22, 'Red Velvet Cupcake', '', 6, 10.20, 'Indulge in the classic elegance of our Red Velvet Cupcake  a velvety delight for your taste buds.', 450, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (23, 'Moussaka', '', 7, 18.50, 'Indulge in the layers of flavors in our delicious Moussaka  a traditional Greek dish with eggplant', 259, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (24, 'Gyro Platter', '', 7, 12.75, 'Experience the savory delight of our Gyro Platter  featuring thinly sliced lamb or chicken', 569, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (25, 'Spanakopita', '', 7, 9.25, 'Savor the flaky layers of phyllo dough filled with spinach and feta cheese in our delightful Spanakopita a Greek classic.', 458, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (26, 'Souvlaki Skewers', '', 7, 14.80, 'Enjoy the succulent marinated meat on skewers in our Souvlaki Skewers served with pita', 698, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (27, 'Greek Salad', '', 7, 45.50, 'Refresh your palate with our fresh and vibrant Greek Salad featuring crisp vegetables', 250, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (28, 'Filet Mignon', '', 8, 45.75, 'Indulge in the tenderness of our Filet Mignon  a prime cut of beef cooked to perfection and served with your choice of sides.', 750, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (29, 'Ribeye Steak', '', 8, 58.50, 'Savor the rich flavor and marbling of our Ribeye Steak a classic favorite for steak enthusiasts.', 480, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (30, 'New York Strip', '', 8, 52.25, 'Enjoy the bold taste of our New York Strip a well-marbled steak with a juicy and robust flavor profile.', 420, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (31, 'Porterhouse Steak', '', 8, 70.80, 'Experience the best of both worlds with our Porterhouse Steak featuring a tender filet and a flavorful strip steak.', 550, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (32, 'T-Bone Steak', '', 8, 62.90, 'Delight in the hearty flavor of our T Bone Steak a combination of tenderloin and strip steak on the bone.', 490, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (33, 'Bruschetta', '', 9, 9.25, 'Enjoy the classic flavors of our Bruschetta featuring toasted bread topped with fresh tomatoes garlic basil and olive oil.', 180, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (34, 'Osso Buco', '', 9, 42.75, 'Indulge in the richness of our Osso Buco a traditional Italian dish of braised veal shanks served with gremolata.', 560, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (35, 'Fettuccine Alfredo with Steak', '', 9, 28.50, 'Savor the creamy goodness of our Fettuccine Alfredo paired with tender slices of steak for a luxurious Italian steakhouse experience.', 420, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (36, 'Chicken Marsala', '', 9, 24.80, 'Delight in the savory and sweet flavors of our Chicken Marsala featuring tender chicken cooked in a rich Marsala wine sauce.', 320, 1);
+INSERT INTO `menu_item` (`id`, `item_name`, `item_url`, `menu_id`, `price`, `description`, `calories`, `enabled`) VALUES (37, 'Italian Ribeye', '', 9, 62.90, 'Experience the Italian twist on a classic Ribeye Steak served with a fragrant herb and garlic marinade for an extra burst of flavor.', 480, 1);
 
 COMMIT;
 
@@ -717,19 +735,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flavorscapedb`;
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (1, 'chinese', 'yum', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (1, 'Dessert', 'yum', NULL);
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (2, 'Italian', 'Indulge in the rich flavors of Italian cuisine, from pasta to pizza.', NULL);
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (3, 'japanese', 'Experience the art of sushi, sashimi, and delicate Japanese flavors.', NULL);
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (4, 'mexican', 'Spice up your palate with vibrant Mexican dishes and bold spices.', NULL);
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (5, 'indian', 'Embark on a journey through aromatic curries, naan, and Indian spices.', NULL);
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (6, 'vegan', 'Savor the variety of Chinese dishes, from stir-fries to dim sum.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (4, 'sushi', 'Spice up your palate with vibrant Mexican dishes and bold spices.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (5, 'steakhouse', 'Embark on a journey through aromatic curries, naan, and Indian spices.', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (6, 'Greek', 'Savor the variety of Chinese dishes, from stir-fries to dim sum.', NULL);
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (7, 'french', 'Elevate your dining with elegant French classics and refined flavors.', NULL);
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (8, 'thai', 'Delight in the balance of sweet, sour, salty, and spicy Thai cuisine.', NULL);
 INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (9, 'american', 'Indulge in American comfort food, from burgers to mac and cheese.', NULL);
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (10, 'greek', 'Taste the freshness of Mediterranean ingredients in Greek dishes.', NULL);
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (11, 'japanese ', 'japanese', NULL);
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (12, 'seafood', 'seafood', NULL);
-INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (13, 'grille', 'grilled yummies', NULL);
+INSERT INTO `cuisine` (`id`, `type`, `description`, `icon_url`) VALUES (10, 'seafood', 'seafood', NULL);
 
 COMMIT;
 
@@ -796,16 +811,36 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flavorscapedb`;
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (1, 11);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (2, 11);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (3, 11);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (4, 11);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (5, 11);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (6, 11);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (7, 12);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (1, 3);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (2, 3);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (3, 3);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (4, 4);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (5, 4);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (6, 4);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (7, 5);
 INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (8, 2);
 INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (9, 2);
-INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (10, 13);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (10, 5);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (13, 1);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (14, 1);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (15, 1);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (16, 1);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (17, 1);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (18, 1);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (19, 1);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (20, 1);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (21, 1);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (22, 1);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (23, 6);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (24, 6);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (25, 6);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (26, 6);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (27, 6);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (28, 2);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (29, 2);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (30, 2);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (31, 2);
+INSERT INTO `menu_item_has_cuisine` (`menu_item_id`, `cuisine_id`) VALUES (32, 2);
 
 COMMIT;
 
