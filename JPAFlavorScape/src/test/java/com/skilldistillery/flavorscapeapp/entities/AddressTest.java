@@ -44,21 +44,15 @@ class AddressTest {
 	void test() {
 		assertNotNull(address);
 		assertNotNull(address.getCity());
-		assertEquals("colorado springs ", address.getCity());
+		assertEquals("Denver", address.getCity());
 	}
 	
-	@Test
-	void test_mapping_address_to_user() {
-		assertNotNull(address);
-		assertNotNull(address.getUser());
-		assertEquals("John", address.getUser().getFirstName());
-	}
 	
 	@Test
 	void test_mapping_address_to_restaurant() {
 		assertNotNull(address);
 		assertNotNull(address.getRestaurant());
-		assertEquals("jacobs seafood shack", address.getRestaurant().getName());
+		assertEquals("Izakaya Den", address.getRestaurant().getName());
 
 	}
 

@@ -56,7 +56,7 @@ class CommentTest {
 	void test_mapping_comments_to_restaurant() {
 		assertNotNull(comment);	
 		assertNotNull(comment.getRestaurant());
-		assertEquals("jacobs seafood shack", comment.getRestaurant().getName());
+		assertEquals("Izakaya Den", comment.getRestaurant().getName());
 	}
 	
 	@Test
