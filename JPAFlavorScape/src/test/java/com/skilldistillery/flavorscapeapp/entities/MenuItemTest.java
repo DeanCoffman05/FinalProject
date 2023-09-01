@@ -41,7 +41,7 @@ class MenuItemTest {
 	@Test
 	void test() {
 		assertNotNull(menuItem);
-		assertEquals("tomato fancy", menuItem.getItemName());
+		assertEquals("Wagyu Beef Kushiyaki", menuItem.getItemName());
 	}
 
 }

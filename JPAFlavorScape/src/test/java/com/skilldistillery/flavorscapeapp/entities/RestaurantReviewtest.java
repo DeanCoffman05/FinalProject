@@ -54,6 +54,6 @@ class RestaurantReviewtest {
 	 @Test
 	 void test_RestaurantReview_toRestaurant_manager() {
 		 assertNotNull(restaurantReview.getRestaurant());
-		 assertEquals("jacobs seafood shack", restaurantReview.getRestaurant().getName());
+		 assertEquals("Izakaya Den", restaurantReview.getRestaurant().getName());
 	 }
 }

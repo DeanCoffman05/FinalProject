@@ -46,7 +46,7 @@ class RestaurantTest {
 	 void test_restaurant_entity_manager() {
 		 assertNotNull(restaurant);
 		 assertNotNull(restaurant.getName());
-		 assertEquals("jacobs seafood shack", restaurant.getName());
+		 assertEquals("Izakaya Den", restaurant.getName());
 		 
 	 }
 	 
