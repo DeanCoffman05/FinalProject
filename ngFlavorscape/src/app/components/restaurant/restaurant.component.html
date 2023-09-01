@@ -23,7 +23,10 @@
             <div (click)="displayRestaurant(restaurant)">
 
               <br>
-              <strong>{{ restaurant.name }}</strong>
+
+              <strong>Name: {{ restaurant.name }}</strong><br>
+              <strong>State: {{ restaurant.address.state}} </strong>
+
             </div>
             <div *ngIf="getCurrentRole() === 'admin'">
               <img class="smallx" src="https://media.istockphoto.com/id/1332100993/vector/wrong-sign-x-icon-bubble-style-wrong-or-x-symbol-red-icon-red-color-line-design.jpg?s=612x612&w=0&k=20&c=rOaP9VhqjNJ0qVB5x9givfs3sq5JjYOw4XJVjkwmXKs="
@@ -200,6 +203,7 @@
       <div *ngIf="selected && !editRestaurant">
         <h3>
           <strong>{{ selected.name }}</strong>
+
         </h3>
         <a href="{{ selected.restaurantUrl }}" target="_blank"
           >Restaurant Website</a
