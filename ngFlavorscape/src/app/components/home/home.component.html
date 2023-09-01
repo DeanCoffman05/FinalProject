@@ -23,6 +23,9 @@
       <div class="results-container">
         <!-- Display List of Restaurants for City Search -->
        <br> <img class="logo" src="assets/logo.png">
+       <br>
+       <br>
+      <h5><p id="intropara">"Dive into a world of authentic local flavors recommended by fellow food enthusiasts. To embark on a culinary journey, simply enter a city or state in the search box below, and discover the hidden gems they've savored in local eateries. Happy dining!" <p></h5>
         <div class="col-md-12" *ngIf="!selected">   <!-- Changed from col-md-6 to col-md-12 to occupy full width -->
             <div *ngIf="restaurantCitySearch.length > 0">
               <br>
@@ -49,9 +52,7 @@
                   </div>
                   <img class="arrows" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/arrow-small-right-128.png">
                 </div>
-                <ng-template #noCuisine>
-                  NO CUISINE FOUND
-                </ng-template>
+
               </div>
               <ul>
                 <br>
