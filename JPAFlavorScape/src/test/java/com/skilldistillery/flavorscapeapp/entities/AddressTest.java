@@ -47,7 +47,7 @@ class AddressTest {
 		assertEquals("Denver", address.getCity());
 	}
 	
-	
+
 	
 	@Test
 	void test_mapping_address_to_restaurant() {

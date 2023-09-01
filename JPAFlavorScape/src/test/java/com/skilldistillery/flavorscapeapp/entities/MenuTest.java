@@ -41,7 +41,9 @@ class MenuTest {
 	@Test
 	void test() {
 		assertNotNull(menu);
+
 //		assertEquals("sushi sashmi and udon and more", menu.getDescription());
+
 	}
 
 }

@@ -385,8 +385,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `flavorscapedb`;
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (1, '123', 'street', 'Denver', 'CO', '12345', 'USA', '39.7462', '-104.9253');
-INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (2, '345', 'way', 'Denver', 'CO', '45678', 'USA', '39.7135', '-104.9128');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (1, '1234 Grimwald way', '', 'Denver', 'CO', '12345', 'USA', '39.7462', '-104.9253');
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (2, '3445 Turducken St.', '', 'Denver', 'CO', '45678', 'USA', '39.7135', '-104.9128');
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (3, '123 Main St', '', 'Denver', 'CO', '12345', 'USA', '39.7839', '-104.8557');
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (4, '456 Oak Ave', '', 'Denver', 'CO', '54321', 'USA', '39.7765', '-104.9301');
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zipcode`, `country`, `latitude`, `longitude`) VALUES (5, '789 Elm Rd', 'Unit 204', 'Denver', 'CO', '98765', 'USA', '39.7281', '-104.9543');
