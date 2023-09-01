@@ -38,12 +38,14 @@
       <!-- </div> -->
 
       <!-- Create form -->
+<div class="row">
 
       <div class="container">
 
       <div class="form-container" *ngIf="!selected">
         <br />
-        <form>
+        <form class="row g-3">
+
           <h1>Add a new Flavor to the scape</h1>
           <div class="newRestaurant-container">
             <label class="form-label" for="newRestaurant"
@@ -55,7 +57,7 @@
               name="newRestaurant"
               [(ngModel)]="newRestaurant.name"
               placeholder="name"
-            /><br />
+            />
             </div>
              <div class="col-md-6">
             <label class="form-label" for="newDescription">Description </label>
@@ -187,7 +189,9 @@
       </div>
     </div>
     </div>
+
   </div>
+</div>
 
   <!-- Restaurant Information -->
   <div style="display: flex">
@@ -242,6 +246,7 @@
 </div>
 <br />
 <!-- Review Card -->
+
 <div class="col-md-6" *ngIf="selected && !editRestaurant">
   <div class="card review-card">
     <div class="card-header">Restaurant Reviews:</div>
@@ -271,10 +276,12 @@
 </div>
 <br />
 <!-- review form -->
+
+<div class="row">
 <div *ngIf="selected && !editRestaurant">
-  <div class="form-container" *ngIf="newRestaurantReview">
+  <div *ngIf="newRestaurantReview">
     <br />
-    <form>
+    <form class="row g-3" id="formthing">
       <h1>Leave a Review!</h1>
       <div class="col-md-6">
         <label class="form-label" for="atmosphere"
@@ -367,6 +374,8 @@
       </div>
     </form>
   </div>
+
+</div>
 </div>
 <!-- Edit restaurant form -->
 <div *ngIf="editRestaurant && getCurrentRole() === 'admin'" class="container">

@@ -29,10 +29,12 @@
   <h2>Rated Restaurants</h2>
   <ul class="restaurant-list">
     <li *ngFor="let restaurantReview of currentUser.restaurantReviews">
-      Restaurant Id: {{ restaurantReview.id }} <br />
-      Rated:{{ restaurantReview.rating }} <br />
+<h5>
+      Rating:  {{ restaurantReview.rating }} <br />
       Restaurant Name: {{ restaurantReview.restaurant?.name }} <br />
+    </h5>
     </li>
+
   </ul>
 
   <div class="favorite-restaurant">

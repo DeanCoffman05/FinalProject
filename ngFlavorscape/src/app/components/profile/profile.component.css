@@ -7,13 +7,13 @@
   overflow: fixed; /* for scrolling */
 }
 #list-unstyled {
-  background-image: linear-gradient(to right,rgba(4, 210, 251, 0.5), rgba(251, 4, 247, 0.5) ) ;
+  background-image: linear-gradient(to right,rgba(198, 21, 21, 0.5), rgba(255, 205, 254, 0.5) ) ;
 
 
 }
 
 .list-group-item{
-  background-image: linear-gradient(to right, rgba(251, 4, 247, 0.5),rgba(4, 210, 251, 0.5) ) ;
+  background-image: linear-gradient(to right, rgba(255, 205, 254, 0.5),rgba(198, 21, 21, 0.5) ) ;
 }
 .restaurant-list {
   list-style-type: none; /* to remove bullet points */

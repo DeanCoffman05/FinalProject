@@ -51,8 +51,8 @@ h4 {
 }
 
 .custom-scroll-box {
-width: 30%;
-  height: 40%;
+width: 40%;
+  height: 13%;
   overflow-y: auto;
   border: 1px solid #ccc;
   padding: 10px;
@@ -63,8 +63,8 @@ width: 30%;
   background-color: rgba(255, 160, 173, 0.218);
   padding: 20px;
   border-radius: 10px;
-  width: 980px;
-  height: 40%
+  width: 650px;
+  height: 13%
 }
 
 .form-container .custom-button {

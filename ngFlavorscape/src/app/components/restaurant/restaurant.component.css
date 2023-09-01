@@ -54,7 +54,7 @@
 }
 
 .restaurant-container {
-  width: 100%;
+  width: 80%;
 }
 
 .container {
@@ -67,4 +67,16 @@
 .smallx {
   width: 35px;
   height: auto;
+}
+#form-container {
+  background-color: rgb(255, 192, 203);
+  padding: 20px;
+  border-radius: 10px;
+  width: 650px;
+  height: 13%;
+}
+#formthing{
+  border:  rgb(177, 93, 107);
+  background-color: rgba(255, 192, 203, .3);
+  border-radius: 15px;
 }
