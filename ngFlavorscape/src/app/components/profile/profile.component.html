@@ -56,10 +56,14 @@
     <ul class="list-group list-group-flush">
       <div *ngFor="let restaurantReview of currentUser.restaurantReviews">
         <li class="list-group-item">
-          Restaurant Name: {{ restaurantReview.restaurant?.name }}<br />
+          <strong>Restaurant Name:</strong> {{ restaurantReview.restaurant?.name }}<br />
         </li>
         <li id="list-unstyled" class="list-group-item">
-          Restaurant description: {{ restaurantReview.restaurant?.description }}
+         <strong> Restaurant description: </strong>{{ restaurantReview.restaurant?.description }}
+          Your Review of this Restaurant: <br>
+         <strong>Atmosphere:</strong> {{restaurantReview.atmosphere}}
+          <br> <strong>Service: </strong> {{restaurantReview.service}}
+          <br><strong>Food: </strong> {{restaurantReview.food}}
         </li>
       </div>
     </ul>
