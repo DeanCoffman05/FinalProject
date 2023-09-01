@@ -80,3 +80,13 @@
   background-color: rgba(255, 192, 203, .3);
   border-radius: 15px;
 }
+
+.navbar-item {
+  color: rgb(255, 152, 170);
+  background-color: black;
+}
+#restaurantimage {
+  border-radius: 15px;
+}
+
+

@@ -1,6 +1,6 @@
 .center-block {
   margin: 2.5% auto; /* This takes care of the centering and ensures it takes 95% of the page */
-  background-color: rgba(255, 182, 193, 0.5); /* This is a light pink with 50% transparency */
+  background-color: rgba(244, 229, 231, 0.5); /* This is a light pink with 50% transparency */
   padding: 20px; /* Add some padding for content */
   border-radius: 15px; /* optional: for rounded corners */
 
@@ -25,12 +25,19 @@
 }
 
 .favorite-restaurant {
+  padding-left: 20px;
+  width: 60%;
   margin-top: 20px;
   font-weight: bold;
+
 }
 
 .navbar-item {
   color: rgb(255, 152, 170);
   background-color: black;
   border-radius: 15px;
+}
+
+li {
+  list-style: none;
 }
